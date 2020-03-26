@@ -370,18 +370,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/" title="Api" class="md-nav__link">
-      Api
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../project/" title="Project" class="md-nav__link">
       Project
     </a>
@@ -464,8 +452,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#up42.tools.Tools.create_environment" class="md-nav__link">
+    create_environment()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.delete_environment" class="md-nav__link">
+    delete_environment()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#up42.tools.Tools.draw_aoi" class="md-nav__link">
     draw_aoi()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.get_block_details" class="md-nav__link">
+    get_block_details()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.get_blocks" class="md-nav__link">
+    get_blocks()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.get_environments" class="md-nav__link">
+    get_environments()
   </a>
   
 </li>
@@ -501,6 +524,13 @@
         <li class="md-nav__item">
   <a href="#up42.tools.Tools.read_vector_file" class="md-nav__link">
     read_vector_file()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.validate_manifest" class="md-nav__link">
+    validate_manifest()
   </a>
   
 </li>
@@ -585,8 +615,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#up42.tools.Tools.create_environment" class="md-nav__link">
+    create_environment()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.delete_environment" class="md-nav__link">
+    delete_environment()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#up42.tools.Tools.draw_aoi" class="md-nav__link">
     draw_aoi()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.get_block_details" class="md-nav__link">
+    get_block_details()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.get_blocks" class="md-nav__link">
+    get_blocks()
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.get_environments" class="md-nav__link">
+    get_environments()
   </a>
   
 </li>
@@ -626,6 +691,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#up42.tools.Tools.validate_manifest" class="md-nav__link">
+    validate_manifest()
+  </a>
+  
+</li>
+      
       
       
       
@@ -644,35 +716,186 @@
                 
                 
                 <h1 id="tools-class">Tools class<a class="headerlink" href="#tools-class" title="Permanent link">&para;</a></h1>
-<h2 id="up42.tools.Tools.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.__init__" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>23
-24
-25
-26
+<h2 id="up42.tools.Tools.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.__init__" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>26
 27
 28
 29
-30</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The tools class contains class independent functionality for e.g. aoi handling etc.</span>
-<span class="sd">        They can be accessed from every object.</span>
+<span class="sd">        The tools class contains functionality that is not bound to a specific UP42 object,</span>
+<span class="sd">        e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.</span>
+<span class="sd">        They can be accessed from every object and also from the imported up42 package directly.</span>
 
 <span class="sd">        Public methods:</span>
 <span class="sd">            read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklook</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
 </code></pre></div>
 </td></tr></table>
 
 </details>
-<p>The tools class contains class independent functionality for e.g. aoi handling etc.
-They can be accessed from every object.</p>
+<p>The tools class contains functionality that is not bound to a specific UP42 object,
+e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.
+They can be accessed from every object and also from the imported up42 package directly.</p>
 <p>Public methods:
     read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklook</p>
+<h2 id="up42.tools.Tools.create_environment"><code class="highlight"><span class="n">create_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">environment_variables</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.create_environment" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">environment_variables</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a new UP42 environments, used for separating storage of API keys</span>
+<span class="sd">        etc.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            name: Name of the new environment.</span>
+<span class="sd">            environment_variables: The variables to add to the environment, see example.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The json info of the newly created environment.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ```python</span>
+<span class="sd">            environment_variables=</span>
+<span class="sd">                {&quot;username&quot;: &quot;up42&quot;, &quot;password&quot;: &quot;password&quot;}</span>
+<span class="sd">            ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">existing_environment_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">env</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">env</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_environments</span><span class="p">()]</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">existing_environment_names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;An environment with the name </span><span class="si">%s</span><span class="s2"> already exists.&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;secrets&quot;</span><span class="p">:</span> <span class="n">environment_variables</span><span class="p">}</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/environments&quot;</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Creates a new UP42 environments, used for separating storage of API keys
+etc.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>str</code></td>
+<td>Name of the new environment.</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>environment_variables</code></td>
+<td><code>Dict</code></td>
+<td>The variables to add to the environment, see example.</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dict</code></td>
+<td>The json info of the newly created environment.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="n">environment_variables</span><span class="o">=</span>
+    <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;up42&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span><span class="p">}</span>
+</code></pre></div>
+
+</div>
+<h2 id="up42.tools.Tools.delete_environment"><code class="highlight"><span class="n">delete_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.delete_environment" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>398
+399
+400
+401
+402
+403
+404
+405
+406
+407</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">delete_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Deletes a specific environment.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            environment_id: The id of the environment to delete. See also get_environments.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/environments/</span><span class="si">{</span><span class="n">environment_id</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">return_text</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully deleted environment: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Deletes a specific environment.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>environment_id</code></td>
+<td><code>str</code></td>
+<td>The id of the environment to delete. See also get_environments.</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
 <h2 id="up42.tools.Tools.draw_aoi"><code class="highlight"><span class="n">draw_aoi</span><span class="p">()</span></code> <em>(staticmethod)</em><a class="headerlink" href="#up42.tools.Tools.draw_aoi" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>112
-113
-114
-115
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>115
 116
 117
 118
@@ -694,7 +917,10 @@ They can be accessed from every object.</p>
 134
 135
 136
-137</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
+137
+138
+139
+140</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">draw_aoi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Opens a interactive map to draw an aoi by hand, export via the export button.</span>
@@ -729,11 +955,335 @@ Then read in via read_aoi_file().</p>
 <p>Currently no way to get the drawn geometry via a callback in Python, as not
 supported by folium.
 And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</p>
+<h2 id="up42.tools.Tools.get_block_details"><code class="highlight"><span class="n">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_block_details" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets the detailed information about a specific (public or custom) block from</span>
+<span class="sd">        the server, includes all manifest.json and marketplace.json contents.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            block_id: The block id.</span>
+<span class="sd">            as_dataframe: Returns a dataframe instead of json (default).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dict of the block details metadata for the specific block.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># public blocks</span>
+            <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">RetryError</span><span class="p">):</span>
+            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/users/me/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># custom blocks</span>
+            <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">details_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">details_json</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">details_json</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Gets the detailed information about a specific (public or custom) block from
+the server, includes all manifest.json and marketplace.json contents.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>block_id</code></td>
+<td><code>str</code></td>
+<td>The block id.</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>as_dataframe</code></td>
+<td></td>
+<td>Returns a dataframe instead of json (default).</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dict</code></td>
+<td>A dict of the block details metadata for the specific block.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="up42.tools.Tools.get_blocks"><code class="highlight"><span class="n">get_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_blocks" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_blocks</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets a list of all public blocks on the marketplace.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            block_type: Optionally filters to &quot;data&quot; or &quot;processing&quot; blocks, default None.</span>
+<span class="sd">            basic: Optionally returns simple version {block_id : block_name}</span>
+<span class="sd">            as_dataframe: Returns a dataframe instead of json (default).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of the public blocks and their metadata. Optional a simpler version</span>
+<span class="sd">            dict.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">block_type</span> <span class="o">=</span> <span class="n">block_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks&quot;</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">public_blocks_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">block_type</span> <span class="o">==</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting only data blocks.&quot;</span><span class="p">)</span>
+            <span class="n">blocks_json</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">block</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">public_blocks_json</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;DATA&quot;</span>
+            <span class="p">]</span>
+        <span class="k">elif</span> <span class="n">block_type</span> <span class="o">==</span> <span class="s2">&quot;processing&quot;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting only processing blocks.&quot;</span><span class="p">)</span>
+            <span class="n">blocks_json</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">block</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">public_blocks_json</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;PROCESSING&quot;</span>
+            <span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">blocks_json</span> <span class="o">=</span> <span class="n">public_blocks_json</span>
+
+        <span class="k">if</span> <span class="n">basic</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s2">&quot;Getting basic information, use basic=False for all block details.&quot;</span>
+            <span class="p">)</span>
+            <span class="n">blocks_basic</span> <span class="o">=</span> <span class="p">{</span><span class="n">block</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]:</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocks_json</span><span class="p">}</span>
+            <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">blocks_basic</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">blocks_basic</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">blocks_json</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">blocks_json</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Gets a list of all public blocks on the marketplace.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>block_type</code></td>
+<td></td>
+<td>Optionally filters to "data" or "processing" blocks, default None.</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>basic</code></td>
+<td><code>bool</code></td>
+<td :=":" block_id="block_id" block_name="block_name">Optionally returns simple version </td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>as_dataframe</code></td>
+<td></td>
+<td>Returns a dataframe instead of json (default).</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Union[Dict, List[Dict]]</code></td>
+<td>A list of the public blocks and their metadata. Optional a simpler version     dict.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="up42.tools.Tools.get_environments"><code class="highlight"><span class="n">get_environments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_environments" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_environments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Gets all existing UP42 environments, used for separating storage of API keys</span>
+<span class="sd">        etc.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            as_dataframe: Returns a dataframe instead of json (default).</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            The environments as json info.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/environments&quot;</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">environments_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">environments_json</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">environments_json</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Gets all existing UP42 environments, used for separating storage of API keys
+etc.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>as_dataframe</code></td>
+<td></td>
+<td>Returns a dataframe instead of json (default).</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dict</code></td>
+<td>The environments as json info.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="up42.tools.Tools.get_example_aoi"><code class="highlight"><span class="n">get_example_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;Berlin&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_example_aoi" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 79
- 80
- 81
- 82
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 82
  83
  84
  85
@@ -761,7 +1311,10 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 107
 108
 109
-110</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_example_aoi</span><span class="p">(</span>
+110
+111
+112
+113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_example_aoi</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FeatureCollection</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -839,10 +1392,7 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.plot_coverage"><code class="highlight"><span class="n">plot_coverage</span><span class="p">(</span><span class="n">scenes</span><span class="p">,</span> <span class="n">aoi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span></code> <em>(staticmethod)</em><a class="headerlink" href="#up42.tools.Tools.plot_coverage" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>139
-140
-141
-142
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>142
 143
 144
 145
@@ -875,7 +1425,10 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 172
 173
 174
-175</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
+175
+176
+177
+178</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">plot_coverage</span><span class="p">(</span>
         <span class="n">scenes</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span>
         <span class="n">aoi</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -955,10 +1508,7 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.plot_quicklook"><code class="highlight"><span class="n">plot_quicklook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_quicklook" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>177
-178
-179
-180
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>180
 181
 182
 183
@@ -996,7 +1546,10 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 215
 216
 217
-218</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklook</span><span class="p">(</span>
+218
+219
+220
+221</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklook</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1064,10 +1617,7 @@ respective object, e.g. job, catalog).</p>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.plot_result"><code class="highlight"><span class="n">plot_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_result" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>220
-221
-222
-223
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>223
 224
 225
 226
@@ -1113,7 +1663,10 @@ respective object, e.g. job, catalog).</p>
 266
 267
 268
-269</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span>
+269
+270
+271
+272</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
         <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1194,13 +1747,7 @@ respective object, e.g. job, catalog).</p>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.read_vector_file"><code class="highlight"><span class="n">read_vector_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;aoi.geojson&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.read_vector_file" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>33
-34
-35
-36
-37
-38
-39
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>39
 40
 41
 42
@@ -1235,7 +1782,13 @@ respective object, e.g. job, catalog).</p>
 71
 72
 73
-74</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">read_vector_file</span><span class="p">(</span>
+74
+75
+76
+77
+78
+79
+80</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">read_vector_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;aoi.geojson&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FeatureCollection</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1325,6 +1878,208 @@ for use as the aoi geometry in the workflow input parameters
 </tr>
 </tbody>
 </table>
+<h2 id="up42.tools.Tools.validate_manifest"><code class="highlight"><span class="n">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.validate_manifest" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Validates the block manifest, input either manifest json string or filepath.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            path_or_json: The input manifest, either filepath or json string, see example.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dictionary with the validation result and potential validation errors.</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            ```json</span>
+<span class="sd">                {</span>
+<span class="sd">                    &quot;_up42_specification_version&quot;: 2,</span>
+<span class="sd">                    &quot;name&quot;: &quot;sharpening&quot;,</span>
+<span class="sd">                    &quot;type&quot;: &quot;processing&quot;,</span>
+<span class="sd">                    &quot;tags&quot;: [</span>
+<span class="sd">                        &quot;imagery&quot;,</span>
+<span class="sd">                        &quot;processing&quot;</span>
+<span class="sd">                    ],</span>
+<span class="sd">                    &quot;display_name&quot;: &quot;Sharpening Filter&quot;,</span>
+<span class="sd">                    &quot;description&quot;: &quot;This block enhances the sharpness of a raster image by applying an unsharp mask filter algorithm.&quot;,</span>
+<span class="sd">                    &quot;parameters&quot;: {</span>
+<span class="sd">                        &quot;strength&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;default&quot;: &quot;medium&quot;}</span>
+<span class="sd">                    },</span>
+<span class="sd">                    &quot;machine&quot;: {</span>
+<span class="sd">                        &quot;type&quot;: &quot;large&quot;</span>
+<span class="sd">                    },</span>
+<span class="sd">                    &quot;input_capabilities&quot;: {</span>
+<span class="sd">                        &quot;raster&quot;: {</span>
+<span class="sd">                            &quot;up42_standard&quot;: {</span>
+<span class="sd">                                &quot;format&quot;: &quot;GTiff&quot;</span>
+<span class="sd">                            }</span>
+<span class="sd">                        }</span>
+<span class="sd">                    },</span>
+<span class="sd">                    &quot;output_capabilities&quot;: {</span>
+<span class="sd">                        &quot;raster&quot;: {</span>
+<span class="sd">                            &quot;up42_standard&quot;: {</span>
+<span class="sd">                                &quot;format&quot;: &quot;GTiff&quot;,</span>
+<span class="sd">                                &quot;bands&quot;: &quot;&gt;&quot;,</span>
+<span class="sd">                                &quot;sensor&quot;: &quot;&gt;&quot;,</span>
+<span class="sd">                                &quot;resolution&quot;: &quot;&gt;&quot;,</span>
+<span class="sd">                                &quot;dtype&quot;: &quot;&gt;&quot;,</span>
+<span class="sd">                                &quot;processing_level&quot;: &quot;&gt;&quot;</span>
+<span class="sd">                            }</span>
+<span class="sd">                        }</span>
+<span class="sd">                    }</span>
+<span class="sd">                }</span>
+<span class="sd">            ```</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_json</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_or_json</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+                <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">path_or_json</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/validate-schema/block&quot;</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
+            <span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">manifest_json</span>
+        <span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;The manifest is valid.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+</code></pre></div>
+</td></tr></table>
+
+</details>
+<p>Validates the block manifest, input either manifest json string or filepath.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>path_or_json</code></td>
+<td><code>Union[str, pathlib.Path, Dict]</code></td>
+<td>The input manifest, either filepath or json string, see example.</td>
+<td><em>required</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Dict</code></td>
+<td>A dictionary with the validation result and potential validation errors.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code>    <span class="p">{</span>
+        <span class="nt">&quot;_up42_specification_version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sharpening&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;processing&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&quot;imagery&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;processing&quot;</span>
+        <span class="p">],</span>
+        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sharpening Filter&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This block enhances the sharpness of a raster image by applying an unsharp mask filter algorithm.&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;strength&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;machine&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;large&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;input_capabilities&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;raster&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;up42_standard&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;GTiff&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;output_capabilities&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;raster&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;up42_standard&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;GTiff&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;bands&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;sensor&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;dtype&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;processing_level&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div>
+
+</div>
                 
                   
                 

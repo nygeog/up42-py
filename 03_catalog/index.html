@@ -415,18 +415,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference/api/" title="Api" class="md-nav__link">
-      Api
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../reference/project/" title="Project" class="md-nav__link">
       Project
     </a>
@@ -580,20 +568,19 @@
 <span class="kn">import</span> <span class="nn">up42</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">api</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">Api</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
-<span class="n">catalog</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">initialize_catalog</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+<span class="n">catalog</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_catalog</span><span class="p">()</span>
 <span class="n">catalog</span>
 </code></pre></div>
 
 <h2 id="search-available-scenes-within-aoi">Search available scenes within aoi<a class="headerlink" href="#search-available-scenes-within-aoi" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1">#aoi = api.read_vector_file(&quot;data/aoi_berlin.geojson&quot;, </span>
+<div class="highlight"><pre><span></span><code><span class="c1">#aoi = up42.read_vector_file(&quot;data/aoi_berlin.geojson&quot;, </span>
 <span class="c1">#                           as_dataframe=True)</span>
-<span class="n">aoi</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_example_aoi</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">aoi</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">get_example_aoi</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">aoi</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">catalog</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">Catalog</span><span class="p">(</span><span class="n">api</span><span class="o">=</span><span class="n">api</span><span class="p">)</span>
-<span class="n">search_paramaters</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">construct_parameter</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">search_paramaters</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">construct_parameter</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
                                                 <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2014-01-01&quot;</span><span class="p">,</span>
                                                 <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2016-12-31&quot;</span><span class="p">,</span>
                                                 <span class="n">sensors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pleiades&quot;</span><span class="p">],</span>

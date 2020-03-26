@@ -377,18 +377,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference/api/" title="Api" class="md-nav__link">
-      Api
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../reference/project/" title="Project" class="md-nav__link">
       Project
     </a>
@@ -542,8 +530,8 @@ pip install -e .
 <p>Test it in Python! This will authentificate with the UP42 Server and get the project information.
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">Api</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
-<span class="n">project</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
+<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
 </code></pre></div></p>
 </li>

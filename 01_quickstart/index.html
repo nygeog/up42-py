@@ -415,18 +415,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../reference/api/" title="Api" class="md-nav__link">
-      Api
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../reference/project/" title="Project" class="md-nav__link">
       Project
     </a>
@@ -576,32 +564,37 @@
                 <h1 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h1>
 <div class="highlight"><pre><span></span><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">autoreload</span>
 <span class="o">%</span><span class="n">autoreload</span> <span class="mi">2</span>
-
-<span class="kn">import</span> <span class="nn">up42</span>
 </code></pre></div>
 
 <h2 id="api-structure">API-Structure<a class="headerlink" href="#api-structure" title="Permanent link">&para;</a></h2>
 <ul>
-<li>The UP42 Python Api uses seven object classes, representing the <strong>hierachical structure</strong> of UP42: <strong>Api &gt; Project &gt; Workflow &gt; Job &gt; JobTask</strong> and <strong>Catalog &amp; Tools</strong>.</li>
+<li>The UP42 Python Api uses six object classes, representing the <strong>hierachical structure</strong> of UP42: <strong>Project &gt; Workflow &gt; Job &gt; JobTask</strong> and <strong>Catalog &amp; Tools</strong>.</li>
 <li>Each object provides the full functionality at that specific level and can spawn elements of one level below, e.g.<ul>
+<li><code>project = up42.initialize_project()</code>   </li>
 <li><code>workflow = Project().create_workflow()</code></li>
 <li><code>job = workflow.create_and_run_job()</code>
 <br> </li>
 </ul>
 </li>
-<li>Usually the user starts with the <em>Api</em> object, then spawns objects of a lower level (e.g. initializes a project, creates a new workflow, runs a job etc.). </li>
-<li>To access a lower-level object directly, e.g. a job that was already run on UP42 initialize the object directly via <code>api.initialize_job(job_id='123456789')</code>.</li>
+<li>Usually the user starts with the project object, then spawns objects of a lower level (e.g. creates a new workflow, creates&amp;runs a job etc.). </li>
+<li>To access a lower-level object directly, e.g. a job that was already run on UP42 initialize the object directly via <code>up42.initialize_job(job_id='123456789')</code>.</li>
 </ul>
 <h2 id="30-seconds-example">30 seconds example<a class="headerlink" href="#30-seconds-example" title="Permanent link">&para;</a></h2>
 <p>Runs a workflow consisting of Sentinel-2 Streaming and image sharpening.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Authentificate: Gets the the project credentials saved in the config.json file.</span>
-<span class="n">api</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">Api</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
-<span class="n">project</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="c1"># Create a workflow &amp; add blocks/tasks to the workflow.</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the the project credentials &amp; authenticate with UP42.</span>
+<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a workflow in the project.</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
 <span class="n">workflow</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;30-seconds-workflow&quot;</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">blocks</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_blocks</span><span class="p">(</span><span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Add blocks/tasks to the workflow.</span>
+<span class="n">blocks</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">get_blocks</span><span class="p">(</span><span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">input_tasks</span><span class="o">=</span> <span class="p">[</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;sobloo-s2-l1c-aoiclipped&#39;</span><span class="p">],</span> 
               <span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;sharpening&#39;</span><span class="p">]]</span>
 <span class="n">workflow</span><span class="o">.</span><span class="n">add_workflow_tasks</span><span class="p">(</span><span class="n">input_tasks</span><span class="o">=</span><span class="n">input_tasks</span><span class="p">)</span>
@@ -612,7 +605,7 @@
 <span class="n">input_parameters</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">construct_parameter</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
                                                 <span class="n">geometry_operation</span><span class="o">=</span><span class="s2">&quot;bbox&quot;</span><span class="p">,</span> 
                                                 <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span>
-                                                <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2020-01-03&quot;</span><span class="p">,</span>
+                                                <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2020-01-20&quot;</span><span class="p">,</span>
                                                 <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">input_parameters</span><span class="p">)</span>
 </code></pre></div>
@@ -636,6 +629,9 @@
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="n">job</span><span class="o">.</span><span class="n">map_result</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
                 
                   
