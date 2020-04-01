@@ -347,18 +347,30 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../../05_cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Code Reference
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Code Reference
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -449,15 +461,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.job.Job.get_job_tasks" class="md-nav__link">
-    get_job_tasks()
+  <a href="#up42.job.Job.get_jobtasks" class="md-nav__link">
+    get_jobtasks()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.job.Job.get_job_tasks_result_json" class="md-nav__link">
-    get_job_tasks_result_json()
+  <a href="#up42.job.Job.get_jobtasks_result_json" class="md-nav__link">
+    get_jobtasks_result_json()
   </a>
   
 </li>
@@ -551,13 +563,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       Advanced Tutorials
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         Advanced Tutorials
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -629,15 +641,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.job.Job.get_job_tasks" class="md-nav__link">
-    get_job_tasks()
+  <a href="#up42.job.Job.get_jobtasks" class="md-nav__link">
+    get_jobtasks()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.job.Job.get_job_tasks_result_json" class="md-nav__link">
-    get_job_tasks_result_json()
+  <a href="#up42.job.Job.get_jobtasks_result_json" class="md-nav__link">
+    get_jobtasks_result_json()
   </a>
   
 </li>
@@ -702,7 +714,7 @@
                 
                 
                 <h1 id="job-class">Job class<a class="headerlink" href="#job-class" title="Permanent link">&para;</a></h1>
-<h2 id="up42.job.Job.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">,</span> <span class="n">order_ids</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">])</span></code><a class="headerlink" href="#up42.job.Job.__init__" title="Permanent link">&para;</a></h2>
+<h2 id="up42.job.Job.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">,</span> <span class="n">order_ids</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.__init__" title="Permanent link">&para;</a></h2>
 <details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>29
 30
 31
@@ -719,8 +731,11 @@
 42
 43
 44
-45</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">:</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">],</span>
+45
+46
+47
+48</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">:</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;The Job class provides access to the results, parameters and tasks of UP42</span>
 <span class="sd">        Jobs (Workflows that have been run as Jobs).</span>
@@ -728,13 +743,16 @@
 <span class="sd">        Public Methods:</span>
 <span class="sd">            get_status, track_status, cancel_job, download_quicklook, get_result_json</span>
 <span class="sd">            download_result, upload_result_to_bucket, map_result,</span>
-<span class="sd">            get_log, get_job_tasks, get_job_tasks_result_json</span>
+<span class="sd">            get_log, get_jobtasks, get_jobtasks_result_json</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">project_id</span> <span class="o">=</span> <span class="n">project_id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span> <span class="o">=</span> <span class="n">job_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">order_ids</span> <span class="o">=</span> <span class="n">order_ids</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">authenticate</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">order_ids</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">order_ids</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_info</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
@@ -745,13 +763,13 @@ Jobs (Workflows that have been run as Jobs).</p>
 <p>Public Methods:
     get_status, track_status, cancel_job, download_quicklook, get_result_json
     download_result, upload_result_to_bucket, map_result,
-    get_log, get_job_tasks, get_job_tasks_result_json</p>
+    get_log, get_jobtasks, get_jobtasks_result_json</p>
 <h2 id="up42.job.Job.cancel_job"><code class="highlight"><span class="n">cancel_job</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.cancel_job" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>104
-105
-106
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>106
 107
-108</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">cancel_job</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+108
+109
+110</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">cancel_job</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Cancels a pending or running job.&quot;&quot;&quot;</span>
         <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">/cancel/&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
@@ -762,9 +780,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 </details>
 <p>Cancels a pending or running job.</p>
 <h2 id="up42.job.Job.download_quicklook"><code class="highlight"><span class="n">download_quicklook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.download_quicklook" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>110
-111
-112
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>112
 113
 114
 115
@@ -776,7 +792,9 @@ Jobs (Workflows that have been run as Jobs).</p>
 121
 122
 123
-124</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_quicklook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+124
+125
+126</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_quicklook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Conveniance function that downloads the quicklooks of the first/data jobtask.</span>
 
@@ -787,8 +805,8 @@ Jobs (Workflows that have been run as Jobs).</p>
         <span class="n">Path</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Currently only the first/data task produces quicklooks.</span>
-        <span class="n">data_task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_job_tasks</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">out_paths</span> <span class="o">=</span> <span class="n">data_task</span><span class="o">.</span><span class="n">download_quicklook</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="n">out_dir</span><span class="p">)</span>
+        <span class="n">data_task</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_jobtasks</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">out_paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_task</span><span class="o">.</span><span class="n">download_quicklook</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="n">out_dir</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span> <span class="o">=</span> <span class="n">out_paths</span>  <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
         <span class="k">return</span> <span class="n">out_paths</span>
 </code></pre></div>
@@ -798,9 +816,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 <p>Conveniance function that downloads the quicklooks of the first/data jobtask.</p>
 <p>After download, can be plotted via job.plot_quicklook().</p>
 <h2 id="up42.job.Job.download_result"><code class="highlight"><span class="n">download_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.download_result" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>160
-161
-162
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>162
 163
 164
 165
@@ -840,7 +856,12 @@ Jobs (Workflows that have been run as Jobs).</p>
 199
 200
 201
-202</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+202
+203
+204
+205
+206
+207</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Downloads and unpacks the job result.</span>
 
@@ -851,7 +872,6 @@ Jobs (Workflows that have been run as Jobs).</p>
 <span class="sd">            List of the downloaded results&#39; filepaths.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO: Overwrite argument</span>
-        <span class="c1"># TODO: Handle other filetypes than tif, Not working for Fullscenes etc.</span>
         <span class="n">download_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_download_url</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">out_dir</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -865,15 +885,19 @@ Jobs (Workflows that have been run as Jobs).</p>
             <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">download_url</span><span class="p">)</span>
             <span class="n">dst_tgz</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
         <span class="c1"># Unpack</span>
-        <span class="n">out_filepaths</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">out_filepaths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tgz_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
             <span class="n">members</span> <span class="o">=</span> <span class="n">tar</span><span class="o">.</span><span class="n">getmembers</span><span class="p">()</span>
-            <span class="n">tif_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">members</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">()</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.tif&quot;</span><span class="p">)]</span>
-            <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">tif_file</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tif_files</span><span class="p">):</span>
-                <span class="n">f</span> <span class="o">=</span> <span class="n">tar</span><span class="o">.</span><span class="n">extractfile</span><span class="p">(</span><span class="n">tif_file</span><span class="p">)</span>
-                <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">files</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">i</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">members</span>
+                <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">isfile</span><span class="p">()</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;data.json&quot;</span>
+            <span class="p">]</span>
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="n">tar</span><span class="o">.</span><span class="n">extractfile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
                 <span class="c1"># TODO: Maybe jobid_sceneid etc?</span>
-                <span class="n">out_fp</span> <span class="o">=</span> <span class="n">out_dir</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">.tif&quot;</span><span class="p">)</span>
+                <span class="n">out_fp</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
                 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_fp</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
                     <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
                 <span class="n">out_filepaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_fp</span><span class="p">))</span>
@@ -881,7 +905,7 @@ Jobs (Workflows that have been run as Jobs).</p>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="s2">&quot;Download successful of </span><span class="si">%s</span><span class="s2"> files </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_filepaths</span><span class="p">),</span> <span class="n">out_filepaths</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">out_filepaths</span>  <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="n">out_filepaths</span>
         <span class="k">return</span> <span class="n">out_filepaths</span>
 </code></pre></div>
 </td></tr></table>
@@ -922,14 +946,8 @@ Jobs (Workflows that have been run as Jobs).</p>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.job.Job.get_job_tasks"><code class="highlight"><span class="n">get_job_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_job_tasks" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>387
-388
-389
-390
-391
-392
-393
+<h2 id="up42.job.Job.get_jobtasks"><code class="highlight"><span class="n">get_jobtasks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_jobtasks" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>393
 394
 395
 396
@@ -953,7 +971,17 @@ Jobs (Workflows that have been run as Jobs).</p>
 414
 415
 416
-417</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_job_tasks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="s2">&quot;JobTask&quot;</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]:</span>
+417
+418
+419
+420
+421
+422
+423
+424
+425</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_jobtasks</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;JobTask&quot;</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the individual items of the job as JobTask objects or json.</span>
 
@@ -969,21 +997,21 @@ Jobs (Workflows that have been run as Jobs).</p>
         <span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting job tasks: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="p">)</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">job_tasks_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+        <span class="n">jobtasks_json</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
-        <span class="n">job_tasks</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">jobtasks</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">JobTask</span><span class="p">(</span>
                 <span class="n">auth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span>
                 <span class="n">project_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="p">,</span>
                 <span class="n">job_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="p">,</span>
-                <span class="n">job_task_id</span><span class="o">=</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
+                <span class="n">jobtask_id</span><span class="o">=</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
             <span class="p">)</span>
-            <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">job_tasks_json</span>
+            <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">jobtasks_json</span>
         <span class="p">]</span>
         <span class="k">if</span> <span class="n">return_json</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">job_tasks_json</span>
+            <span class="k">return</span> <span class="n">jobtasks_json</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">job_tasks</span>
+            <span class="k">return</span> <span class="n">jobtasks</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1018,21 +1046,13 @@ Jobs (Workflows that have been run as Jobs).</p>
 </thead>
 <tbody>
 <tr>
-<td><code>Union[ForwardRef('JobTask'), Dict]</code></td>
+<td><code>Union[List[ForwardRef('JobTask')], List[Dict]]</code></td>
 <td>The job task objects in a list.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.job.Job.get_job_tasks_result_json"><code class="highlight"><span class="n">get_job_tasks_result_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_job_tasks_result_json" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>419
-420
-421
-422
-423
-424
-425
-426
-427
+<h2 id="up42.job.Job.get_jobtasks_result_json"><code class="highlight"><span class="n">get_jobtasks_result_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_jobtasks_result_json" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>427
 428
 429
 430
@@ -1043,7 +1063,15 @@ Jobs (Workflows that have been run as Jobs).</p>
 435
 436
 437
-438</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_job_tasks_result_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+438
+439
+440
+441
+442
+443
+444
+445
+446</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_jobtasks_result_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convenience function to get the resulting data.json of all job tasks</span>
 <span class="sd">        in a dictionary of strings.</span>
@@ -1051,18 +1079,18 @@ Jobs (Workflows that have been run as Jobs).</p>
 <span class="sd">        Returns:</span>
 <span class="sd">            The data.json of alle single job tasks.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">job_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_job_tasks</span><span class="p">(</span><span class="n">return_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">job_tasks_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">job_tasks</span><span class="p">]</span>
-        <span class="n">job_tasks_results_json</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="k">for</span> <span class="n">job_task_id</span> <span class="ow">in</span> <span class="n">job_tasks_ids</span><span class="p">:</span>
+        <span class="n">jobtasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_jobtasks</span><span class="p">(</span><span class="n">return_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="n">jobtasks_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">jobtasks</span><span class="p">]</span>
+        <span class="n">jobtasks_results_json</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">jobtask_id</span> <span class="ow">in</span> <span class="n">jobtasks_ids</span><span class="p">:</span>
             <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{</span><span class="n">job_task_id</span><span class="si">}</span><span class="s2">/outputs/data-json&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/outputs/data-json&quot;</span>
             <span class="p">)</span>
             <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
 
-            <span class="n">job_tasks_results_json</span><span class="p">[</span><span class="n">job_task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_json</span>
-        <span class="k">return</span> <span class="n">job_tasks_results_json</span>
+            <span class="n">jobtasks_results_json</span><span class="p">[</span><span class="n">jobtask_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_json</span>
+        <span class="k">return</span> <span class="n">jobtasks_results_json</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1085,13 +1113,7 @@ in a dictionary of strings.</p>
 </tbody>
 </table>
 <h2 id="up42.job.Job.get_log"><code class="highlight"><span class="n">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_print</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_return</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_log" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>343
-344
-345
-346
-347
-348
-349
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>349
 350
 351
 352
@@ -1127,7 +1149,13 @@ in a dictionary of strings.</p>
 382
 383
 384
-385</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_print</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_return</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+385
+386
+387
+388
+389
+390
+391</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_log</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_print</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_return</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convenience function to print or return the logs of all job tasks.</span>
 
@@ -1141,32 +1169,32 @@ in a dictionary of strings.</p>
         <span class="c1"># TODO: Check if job ended, seems to give error messages when used while still running.</span>
         <span class="c1"># but relevant to get logs while running and possible. just sometimes error.</span>
 
-        <span class="n">job_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_job_tasks</span><span class="p">(</span><span class="n">return_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">job_tasks_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">job_tasks</span><span class="p">]</span>
+        <span class="n">jobtasks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_jobtasks</span><span class="p">(</span><span class="n">return_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="n">jobtasks_ids</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">task</span> <span class="ow">in</span> <span class="n">jobtasks</span><span class="p">]</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-            <span class="s2">&quot;Getting logs for </span><span class="si">%s</span><span class="s2"> job tasks: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">job_tasks_ids</span><span class="p">),</span> <span class="n">job_tasks_ids</span>
+            <span class="s2">&quot;Getting logs for </span><span class="si">%s</span><span class="s2"> job tasks: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">jobtasks_ids</span><span class="p">),</span> <span class="n">jobtasks_ids</span>
         <span class="p">)</span>
         <span class="n">job_logs</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">if</span> <span class="n">as_print</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Printing logs of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">job_tasks_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> JobTasks in Job with job_id &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Printing logs of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobtasks_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> JobTasks in Job with job_id &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span>
             <span class="p">)</span>
 
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">job_task_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">job_tasks_ids</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">jobtask_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobtasks_ids</span><span class="p">):</span>
             <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">/tasks/</span><span class="si">{</span><span class="n">job_task_id</span><span class="si">}</span><span class="s2">/logs&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">/tasks/</span><span class="si">{</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/logs&quot;</span>
             <span class="p">)</span>
             <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
 
-            <span class="n">job_logs</span><span class="p">[</span><span class="n">job_task_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_json</span>
+            <span class="n">job_logs</span><span class="p">[</span><span class="n">jobtask_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">response_json</span>
 
             <span class="k">if</span> <span class="n">as_print</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------------------------------&quot;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JobTask </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> with job_task_id </span><span class="si">{</span><span class="n">job_task_id</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JobTask </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> with jobtask_id </span><span class="si">{</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">as_return</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">job_logs</span>
@@ -1210,15 +1238,13 @@ in a dictionary of strings.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>Dict</code></td>
+<td>``</td>
 <td>The log strings (only if as_return was selected).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="up42.job.Job.get_result_json"><code class="highlight"><span class="n">get_result_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_result_json" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>126
-127
-128
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>128
 129
 130
 131
@@ -1239,7 +1265,9 @@ in a dictionary of strings.</p>
 146
 147
 148
-149</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_result_json</span><span class="p">(</span>
+149
+150
+151</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_result_json</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1303,10 +1331,7 @@ in a dictionary of strings.</p>
 </tbody>
 </table>
 <h2 id="up42.job.Job.get_status"><code class="highlight"><span class="n">get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.get_status" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>60
-61
-62
-63
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>63
 64
 65
 66
@@ -1314,7 +1339,10 @@ in a dictionary of strings.</p>
 68
 69
 70
-71</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+71
+72
+73
+74</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the job status.</span>
 
@@ -1347,12 +1375,7 @@ in a dictionary of strings.</p>
 </tbody>
 </table>
 <h2 id="up42.job.Job.map_result"><code class="highlight"><span class="n">map_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">info_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.map_result" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>228
-229
-230
-231
-232
-233
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>233
 234
 235
 236
@@ -1460,7 +1483,13 @@ in a dictionary of strings.</p>
 338
 339
 340
-341</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">map_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">info_columns</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+341
+342
+343
+344
+345
+346
+347</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">map_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">info_columns</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Displays data.json, and if available, one or multiple results geotiffs</span>
 
@@ -1471,7 +1500,7 @@ in a dictionary of strings.</p>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_notebook</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only works in Jupyter notebook.&quot;</span><span class="p">)</span>
 
-        <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_result_json</span><span class="p">(</span><span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_result_json</span><span class="p">(</span><span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
         <span class="c1"># TODO: centroid of total_bounds</span>
         <span class="n">centroid</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">centroid</span>
 
@@ -1494,7 +1523,7 @@ in a dictionary of strings.</p>
                 <span class="s2">&quot;dashArray&quot;</span><span class="p">:</span> <span class="s2">&quot;5, 5&quot;</span><span class="p">,</span>
             <span class="p">}</span>
 
-        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>  <span class="c1"># type: ignore</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">layer_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">name_column</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -1513,7 +1542,7 @@ in a dictionary of strings.</p>
                 <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">info_columns</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide a list!&quot;</span><span class="p">)</span>
                 <span class="n">infos</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">info_col</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">info_col</span> <span class="ow">in</span> <span class="n">info_columns</span><span class="p">]</span>
-                <span class="n">infos</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">infos</span><span class="p">)</span>
+                <span class="n">infos</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">infos</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
                 <span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">infos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
             <span class="n">f</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
         <span class="c1"># Same: folium.GeoJson(df, name=name_column, style_function=style_function,</span>
@@ -1524,7 +1553,8 @@ in a dictionary of strings.</p>
         <span class="c1"># This requires reprojecting on the user pc, not via the api.</span>
         <span class="c1"># Reproject raster and add to map</span>
         <span class="n">dst_crs</span> <span class="o">=</span> <span class="mi">4326</span>
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">raster_fp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">result</span><span class="p">):</span>
+        <span class="n">results</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">raster_fp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
 
             <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">raster_fp</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
                 <span class="n">dst_profile</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">meta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1568,7 +1598,7 @@ in a dictionary of strings.</p>
             <span class="p">)</span>
 
         <span class="c1"># Collapse layer control with too many features.</span>
-        <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># pylint: disable=simplifiable-if-statement</span>
+        <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># pylint: disable=simplifiable-if-statement  #type: ignore</span>
             <span class="n">collapsed</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">collapsed</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1583,10 +1613,7 @@ in a dictionary of strings.</p>
 info_columns: Additional columns that are shown when a feature is
     clicked.</p>
 <h2 id="up42.job.Job.track_status"><code class="highlight"><span class="n">track_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report_time</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.track_status" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 73
- 74
- 75
- 76
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 76
  77
  78
  79
@@ -1612,14 +1639,16 @@ info_columns: Additional columns that are shown when a feature is
  99
 100
 101
-102</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">track_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+102
+103
+104</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">track_status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">report_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Continuously gets the job status until job has finished or failed.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            report_time: The intervall (in seconds) when to query the job status.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">status</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="s2">&quot;NOT STARTED&quot;</span>
         <span class="n">time_asleep</span> <span class="o">=</span> <span class="mi">0</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Tracking job status every </span><span class="si">%s</span><span class="s2"> seconds&quot;</span><span class="p">,</span> <span class="n">report_time</span><span class="p">)</span>
@@ -1635,13 +1664,12 @@ info_columns: Additional columns that are shown when a feature is
                 <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
                 <span class="n">time_asleep</span> <span class="o">+=</span> <span class="mi">5</span>
 
-            <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s2">&quot;SUCCEEDED&quot;</span><span class="p">:</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Job finished successfully </span><span class="si">%s</span><span class="s2"> - SUCCEEDED!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="p">)</span>
-                <span class="k">return</span> <span class="n">status</span>
-
             <span class="k">if</span> <span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;FAILED&quot;</span><span class="p">,</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span> <span class="s2">&quot;CANCELLED&quot;</span><span class="p">,</span> <span class="s2">&quot;CANCELLING&quot;</span><span class="p">]:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">get_log</span><span class="p">(</span><span class="n">as_print</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Job has failed! See the above log.&quot;</span><span class="p">)</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Job finished successfully </span><span class="si">%s</span><span class="s2"> - SUCCEEDED!&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">status</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1667,12 +1695,7 @@ info_columns: Additional columns that are shown when a feature is
 </tbody>
 </table>
 <h2 id="up42.job.Job.upload_result_to_bucket"><code class="highlight"><span class="n">upload_result_to_bucket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gs_client</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="s1">&#39;.tgz&#39;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;v0&#39;</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.upload_result_to_bucket" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>204
-205
-206
-207
-208
-209
+<details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>209
 210
 211
 212
@@ -1689,7 +1712,12 @@ info_columns: Additional columns that are shown when a feature is
 223
 224
 225
-226</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">upload_result_to_bucket</span><span class="p">(</span>
+226
+227
+228
+229
+230
+231</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">upload_result_to_bucket</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">gs_client</span><span class="p">,</span> <span class="n">bucket</span><span class="p">,</span> <span class="n">folder</span><span class="p">,</span> <span class="n">extension</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;.tgz&quot;</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;v0&quot;</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Uploads the result to a custom google cloud storage bucket.&quot;&quot;&quot;</span>

@@ -347,18 +347,30 @@
       
       
 
+
+  <li class="md-nav__item">
+    <a href="../../05_cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Code Reference
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Code Reference
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -537,13 +549,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       Advanced Tutorials
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         Advanced Tutorials
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -702,7 +714,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">project_id</span> <span class="o">=</span> <span class="n">project_id</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span> <span class="o">=</span> <span class="n">workflow_id</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">authenticate</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_info</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info</span><span class="p">()</span>
 </code></pre></div>
 </td></tr></table>
@@ -982,7 +994,7 @@ available.</li>
             <span class="n">aoi_fc</span> <span class="o">=</span> <span class="n">any_vector_to_fc</span><span class="p">(</span><span class="n">vector</span><span class="o">=</span><span class="n">geometry</span><span class="p">,)</span>
             <span class="n">aoi_feature</span> <span class="o">=</span> <span class="n">fc_to_query_geometry</span><span class="p">(</span>
                 <span class="n">fc</span><span class="o">=</span><span class="n">aoi_fc</span><span class="p">,</span>
-                <span class="n">geometry_operation</span><span class="o">=</span><span class="n">geometry_operation</span><span class="p">,</span>
+                <span class="n">geometry_operation</span><span class="o">=</span><span class="n">geometry_operation</span><span class="p">,</span>  <span class="c1"># type: ignore</span>
                 <span class="n">squash_multiple_features</span><span class="o">=</span><span class="n">handle_multiple_features</span><span class="p">,</span>
             <span class="p">)</span>
 

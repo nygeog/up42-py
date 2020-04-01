@@ -423,15 +423,27 @@
       
 
 
+  <li class="md-nav__item">
+    <a href="../05_cli/" title="CLI" class="md-nav__link">
+      CLI
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       Code Reference
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         Code Reference
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -509,13 +521,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
       Advanced Tutorials
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-6">
         Advanced Tutorials
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -656,7 +668,7 @@
 </code></pre></div>
 
 <h2 id="job">Job<a class="headerlink" href="#job" title="Permanent link">&para;</a></h2>
-<p>Example functions: <code>.get_status</code>, <code>.track_status</code>, <code>.cancel_job</code>, <code>.get_results</code>, <code>.get_logs</code>, <code>.get_quicklook</code>, <code>.download_results</code>, <code>.plot_results</code>, <code>.map_results</code>, <code>.upload_results_to_bucket</code>, <code>.get_job_tasks</code>, <code>.get_job_tasks_results</code></p>
+<p>Example functions: <code>.get_status</code>, <code>.track_status</code>, <code>.cancel_job</code>, <code>.get_results</code>, <code>.get_logs</code>, <code>.get_quicklook</code>, <code>.download_results</code>, <code>.plot_results</code>, <code>.map_results</code>, <code>.upload_results_to_bucket</code>, <code>.get_jobtasks</code>, <code>.get_jobtasks_results</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">UP42_JOB_ID</span><span class="o">=</span><span class="s2">&quot;de5806aa-5ef1-4dc9-ab1d-06d7ec1a5021&quot;</span>
 
 <span class="n">job</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_job</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">UP42_JOB_ID</span><span class="p">)</span>
@@ -667,7 +679,7 @@
 <p>Example functions: <code>.get_result_json</code>, <code>.download_results</code>, <code>.get_quicklooks</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">UP42_JOBTASK_ID</span><span class="o">=</span><span class="s2">&quot;3f772637-09aa-4164-bded-692fcd746d20&quot;</span>
 
-<span class="n">jobtask</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_jobtask</span><span class="p">(</span><span class="n">job_task_id</span><span class="o">=</span><span class="n">UP42_JOBTASK_ID</span><span class="p">,</span>
+<span class="n">jobtask</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_jobtask</span><span class="p">(</span><span class="n">jobtask_id</span><span class="o">=</span><span class="n">UP42_JOBTASK_ID</span><span class="p">,</span>
                                  <span class="n">job_id</span><span class="o">=</span><span class="n">UP42_JOB_ID</span><span class="p">)</span>
 <span class="n">jobtask</span>
 </code></pre></div>
