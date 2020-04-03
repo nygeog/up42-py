@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="UP42 Python API">
+        <meta name="description" content="UP42 Python SDK">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Installation - UP42 Python API</title>
+        <title>Installation - UP42 Python SDK</title>
       
     
     
@@ -125,7 +125,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="UP42 Python API" aria-label="UP42 Python API" class="md-header-nav__button md-logo">
+        <a href=".." title="UP42 Python SDK" aria-label="UP42 Python SDK" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../_assets/logo.ico" width="24" height="24">
           
@@ -138,7 +138,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              UP42 Python API
+              UP42 Python SDK
             </span>
             <span class="md-header-nav__topic">
               
@@ -217,12 +217,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="UP42 Python API" class="md-nav__button md-logo">
+    <a href=".." title="UP42 Python SDK" class="md-nav__button md-logo">
       
         <img alt="logo" src="../_assets/logo.ico" width="48" height="48">
       
     </a>
-    UP42 Python API
+    UP42 Python SDK
   </label>
   
     <div class="md-nav__source">
@@ -273,9 +273,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Installation
+      </label>
+    
     <a href="./" title="Installation" class="md-nav__link md-nav__link--active">
       Installation
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-installation" class="md-nav__link">
+    User installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-installation" class="md-nav__link">
+    Development installation
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -501,6 +537,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#user-installation" class="md-nav__link">
+    User installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-installation" class="md-nav__link">
+    Development installation
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -513,33 +572,27 @@
                 
                 
                 <h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h1>
+<h2 id="user-installation">User installation<a class="headerlink" href="#user-installation" title="Permanent link">&para;</a></h2>
+<p>The package requires Python &gt; 3.6.</p>
 <ol>
 <li>
-<p><strong>Optional</strong>: Create a virtual environment:
-<div class="highlight"><pre><span></span><code>mkvirtualenv --python<span class="o">=</span><span class="k">$(</span>which python3.7<span class="k">)</span> up42-py
-</code></pre></div></p>
-</li>
-<li>
-<p>Install locally with systemlink (code changes are reflected):
-<div class="highlight"><pre><span></span><code>git clone git@github.com:up42/up42-py.git
-<span class="nb">cd</span> up42-py
-pip install -r requirements.txt
-pip install -e .
+<p>Install via pip:
+<div class="highlight"><pre><span></span><code>pip install up42-py
 </code></pre></div></p>
 </li>
 <li>
 <p>Create a new project on <a href="https://up42.com">UP42</a>.</p>
 </li>
 <li>
-<p>Create a <code>config.json</code> file with the <a href="https://docs.up42.com/getting-started/first-api-request.html#run-your-first-job-via-the-api">project credentials</a>.
+<p>Create a <code>config.json</code> file and fill in the <a href="https://docs.up42.com/getting-started/first-api-request.html#run-your-first-job-via-the-api">project credentials</a>.
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;project_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
   <span class="nt">&quot;project_api_key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
-<span class="p">}</span> 
+<span class="p">}</span>
 </code></pre></div></p>
 </li>
 <li>
-<p>Test it in Python! This will authentificate with the UP42 Server and get the project information.
+<p>Test it in Python! This will authenticate with the UP42 Server and get the project information.
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
 
 <span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
@@ -548,12 +601,53 @@ pip install -e .
 </code></pre></div></p>
 </li>
 </ol>
+<p>For a development installation and further instructions see the <a href="README-dev.md">developer readme</a>.</p>
 <p><br></p>
 <div class="admonition success">
 <p class="admonition-title">Success!</p>
 <p>Continue with the <a href="./01_quickstart.md">Getting Started</a> section!</p>
 </div>
 <p><br></p>
+<h2 id="development-installation">Development installation<a class="headerlink" href="#development-installation" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The development installation is only necessary if you want to contribute to up42-py, e.g. to fix a bug.</p>
+</div>
+<ol>
+<li>
+<p><em>Optional (but highly recommended)</em>: Create a new virtual environment e.g. using <a href="https://virtualenvwrapper.readthedocs.io/en/latest/">virtualenvwrapper</a>:
+<div class="highlight"><pre><span></span><code>mkvirtualenv --python<span class="o">=</span><span class="k">$(</span>which python3.7<span class="k">)</span> up42-py
+</code></pre></div></p>
+</li>
+<li>
+<p>Clone the repository and install locally with SystemLink (code changes are reflected).<br />
+This will install all the neccessary dependencies for up42-py, running the tests and editing the docs.
+<div class="highlight"><pre><span></span><code>git clone git@github.com:up42/up42-py.git
+<span class="nb">cd</span> up42-py
+make install<span class="o">[</span>dev<span class="o">]</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Create a new project on <a href="https://up42.com">UP42</a>.</p>
+</li>
+<li>
+<p>Create a <code>config.json</code> file and fill in the <a href="https://docs.up42.com/getting-started/first-api-request.html#run-your-first-job-via-the-api">project credentials</a>.
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;project_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;project_api_key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+<span class="p">}</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Test it in Python! This will authenticate with the UP42 Server and get the project information.
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
+
+<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
+<span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</code></pre></div></p>
+</li>
+</ol>
                 
                   
                 

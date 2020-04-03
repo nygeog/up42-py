@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="UP42 Python API">
+        <meta name="description" content="UP42 Python SDK">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Workflow - UP42 Python API</title>
+        <title>Workflow - UP42 Python SDK</title>
       
     
     
@@ -125,7 +125,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="UP42 Python API" aria-label="UP42 Python API" class="md-header-nav__button md-logo">
+        <a href="../.." title="UP42 Python SDK" aria-label="UP42 Python SDK" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../_assets/logo.ico" width="24" height="24">
           
@@ -138,7 +138,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              UP42 Python API
+              UP42 Python SDK
             </span>
             <span class="md-header-nav__topic">
               
@@ -217,12 +217,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="UP42 Python API" class="md-nav__button md-logo">
+    <a href="../.." title="UP42 Python SDK" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../_assets/logo.ico" width="48" height="48">
       
     </a>
-    UP42 Python API
+    UP42 Python SDK
   </label>
   
     <div class="md-nav__source">
@@ -797,7 +797,7 @@ and aoi.</p>
 <span class="sd">                                 &#39;blockId&#39;: &#39;4ed70368-d4e1-4462-bef6-14e768049471&#39;}]</span>
 <span class="sd">            ```</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: User be able to only provide block task names or display name. But problematic with custom blocks.</span>
+        <span class="c1"># TODO: User be able to only provide block task names or display name.</span>
         <span class="c1"># Construct proper task definition from simplified input.</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">input_tasks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
             <span class="n">input_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_construct_full_workflow_tasks_dict</span><span class="p">(</span><span class="n">input_tasks</span><span class="p">)</span>
@@ -987,7 +987,7 @@ available.</li>
                 <span class="n">input_parameters</span><span class="p">[</span><span class="n">data_block_name</span><span class="p">][</span><span class="s2">&quot;ids&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scene_ids</span>
                 <span class="n">input_parameters</span><span class="p">[</span><span class="n">data_block_name</span><span class="p">][</span><span class="s2">&quot;limit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">scene_ids</span><span class="p">)</span>
                 <span class="n">input_parameters</span><span class="p">[</span><span class="n">data_block_name</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-                <span class="c1"># TODO: In cas of ids remove all non-relevant parameters. Cleaner.</span>
+                <span class="c1"># TODO: In case of ids remove all non-relevant parameters. Cleaner.</span>
             <span class="k">elif</span> <span class="n">start_date</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">end_date</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">datetime</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2">T00:00:00Z/</span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">T00:00:00Z&quot;</span>
                 <span class="n">input_parameters</span><span class="p">[</span><span class="n">data_block_name</span><span class="p">][</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span>
@@ -1077,8 +1077,11 @@ via dict.update({key:value}).</p>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.workflow.Workflow.create_and_run_job"><code class="highlight"><span class="n">create_and_run_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">track_status</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.create_and_run_job" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>310
+<h2 id="up42.workflow.Workflow.create_and_run_job"><code class="highlight"><span class="n">create_and_run_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test_query</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">track_status</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.create_and_run_job" title="Permanent link">&para;</a></h2>
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>307
+308
+309
+310
 311
 312
 313
@@ -1124,9 +1127,14 @@ via dict.update({key:value}).</p>
 353
 354
 355
-356</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_and_run_job</span><span class="p">(</span>
+356
+357
+358
+359
+360</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_and_run_job</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">input_parameters</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">test_query</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">track_status</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Job&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1134,14 +1142,13 @@ via dict.update({key:value}).</p>
 
 <span class="sd">        Args:</span>
 <span class="sd">            input_parameters: Either json string of workflow parameters or filepath to json.</span>
+<span class="sd">            test_query: If set, runs a test query (search for available imagery based on your data parameters).</span>
 <span class="sd">            track_status: Automatically attaches workflow.track_status which queries</span>
 <span class="sd">                the job status every 30 seconds.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            The spawned job object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Currently runs both dry &amp; live run at the same time. Make selectable via config in request, see docs.</span>
-
         <span class="k">if</span> <span class="n">input_parameters</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;Select the job_parameters! You can use &quot;</span>
@@ -1155,6 +1162,13 @@ via dict.update({key:value}).</p>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Loading job parameters from json file.&quot;</span><span class="p">)</span>
 
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Selected input_parameters: </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">input_parameters</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">test_query</span><span class="p">:</span>
+            <span class="c1"># TODO: Fix type union</span>
+            <span class="n">input_parameters</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;mode&quot;</span><span class="p">:</span> <span class="s2">&quot;DRY_RUN&quot;</span><span class="p">}})</span>  <span class="c1"># type: ignore</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;+++++++++++++++++++++++++++++++++&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Running this job as Test Query...&quot;</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;+++++++++++++++++++++++++++++++++&quot;</span><span class="p">)</span>
 
         <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;_py&quot;</span>  <span class="c1"># Enables recognition of python API usage.</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
@@ -1194,6 +1208,12 @@ via dict.update({key:value}).</p>
 <td><code>None</code></td>
 </tr>
 <tr>
+<td><code>test_query</code></td>
+<td><code>bool</code></td>
+<td>If set, runs a test query (search for available imagery based on your data parameters).</td>
+<td><code>False</code></td>
+</tr>
+<tr>
 <td><code>track_status</code></td>
 <td><code>bool</code></td>
 <td>Automatically attaches workflow.track_status which queries the job status every 30 seconds.</td>
@@ -1217,17 +1237,17 @@ via dict.update({key:value}).</p>
 </tbody>
 </table>
 <h2 id="up42.workflow.Workflow.delete"><code class="highlight"><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.delete" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>402
-403
-404
-405
-406
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>406
 407
 408
 409
 410
 411
-412</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+412
+413
+414
+415
+416</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deletes the workflow and sets the Python object to None.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1286,11 +1306,7 @@ it will provide all data blocks, if the workflow already has workflow tasks, it
 will provide the compatible blocks for the last workflow task in the workflow.</p>
 <p>Currently no data blocks can be attached to other data blocks.</p>
 <h2 id="up42.workflow.Workflow.get_jobs"><code class="highlight"><span class="n">get_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.get_jobs" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>358
-359
-360
-361
-362
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>362
 363
 364
 365
@@ -1312,7 +1328,11 @@ will provide the compatible blocks for the last workflow task in the workflow.</
 381
 382
 383
-384</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Job&quot;</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+384
+385
+386
+387
+388</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Job&quot;</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get all jobs in the specific project as job objects or json.</span>
 
@@ -1513,11 +1533,7 @@ make it easy to construct the desired parameters.</p>
 </tbody>
 </table>
 <h2 id="up42.workflow.Workflow.update_name"><code class="highlight"><span class="n">update_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.update_name" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>386
-387
-388
-389
-390
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>390
 391
 392
 393
@@ -1527,7 +1543,11 @@ make it easy to construct the desired parameters.</p>
 397
 398
 399
-400</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">update_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+400
+401
+402
+403
+404</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">update_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Updates the workflow name and description.</span>
 

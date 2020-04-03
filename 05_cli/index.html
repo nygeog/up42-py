@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="UP42 Python API">
+        <meta name="description" content="UP42 Python SDK">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>CLI - UP42 Python API</title>
+        <title>CLI - UP42 Python SDK</title>
       
     
     
@@ -125,7 +125,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href=".." title="UP42 Python API" aria-label="UP42 Python API" class="md-header-nav__button md-logo">
+        <a href=".." title="UP42 Python SDK" aria-label="UP42 Python SDK" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../_assets/logo.ico" width="24" height="24">
           
@@ -138,7 +138,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              UP42 Python API
+              UP42 Python SDK
             </span>
             <span class="md-header-nav__topic">
               
@@ -217,12 +217,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href=".." title="UP42 Python API" class="md-nav__button md-logo">
+    <a href=".." title="UP42 Python SDK" class="md-nav__button md-logo">
       
         <img alt="logo" src="../_assets/logo.ico" width="48" height="48">
       
     </a>
-    UP42 Python API
+    UP42 Python SDK
   </label>
   
     <div class="md-nav__source">
@@ -620,10 +620,10 @@
 
 <h2 id="authenticate">Authenticate<a class="headerlink" href="#authenticate" title="Permanent link">&para;</a></h2>
 <p>You can authenticate with a <code>PROJECT_ID</code> and <code>PROJECT_API_KEY</code>
-<div class="highlight"><pre><span></span><code>up42 -PID <span class="o">[</span>PROJECT_ID<span class="o">]</span> -PAPIKEY <span class="o">[</span>PROJECT_API_KEY<span class="o">]</span> auth
+<div class="highlight"><pre><span></span><code>up42 -pid <span class="o">[</span>PROJECT_ID<span class="o">]</span> -pkey <span class="o">[</span>PROJECT_API_KEY<span class="o">]</span> auth
 </code></pre></div></p>
 <p>Or using a <code>config.json</code> file:
-<div class="highlight"><pre><span></span><code>up42 -CFG <span class="o">[</span>path to config.json<span class="o">]</span> auth
+<div class="highlight"><pre><span></span><code>up42 -cfg <span class="o">[</span>path to config.json<span class="o">]</span> auth
 </code></pre></div></p>
 <p>You can make the authentication persistent by storing either the project key
 pair or the path to the config file as an environment variable.</p>
@@ -644,7 +644,7 @@ to your bash profile file:
 </code></pre></div></p>
 <p>If you want to create a <code>config.json</code> file from a project key pair, you can use the
 config command.</p>
-<div class="highlight"><pre><span></span><code>up42 -PID <span class="o">[</span>PROJECT_ID<span class="o">]</span> -PAPIKEY <span class="o">[</span>PROJECT_API_KEY<span class="o">]</span> config
+<div class="highlight"><pre><span></span><code>up42 -pid <span class="o">[</span>PROJECT_ID<span class="o">]</span> -pkey <span class="o">[</span>PROJECT_API_KEY<span class="o">]</span> config
 </code></pre></div>
 
 <h2 id="workflows">Workflows<a class="headerlink" href="#workflows" title="Permanent link">&para;</a></h2>
@@ -701,9 +701,6 @@ create a parameter configuration:
 </code></pre></div></p>
 <p>Get block details by name:
 <div class="highlight"><pre><span></span><code>up42 get-block-details -name oneatlas-pleiades-aoiclipped
-</code></pre></div></p>
-<p>Get all environments in the platform:
-<div class="highlight"><pre><span></span><code>up42 get-environments
 </code></pre></div></p>
                 
                   

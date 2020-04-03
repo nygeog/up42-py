@@ -10,7 +10,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="UP42 Python API">
+        <meta name="description" content="UP42 Python SDK">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>Tools - UP42 Python API</title>
+        <title>Tools - UP42 Python SDK</title>
       
     
     
@@ -125,7 +125,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="UP42 Python API" aria-label="UP42 Python API" class="md-header-nav__button md-logo">
+        <a href="../.." title="UP42 Python SDK" aria-label="UP42 Python SDK" class="md-header-nav__button md-logo">
           
             <img alt="logo" src="../../_assets/logo.ico" width="24" height="24">
           
@@ -138,7 +138,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              UP42 Python API
+              UP42 Python SDK
             </span>
             <span class="md-header-nav__topic">
               
@@ -217,12 +217,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="UP42 Python API" class="md-nav__button md-logo">
+    <a href="../.." title="UP42 Python SDK" class="md-nav__button md-logo">
       
         <img alt="logo" src="../../_assets/logo.ico" width="48" height="48">
       
     </a>
-    UP42 Python API
+    UP42 Python SDK
   </label>
   
     <div class="md-nav__source">
@@ -464,20 +464,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.tools.Tools.create_environment" class="md-nav__link">
-    create_environment()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.delete_environment" class="md-nav__link">
-    delete_environment()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#up42.tools.Tools.draw_aoi" class="md-nav__link">
     draw_aoi()
   </a>
@@ -494,13 +480,6 @@
         <li class="md-nav__item">
   <a href="#up42.tools.Tools.get_blocks" class="md-nav__link">
     get_blocks()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_environments" class="md-nav__link">
-    get_environments()
   </a>
   
 </li>
@@ -627,20 +606,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.tools.Tools.create_environment" class="md-nav__link">
-    create_environment()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.delete_environment" class="md-nav__link">
-    delete_environment()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#up42.tools.Tools.draw_aoi" class="md-nav__link">
     draw_aoi()
   </a>
@@ -657,13 +622,6 @@
         <li class="md-nav__item">
   <a href="#up42.tools.Tools.get_blocks" class="md-nav__link">
     get_blocks()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_environments" class="md-nav__link">
-    get_environments()
   </a>
   
 </li>
@@ -729,7 +687,10 @@
                 
                 <h1 id="tools-class">Tools class<a class="headerlink" href="#tools-class" title="Permanent link">&para;</a></h1>
 <h2 id="up42.tools.Tools.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.__init__" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>26
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>23
+24
+25
+26
 27
 28
 29
@@ -738,10 +699,7 @@
 32
 33
 34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The tools class contains functionality that is not bound to a specific UP42 object,</span>
 <span class="sd">        e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.</span>
@@ -763,155 +721,10 @@ e.g. for aoi handling etc., UP42 block information, validatin a block manifest e
 They can be accessed from every object and also from the imported up42 package directly.</p>
 <p>Public methods:
     read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklook</p>
-<h2 id="up42.tools.Tools.create_environment"><code class="highlight"><span class="n">create_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">environment_variables</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.create_environment" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>391
-392
-393
-394
-395
-396
-397
-398
-399
-400
-401
-402
-403
-404
-405
-406
-407
-408
-409
-410
-411
-412
-413
-414
-415</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">environment_variables</span><span class="p">:</span> <span class="n">Dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Creates a new UP42 environments, used for separating storage of API keys</span>
-<span class="sd">        etc.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            name: Name of the new environment.</span>
-<span class="sd">            environment_variables: The variables to add to the environment, see example.</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            The json info of the newly created environment.</span>
-
-<span class="sd">        Example:</span>
-<span class="sd">            ```python</span>
-<span class="sd">            environment_variables=</span>
-<span class="sd">                {&quot;username&quot;: &quot;up42&quot;, &quot;password&quot;: &quot;password&quot;}</span>
-<span class="sd">            ```</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">existing_environment_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">env</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">env</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_environments</span><span class="p">()]</span>
-        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">existing_environment_names</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An environment with the name </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> already exists.&quot;</span><span class="p">)</span>
-        <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;secrets&quot;</span><span class="p">:</span> <span class="n">environment_variables</span><span class="p">}</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/environments&quot;</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Creates a new UP42 environments, used for separating storage of API keys
-etc.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td><code>str</code></td>
-<td>Name of the new environment.</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>environment_variables</code></td>
-<td><code>Dict</code></td>
-<td>The variables to add to the environment, see example.</td>
-<td><code>None</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Dict</code></td>
-<td>The json info of the newly created environment.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><span class="n">environment_variables</span><span class="o">=</span>
-    <span class="p">{</span><span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;up42&quot;</span><span class="p">,</span> <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span><span class="p">}</span>
-</code></pre></div>
-
-</div>
-<h2 id="up42.tools.Tools.delete_environment"><code class="highlight"><span class="n">delete_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.delete_environment" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>417
-418
-419
-420
-421
-422
-423
-424
-425
-426</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">delete_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Deletes a specific environment.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            environment_id: The id of the environment to delete. See also get_environments.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/environments/</span><span class="si">{</span><span class="n">environment_id</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">return_text</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully deleted environment: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">environment_id</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Deletes a specific environment.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>environment_id</code></td>
-<td><code>str</code></td>
-<td>The id of the environment to delete. See also get_environments.</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
 <h2 id="up42.tools.Tools.draw_aoi"><code class="highlight"><span class="n">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.draw_aoi" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>118
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>116
+117
+118
 119
 120
 121
@@ -935,7 +748,8 @@ etc.</p>
 139
 140
 141
-142</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+142
+143</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Opens a interactive map to draw an aoi by hand, export via the export button.</span>
 <span class="sd">        Then read in via read_aoi_file().</span>
@@ -944,6 +758,9 @@ etc.</p>
 <span class="sd">        supported by folium.</span>
 <span class="sd">        And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_notebook</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only works in Jupyter notebook.&quot;</span><span class="p">)</span>
+
         <span class="n">m</span> <span class="o">=</span> <span class="n">folium_base_map</span><span class="p">(</span><span class="n">layer_control</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">DrawFoliumOverride</span><span class="p">(</span>
             <span class="n">export</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -970,10 +787,7 @@ Then read in via read_aoi_file().</p>
 supported by folium.
 And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</p>
 <h2 id="up42.tools.Tools.get_block_details"><code class="highlight"><span class="n">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_block_details" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>346
-347
-348
-349
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>349
 350
 351
 352
@@ -992,10 +806,9 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 365
 366
 367
-368
-369</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+368</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets the detailed information about a specific (public or custom) block from</span>
+<span class="sd">        Gets the detailed information about a specific public block from</span>
 <span class="sd">        the server, includes all manifest.json and marketplace.json contents.</span>
 
 <span class="sd">        Args:</span>
@@ -1005,12 +818,8 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 <span class="sd">        Returns:</span>
 <span class="sd">            A dict of the block details metadata for the specific block.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># public blocks</span>
-            <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
-        <span class="k">except</span> <span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HTTPError</span><span class="p">,</span> <span class="n">RetryError</span><span class="p">):</span>
-            <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/users/me/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># custom blocks</span>
-            <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># public blocks</span>
+        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">details_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
@@ -1021,7 +830,7 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 </td></tr></table>
 
 </details>
-<p>Gets the detailed information about a specific (public or custom) block from
+<p>Gets the detailed information about a specific public block from
 the server, includes all manifest.json and marketplace.json contents.</p>
 <p><strong>Parameters</strong></p>
 <table>
@@ -1064,10 +873,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.get_blocks"><code class="highlight"><span class="n">get_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_blocks" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>293
-294
-295
-296
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>296
 297
 298
 299
@@ -1115,7 +921,10 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 341
 342
 343
-344</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_blocks</span><span class="p">(</span>
+344
+345
+346
+347</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_blocks</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1218,86 +1027,11 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.get_environments"><code class="highlight"><span class="n">get_environments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_environments" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>371
-372
-373
-374
-375
-376
-377
-378
-379
-380
-381
-382
-383
-384
-385
-386
-387
-388
-389</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_environments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets all existing UP42 environments, used for separating storage of API keys</span>
-<span class="sd">        etc.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            as_dataframe: Returns a dataframe instead of json (default).</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            The environments as json info.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/environments&quot;</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">environments_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">environments_json</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">environments_json</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Gets all existing UP42 environments, used for separating storage of API keys
-etc.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>as_dataframe</code></td>
-<td></td>
-<td>Returns a dataframe instead of json (default).</td>
-<td><code>False</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Dict</code></td>
-<td>The environments as json info.</td>
-</tr>
-</tbody>
-</table>
 <h2 id="up42.tools.Tools.get_example_aoi"><code class="highlight"><span class="n">get_example_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;Berlin&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_example_aoi" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 84
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 81
+ 82
+ 83
+ 84
  85
  86
  87
@@ -1326,16 +1060,14 @@ etc.</p>
 110
 111
 112
-113
-114
-115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_example_aoi</span><span class="p">(</span>
+113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_example_aoi</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FeatureCollection</span><span class="p">:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets predefined, small, rectangular example aoi for the selected location.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            location: Location, one of Berlin, Washingtion.</span>
+<span class="sd">            location: Location, one of Berlin, Washington.</span>
 <span class="sd">            as_dataframe:</span>
 
 <span class="sd">        Returns:</span>
@@ -1348,8 +1080,9 @@ etc.</p>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_berlin.geojson&quot;</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Washington&quot;</span><span class="p">:</span>
-            <span class="c1"># TODO</span>
-            <span class="k">pass</span>
+            <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_washington.geojson&quot;</span>
+            <span class="p">)</span>
         <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">else</span><span class="p">:</span>
@@ -1379,7 +1112,7 @@ etc.</p>
 <tr>
 <td><code>location</code></td>
 <td><code>str</code></td>
-<td>Location, one of Berlin, Washingtion.</td>
+<td>Location, one of Berlin, Washington.</td>
 <td><code>'Berlin'</code></td>
 </tr>
 <tr>
@@ -1400,14 +1133,13 @@ etc.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>FeatureCollection</code></td>
+<td><code>Union[dict, geopandas.geodataframe.GeoDataFrame]</code></td>
 <td>Feature collection json with the selected aoi.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.plot_coverage"><code class="highlight"><span class="n">plot_coverage</span><span class="p">(</span><span class="n">scenes</span><span class="p">,</span> <span class="n">aoi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_column</span><span class="o">=</span><span class="s1">&#39;scene_id&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span></code> <em>(staticmethod)</em><a class="headerlink" href="#up42.tools.Tools.plot_coverage" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>144
-145
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>145
 146
 147
 148
@@ -1450,7 +1182,8 @@ etc.</p>
 185
 186
 187
-188</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
+188
+189</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">plot_coverage</span><span class="p">(</span>
         <span class="n">scenes</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span>
         <span class="n">aoi</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1538,8 +1271,7 @@ etc.</p>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.plot_quicklook"><code class="highlight"><span class="n">plot_quicklook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_quicklook" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>190
-191
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>191
 192
 193
 194
@@ -1579,7 +1311,8 @@ etc.</p>
 228
 229
 230
-231</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklook</span><span class="p">(</span>
+231
+232</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklook</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1589,16 +1322,16 @@ etc.</p>
 <span class="sd">        Args:</span>
 <span class="sd">            figsize: matplotlib figure size.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
+            <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;inline&quot;</span><span class="p">)</span>
+
+        <span class="c1"># TODO: Remove empty axes &amp; give title option.</span>
         <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                     <span class="s2">&quot;You first need to download the quicklooks via .download_quicklook().&quot;</span>
                 <span class="p">)</span>
             <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span>
-        <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
-            <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;inline&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only works in Jupyter notebook.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
@@ -1647,8 +1380,7 @@ respective object, e.g. job, catalog).</p>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.plot_result"><code class="highlight"><span class="n">plot_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_result" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>233
-234
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>234
 235
 236
 237
@@ -1705,7 +1437,10 @@ respective object, e.g. job, catalog).</p>
 288
 289
 290
-291</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span>
+291
+292
+293
+294</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
         <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1724,9 +1459,11 @@ respective object, e.g. job, catalog).</p>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You first need to download the results.&quot;</span><span class="p">)</span>
             <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepaths</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">filepaths</span><span class="p">]</span>
         <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span><span class="p">]</span>
 
-        <span class="n">plot_file_format</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;tif&quot;</span><span class="p">]</span>  <span class="c1"># TODO: Add other fileformats.</span>
+        <span class="n">plot_file_format</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.tif&quot;</span><span class="p">]</span>  <span class="c1"># TODO: Add other fileformats.</span>
         <span class="n">imagepaths</span> <span class="o">=</span> <span class="p">[</span>
             <span class="n">path</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span> <span class="ow">in</span> <span class="n">plot_file_format</span>  <span class="c1"># type: ignore</span>
         <span class="p">]</span>
@@ -1795,7 +1532,10 @@ respective object, e.g. job, catalog).</p>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.read_vector_file"><code class="highlight"><span class="n">read_vector_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;aoi.geojson&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.read_vector_file" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>41
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>38
+39
+40
+41
 42
 43
 44
@@ -1833,12 +1573,9 @@ respective object, e.g. job, catalog).</p>
 76
 77
 78
-79
-80
-81
-82</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">read_vector_file</span><span class="p">(</span>
+79</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">read_vector_file</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;aoi.geojson&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FeatureCollection</span><span class="p">:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Reads vector files (geojson, shapefile, kml, wkt) to a feature collection,</span>
 <span class="sd">        for use as the aoi geometry in the workflow input parameters</span>
@@ -1921,74 +1658,74 @@ for use as the aoi geometry in the workflow input parameters
 </thead>
 <tbody>
 <tr>
-<td><code>FeatureCollection</code></td>
+<td><code>Union[Dict, geopandas.geodataframe.GeoDataFrame]</code></td>
 <td>Feature Collection</td>
 </tr>
 </tbody>
 </table>
 <h2 id="up42.tools.Tools.validate_manifest"><code class="highlight"><span class="n">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.validate_manifest" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>428
+<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
 429
 430
-431
-432
-433
-434
-435
-436
-437
-438
-439
-440
-441
-442
-443
-444
-445
-446
-447
-448
-449
-450
-451
-452
-453
-454
-455
-456
-457
-458
-459
-460
-461
-462
-463
-464
-465
-466
-467
-468
-469
-470
-471
-472
-473
-474
-475
-476
-477
-478
-479
-480
-481
-482
-483
-484
-485
-486
-487
-488
-489</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+431</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Validates the block manifest, input either manifest json string or filepath.</span>
 
