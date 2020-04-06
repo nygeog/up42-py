@@ -617,9 +617,7 @@
                 
                 <h1 id="project-class">Project class<a class="headerlink" href="#project-class" title="Permanent link">&para;</a></h1>
 <h2 id="up42.project.Project.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">)</span></code><a class="headerlink" href="#up42.project.Project.__init__" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>13
-14
-15
+<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>15
 16
 17
 18
@@ -629,7 +627,9 @@
 22
 23
 24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">:</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">:</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        The Project class can query all available workflows and spawn new workflows</span>
 <span class="sd">        within an UP42 project. Also handles project user settings.</span>
@@ -652,9 +652,7 @@ within an UP42 project. Also handles project user settings.</p>
     create_workflow, get_workflows, get_project_settings,
     update_project_settings</p>
 <h2 id="up42.project.Project.create_workflow"><code class="highlight"><span class="n">create_workflow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.project.Project.create_workflow" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>39
-40
-41
+<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>41
 42
 43
 44
@@ -694,7 +692,11 @@ within an UP42 project. Also handles project user settings.</p>
 78
 79
 80
-81</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_workflow</span><span class="p">(</span>
+81
+82
+83
+84
+85</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_workflow</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">use_existing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;Workflow&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -710,9 +712,11 @@ within an UP42 project. Also handles project user settings.</p>
 <span class="sd">            The workflow object.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">use_existing</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting existing workflows in project ...&quot;</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;up42.workflow&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">)</span>
             <span class="n">existing_workflows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_workflows</span><span class="p">()</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;up42.workflow&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
             <span class="n">matching_workflows</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="n">workflow</span>
                 <span class="k">for</span> <span class="n">workflow</span> <span class="ow">in</span> <span class="n">existing_workflows</span>
@@ -789,17 +793,17 @@ within an UP42 project. Also handles project user settings.</p>
 </tbody>
 </table>
 <h2 id="up42.project.Project.get_project_settings"><code class="highlight"><span class="n">get_project_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.project.Project.get_project_settings" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>109
-110
-111
-112
-113
+<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>113
 114
 115
 116
 117
 118
-119</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_project_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
+119
+120
+121
+122
+123</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_project_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets the project settings.</span>
 
@@ -831,11 +835,7 @@ within an UP42 project. Also handles project user settings.</p>
 </tbody>
 </table>
 <h2 id="up42.project.Project.get_workflows"><code class="highlight"><span class="n">get_workflows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.project.Project.get_workflows" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 83
- 84
- 85
- 86
- 87
+<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 87
  88
  89
  90
@@ -855,7 +855,11 @@ within an UP42 project. Also handles project user settings.</p>
 104
 105
 106
-107</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_workflows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Workflow&quot;</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+107
+108
+109
+110
+111</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_workflows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Workflow&quot;</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Gets all workflows in a project as workflow objects or json.</span>
 
@@ -877,7 +881,7 @@ within an UP42 project. Also handles project user settings.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">workflows</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="n">Workflow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="p">,</span> <span class="n">project_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="p">,</span> <span class="n">workflow_id</span><span class="o">=</span><span class="n">work</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
-                <span class="k">for</span> <span class="n">work</span> <span class="ow">in</span> <span class="n">workflows_json</span>
+                <span class="k">for</span> <span class="n">work</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">workflows_json</span><span class="p">)</span>
             <span class="p">]</span>
             <span class="k">return</span> <span class="n">workflows</span>
 </code></pre></div>
@@ -920,11 +924,7 @@ within an UP42 project. Also handles project user settings.</p>
 </tbody>
 </table>
 <h2 id="up42.project.Project.update_project_settings"><code class="highlight"><span class="n">update_project_settings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_aoi_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_concurrent_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">number_of_images</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.project.Project.update_project_settings" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>121
-122
-123
-124
-125
+<details class="note"><summary>Show source code in <code>up42/project.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>125
 126
 127
 128
@@ -950,7 +950,11 @@ within an UP42 project. Also handles project user settings.</p>
 148
 149
 150
-151</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">update_project_settings</span><span class="p">(</span>
+151
+152
+153
+154
+155</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">update_project_settings</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">max_aoi_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">max_concurrent_jobs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>

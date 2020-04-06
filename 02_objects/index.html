@@ -630,14 +630,14 @@
                 
                 
                 <h1 id="objects">Objects<a class="headerlink" href="#objects" title="Permanent link">&para;</a></h1>
-<p>This section gives an overview of the the available <strong>functionality</strong> at each level of the UP42 API, and how to <strong>initialize</strong> the 6 objects directly (e.g. if you don't want to create a new workflow and job, but want to access an already existing job on UP42).</p>
+<p>This section gives an overview of the the available <strong>functionality</strong> at each level of the UP42 SDK (also see the <a href="https://up42.github.io/up42-py/reference/project/">code reference</a>), and how to <strong>initialize</strong> the 6 objects directly (e.g. if you don't want to create a new workflow and job, but want to access an already existing job on UP42).</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
 <span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h2>
 <p>The tools' functionalities can be accessed from each up42 object.</p>
-<p>Example functions: <code>.read_vector_file</code>, <code>.get_example_aoi</code>, <code>.draw_aoi</code>, <code>plot_coverage</code>, <code>plot_quicklook</code>, <code>plot_result</code>, <code>.get_blocks</code>, <code>.get_block_details</code>, <code>.delete_custom_block</code>, <code>.validate_manifest</code>, <code>.initialize_project</code></p>
+<p>Example functions: <code>.read_vector_file</code>, <code>.get_example_aoi</code>, <code>.draw_aoi</code>, <code>.plot_coverage</code>, <code>.plot_quicklooks</code>, <code>.plot_results</code>, <code>.get_blocks</code>, <code>.get_block_details</code>, <code>.validate_manifest</code>, <code>.initialize_project</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Can be accessed from each up42 object, e.g.</span>
 <span class="n">up42</span><span class="o">.</span><span class="n">get_example_aoi</span><span class="p">()</span>
 <span class="c1">#workflow.get_example_aoi()</span>
@@ -645,13 +645,13 @@
 </code></pre></div>
 
 <h2 id="catalog">Catalog<a class="headerlink" href="#catalog" title="Permanent link">&para;</a></h2>
-<p>Example functions: <code>.construct_parameter</code>, <code>.search</code>, <code>.download_quicklooks</code></p>
+<p>Example functions: <code>.construct_parameters</code>, <code>.search</code>, <code>.download_quicklooks</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">catalog</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_catalog</span><span class="p">()</span>
 <span class="n">catalog</span>
 </code></pre></div>
 
 <h2 id="project">Project<a class="headerlink" href="#project" title="Permanent link">&para;</a></h2>
-<p>Example functions: <code>.get_workflows</code>, <code>.create_workflow</code>, <code>.get_project_settings</code>, <code>.update_project_settings</code>,<code>.update_project_settings</code>, <code>.get_project_api_key</code></p>
+<p>Example functions: <code>.get_workflows</code>, <code>.create_workflow</code>, <code>.get_project_settings</code>, <code>.update_project_settings</code>,<code>.update_project_settings</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">UP42_PROJECT_ID</span><span class="o">=</span><span class="s2">&quot;8956d18d-33bc-47cb-93bd-0055ff21da8f&quot;</span> 
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
@@ -659,7 +659,7 @@
 </code></pre></div>
 
 <h2 id="workflow">Workflow<a class="headerlink" href="#workflow" title="Permanent link">&para;</a></h2>
-<p>Example functions: <code>.add_workflow_tasks</code>, <code>.get_parameters_info</code>, <code>.construct_parameters</code>, <code>.get_jobs</code>, <code>.create_and_run_job</code>, <code>.get_workflow_tasks</code>, <code>.add_workflow_tasks</code>, <code>.update_workflow</code>, <code>.delete_workflow</code>, <code>.update_name</code>, <code>.delete</code></p>
+<p>Example functions: <code>.add_workflow_tasks</code>, <code>.get_parameters_info</code>, <code>.construct_parameters</code>, <code>.get_jobs</code>, <code>.create_and_run_job</code>, <code>.get_workflow_tasks</code>, <code>.add_workflow_tasks</code>, <code>.update_name</code>, <code>.delete</code></p>
 <p>Alltough most often used from the workflow object, a few generic aoi functions are useable with every object: <code>.get_example_aoi</code>, <code>.draw_aoi</code>, <code>.read_vector_file</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">UP42_WORKFLOW_ID</span><span class="o">=</span><span class="s2">&quot;7fb2ec8a-45be-41ad-a50f-98ba6b528b98&quot;</span>
 
@@ -668,7 +668,7 @@
 </code></pre></div>
 
 <h2 id="job">Job<a class="headerlink" href="#job" title="Permanent link">&para;</a></h2>
-<p>Example functions: <code>.get_status</code>, <code>.track_status</code>, <code>.cancel_job</code>, <code>.get_results</code>, <code>.get_logs</code>, <code>.get_quicklook</code>, <code>.download_results</code>, <code>.plot_results</code>, <code>.map_results</code>, <code>.upload_results_to_bucket</code>, <code>.get_jobtasks</code>, <code>.get_jobtasks_results</code></p>
+<p>Example functions: <code>.get_status</code>, <code>.track_status</code>, <code>.cancel_job</code>, <code>.get_results</code>, <code>.get_logs</code>, <code>.get_quicklooks</code>, <code>.download_results</code>, <code>.plot_results</code>, <code>.map_results</code>, <code>.upload_results_to_bucket</code>, <code>.get_jobtasks</code>, <code>.get_jobtasks_results</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">UP42_JOB_ID</span><span class="o">=</span><span class="s2">&quot;de5806aa-5ef1-4dc9-ab1d-06d7ec1a5021&quot;</span>
 
 <span class="n">job</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_job</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">UP42_JOB_ID</span><span class="p">)</span>
@@ -676,11 +676,11 @@
 </code></pre></div>
 
 <h2 id="jobtask">JobTask<a class="headerlink" href="#jobtask" title="Permanent link">&para;</a></h2>
-<p>Example functions: <code>.get_result_json</code>, <code>.download_results</code>, <code>.get_quicklooks</code></p>
+<p>Example functions: <code>.get_results_json</code>, <code>.download_results</code>, <code>.get_quicklooks</code></p>
 <div class="highlight"><pre><span></span><code><span class="n">UP42_JOBTASK_ID</span><span class="o">=</span><span class="s2">&quot;3f772637-09aa-4164-bded-692fcd746d20&quot;</span>
 
 <span class="n">jobtask</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_jobtask</span><span class="p">(</span><span class="n">jobtask_id</span><span class="o">=</span><span class="n">UP42_JOBTASK_ID</span><span class="p">,</span>
-                                 <span class="n">job_id</span><span class="o">=</span><span class="n">UP42_JOB_ID</span><span class="p">)</span>
+                                  <span class="n">job_id</span><span class="o">=</span><span class="n">UP42_JOB_ID</span><span class="p">)</span>
 <span class="n">jobtask</span>
 </code></pre></div>
 

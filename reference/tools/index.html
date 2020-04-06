@@ -499,15 +499,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_quicklook" class="md-nav__link">
-    plot_quicklook()
+  <a href="#up42.tools.Tools.plot_quicklooks" class="md-nav__link">
+    plot_quicklooks()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_result" class="md-nav__link">
-    plot_result()
+  <a href="#up42.tools.Tools.plot_results" class="md-nav__link">
+    plot_results()
   </a>
   
 </li>
@@ -641,15 +641,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_quicklook" class="md-nav__link">
-    plot_quicklook()
+  <a href="#up42.tools.Tools.plot_quicklooks" class="md-nav__link">
+    plot_quicklooks()
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_result" class="md-nav__link">
-    plot_result()
+  <a href="#up42.tools.Tools.plot_results" class="md-nav__link">
+    plot_results()
   </a>
   
 </li>
@@ -706,12 +706,12 @@
 <span class="sd">        They can be accessed from every object and also from the imported up42 package directly.</span>
 
 <span class="sd">        Public methods:</span>
-<span class="sd">            read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklook</span>
+<span class="sd">            read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklooks</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -720,7 +720,7 @@
 e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.
 They can be accessed from every object and also from the imported up42 package directly.</p>
 <p>Public methods:
-    read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklook</p>
+    read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklooks</p>
 <h2 id="up42.tools.Tools.draw_aoi"><code class="highlight"><span class="n">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.draw_aoi" title="Permanent link">&para;</a></h2>
 <details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>116
 117
@@ -963,7 +963,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 
         <span class="k">if</span> <span class="n">basic</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="s2">&quot;Getting basic information, use basic=False for all block details.&quot;</span>
+                <span class="s2">&quot;Getting blocks name and id, use basic=False for all block details.&quot;</span>
             <span class="p">)</span>
             <span class="n">blocks_basic</span> <span class="o">=</span> <span class="p">{</span><span class="n">block</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]:</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocks_json</span><span class="p">}</span>
             <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
@@ -1191,9 +1191,9 @@ the server, includes all manifest.json and marketplace.json contents.</p>
         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots a coverage map of a dataframe with geometries e.g. the result of catalog.search())</span>
+<span class="sd">        Plots a coverage map of a dataframe with geometries e.g. the results of catalog.search())</span>
 <span class="sd">        Args:</span>
-<span class="sd">            scenes: GeoDataFrame of scenes, result of catalog.search()</span>
+<span class="sd">            scenes: GeoDataFrame of scenes, results of catalog.search()</span>
 <span class="sd">            aoi: GeoDataFrame of aoi.</span>
 <span class="sd">            legend_column: Dataframe column set to legend, default is &quot;scene_id&quot;.</span>
 <span class="sd">                Legend entries are sorted and this determines plotting order.</span>
@@ -1232,7 +1232,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </td></tr></table>
 
 </details>
-<p>Plots a coverage map of a dataframe with geometries e.g. the result of catalog.search())
+<p>Plots a coverage map of a dataframe with geometries e.g. the results of catalog.search())
 <strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1247,7 +1247,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 <tr>
 <td><code>scenes</code></td>
 <td><code>GeoDataFrame</code></td>
-<td>GeoDataFrame of scenes, result of catalog.search()</td>
+<td>GeoDataFrame of scenes, results of catalog.search()</td>
 <td><em>required</em></td>
 </tr>
 <tr>
@@ -1270,7 +1270,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.plot_quicklook"><code class="highlight"><span class="n">plot_quicklook</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_quicklook" title="Permanent link">&para;</a></h2>
+<h2 id="up42.tools.Tools.plot_quicklooks"><code class="highlight"><span class="n">plot_quicklooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_quicklooks" title="Permanent link">&para;</a></h2>
 <details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>191
 192
 193
@@ -1312,11 +1312,11 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 229
 230
 231
-232</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklook</span><span class="p">(</span>
+232</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklooks</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots the downloaded quicklooks (filepaths saved to self.quicklook of the</span>
+<span class="sd">        Plots the downloaded quicklooks (filepaths saved to self.quicklooks of the</span>
 <span class="sd">        respective object, e.g. job, catalog).</span>
 
 <span class="sd">        Args:</span>
@@ -1327,11 +1327,11 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 
         <span class="c1"># TODO: Remove empty axes &amp; give title option.</span>
         <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">&quot;You first need to download the quicklooks via .download_quicklook().&quot;</span>
+                    <span class="s2">&quot;You first need to download the quicklooks via .download_quicklooks().&quot;</span>
                 <span class="p">)</span>
-            <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklook</span>
+            <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span>
 
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
@@ -1358,7 +1358,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </td></tr></table>
 
 </details>
-<p>Plots the downloaded quicklooks (filepaths saved to self.quicklook of the
+<p>Plots the downloaded quicklooks (filepaths saved to self.quicklooks of the
 respective object, e.g. job, catalog).</p>
 <p><strong>Parameters</strong></p>
 <table>
@@ -1379,7 +1379,7 @@ respective object, e.g. job, catalog).</p>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.plot_result"><code class="highlight"><span class="n">plot_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_result" title="Permanent link">&para;</a></h2>
+<h2 id="up42.tools.Tools.plot_results"><code class="highlight"><span class="n">plot_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_results" title="Permanent link">&para;</a></h2>
 <details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>234
 235
 236
@@ -1440,7 +1440,7 @@ respective object, e.g. job, catalog).</p>
 291
 292
 293
-294</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_result</span><span class="p">(</span>
+294</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
         <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1456,9 +1456,9 @@ respective object, e.g. job, catalog).</p>
         <span class="c1"># TODO: Handle more bands.</span>
         <span class="c1"># TODO: add histogram equalization? But requires skimage dependency.</span>
         <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You first need to download the results.&quot;</span><span class="p">)</span>
-            <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">result</span>
+            <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepaths</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
             <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">filepaths</span><span class="p">]</span>
         <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span><span class="p">]</span>
@@ -1733,7 +1733,7 @@ for use as the aoi geometry in the workflow input parameters
 <span class="sd">            path_or_json: The input manifest, either filepath or json string, see example.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            A dictionary with the validation result and potential validation errors.</span>
+<span class="sd">            A dictionary with the validation results and potential validation errors.</span>
 
 <span class="sd">        Example:</span>
 <span class="sd">            ```json</span>
@@ -1822,7 +1822,7 @@ for use as the aoi geometry in the workflow input parameters
 <tbody>
 <tr>
 <td><code>Dict</code></td>
-<td>A dictionary with the validation result and potential validation errors.</td>
+<td>A dictionary with the validation results and potential validation errors.</td>
 </tr>
 </tbody>
 </table>

@@ -599,31 +599,78 @@ The area of interest and workflow parameters are defined. After running the job,
 
 <div class="highlight"><pre><span></span><code><span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
 <span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
+<span class="n">project</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">workflow</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;30-seconds-workflow&quot;</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># Add blocks/tasks to the workflow.</span>
+<div class="codehilite"><pre><span></span><code>2020-04-06 17:01:17,658 - up42.auth - INFO - Got credentials from config file.
+2020-04-06 17:01:17,926 - up42.auth - INFO - Authentication with UP42 successful!
+2020-04-06 17:01:17,926 - up42 - INFO - Working on Project with project_id 8956d18d-33bc-47cb-93bd-0055ff21da8f
+
+
+
+
+
+Project(project_id=8956d18d-33bc-47cb-93bd-0055ff21da8f, auth=UP42ProjectAuth(project_id=8956d18d-33bc-47cb-93bd-0055ff21da8f, env=dev), info={&#39;id&#39;: &#39;8956d18d-33bc-47cb-93bd-0055ff21da8f&#39;, &#39;displayId&#39;: &#39;8956d18d&#39;, &#39;createdAt&#39;: &#39;2020-03-04T10:11:05.679Z&#39;, &#39;updatedAt&#39;: &#39;2020-03-04T10:11:05.679Z&#39;, &#39;name&#39;: &#39;30-seconds-example&#39;, &#39;description&#39;: &#39;up42-py showcase&#39;})
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Add blocks/tasks to the workflow.</span>
+<span class="n">workflow</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;30-seconds-workflow&quot;</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">blocks</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">get_blocks</span><span class="p">(</span><span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">input_tasks</span><span class="o">=</span> <span class="p">[</span><span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;sobloo-s2-l1c-aoiclipped&#39;</span><span class="p">],</span> 
               <span class="n">blocks</span><span class="p">[</span><span class="s1">&#39;sharpening&#39;</span><span class="p">]]</span>
 <span class="n">workflow</span><span class="o">.</span><span class="n">add_workflow_tasks</span><span class="p">(</span><span class="n">input_tasks</span><span class="o">=</span><span class="n">input_tasks</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="codehilite"><pre><span></span><code>2020-04-06 17:01:18,380 - up42.project - INFO - Getting existing workflows in project ...
+2020-04-06 17:01:18,810 - up42.project - INFO - Got 10 workflows for project 8956d18d-33bc-47cb-93bd-0055ff21da8f.
+100%|██████████| 10/10 [00:04&lt;00:00,  2.39it/s]
+2020-04-06 17:01:23,002 - up42.project - INFO - Using existing workflow: 30-seconds-workflow, 7fb2ec8a-45be-41ad-a50f-98ba6b528b98.
+2020-04-06 17:01:23,634 - up42.tools - INFO - Getting blocks name and id, use basic=False for all block details.
+2020-04-06 17:01:24,895 - up42.workflow - INFO - Added tasks to workflow: [{&#39;name&#39;: &#39;sobloo-s2-l1c-aoiclipped:1&#39;, &#39;parentName&#39;: None, &#39;blockId&#39;: &#39;a2daaab4-196d-4226-a018-a810444dcad1&#39;}, {&#39;name&#39;: &#39;sharpening:1&#39;, &#39;parentName&#39;: &#39;sobloo-s2-l1c-aoiclipped:1&#39;, &#39;blockId&#39;: &#39;4ed70368-d4e1-4462-bef6-14e768049471&#39;}]
+</code></pre></div>
+
+
 <div class="highlight"><pre><span></span><code><span class="c1"># Define the aoi and input parameters of the workflow to run it.</span>
 <span class="n">aoi</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span><span class="s2">&quot;data/aoi_berlin.geojson&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">input_parameters</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">construct_parameter</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
-                                                <span class="n">geometry_operation</span><span class="o">=</span><span class="s2">&quot;bbox&quot;</span><span class="p">,</span> 
-                                                <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2020-01-01&quot;</span><span class="p">,</span>
-                                                <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2020-01-20&quot;</span><span class="p">,</span>
-                                                <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">input_parameters</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">construct_parameters</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
+                                                 <span class="n">geometry_operation</span><span class="o">=</span><span class="s2">&quot;bbox&quot;</span><span class="p">,</span> 
+                                                 <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2018-01-01&quot;</span><span class="p">,</span>
+                                                 <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2020-12-31&quot;</span><span class="p">,</span>
+                                                 <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">input_parameters</span>
 </code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>{&#39;sobloo-s2-l1c-aoiclipped:1&#39;: {&#39;time&#39;: &#39;2020-01-01T00:00:00Z/2020-01-20T00:00:00Z&#39;,
+  &#39;limit&#39;: 1,
+  &#39;zoom_level&#39;: 14,
+  &#39;max_cloud_cover&#39;: 100,
+  &#39;bbox&#39;: [13.375966, 52.515068, 13.378314, 52.516639]},
+ &#39;sharpening:1&#39;: {&#39;strength&#39;: &#39;medium&#39;}}
+</code></pre></div>
+
 
 <div class="highlight"><pre><span></span><code><span class="n">job</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">create_and_run_job</span><span class="p">(</span><span class="n">input_parameters</span><span class="o">=</span><span class="n">input_parameters</span><span class="p">)</span>
 <span class="n">job</span><span class="o">.</span><span class="n">track_status</span><span class="p">()</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">job</span><span class="o">.</span><span class="n">download_result</span><span class="p">()</span>
-<span class="n">job</span><span class="o">.</span><span class="n">map_result</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code>2020-04-06 17:01:25,491 - up42.workflow - INFO - Selected input_parameters: {&#39;sobloo-s2-l1c-aoiclipped:1&#39;: {&#39;time&#39;: &#39;2020-01-01T00:00:00Z/2020-01-20T00:00:00Z&#39;, &#39;limit&#39;: 1, &#39;zoom_level&#39;: 14, &#39;max_cloud_cover&#39;: 100, &#39;bbox&#39;: [13.375966, 52.515068, 13.378314, 52.516639]}, &#39;sharpening:1&#39;: {&#39;strength&#39;: &#39;medium&#39;}}.
+2020-04-06 17:01:27,088 - up42.workflow - INFO - Created and running new job: 8897a5a4-f35a-4a3b-9c70-c2d01af097b7.
+2020-04-06 17:01:27,509 - up42.job - INFO - Tracking job status continuously, reporting every 30 seconds...
+2020-04-06 17:02:00,519 - up42.job - INFO - Job finished successfully! - 8897a5a4-f35a-4a3b-9c70-c2d01af097b7
+
+
+
+
+
+&#39;SUCCEEDED&#39;
+</code></pre></div>
+
+
+<div class="highlight"><pre><span></span><code><span class="n">job</span><span class="o">.</span><span class="n">download_results</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">job</span><span class="o">.</span><span class="n">plot_results</span><span class="p">()</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>

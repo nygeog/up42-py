@@ -669,7 +669,8 @@
 <span class="n">project</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">project</span><span class="o">.</span><span class="n">update_project_settings</span><span class="p">(</span><span class="n">max_concurrent_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Only works when you have added your credit card information to the UP42 account.</span>
+<span class="n">project</span><span class="o">.</span><span class="n">update_project_settings</span><span class="p">(</span><span class="n">max_concurrent_jobs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="n">workflow</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_workflow</span><span class="p">(</span><span class="s2">&quot;workflow_demo_airplanes&quot;</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -686,10 +687,11 @@
 </code></pre></div>
 
 <h3 id="run-jobs-in-parallel">Run jobs in parallel<a class="headerlink" href="#run-jobs-in-parallel" title="Permanent link">&para;</a></h3>
+<p>Very crude, this will soon be available in the API in one command!</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Run jobs in parallel</span>
 <span class="n">jobs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">airport</span> <span class="ow">in</span> <span class="n">airports</span><span class="o">.</span><span class="n">geometry</span><span class="p">:</span>
-    <span class="n">input_parameters</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">construct_parameter</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">airport</span><span class="p">,</span> <span class="n">geometry_operation</span><span class="o">=</span><span class="s2">&quot;bbox&quot;</span><span class="p">)</span>
+    <span class="n">input_parameters</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">construct_parameters</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">airport</span><span class="p">,</span> <span class="n">geometry_operation</span><span class="o">=</span><span class="s2">&quot;bbox&quot;</span><span class="p">)</span>
     <span class="n">input_parameters</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">selected_block</span><span class="si">}</span><span class="s2">:1&quot;</span><span class="p">][</span><span class="s2">&quot;max_cloud_cover&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 
     <span class="n">job</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">create_and_run_job</span><span class="p">(</span><span class="n">input_parameters</span><span class="o">=</span><span class="n">input_parameters</span><span class="p">)</span>
@@ -703,14 +705,14 @@
 <span class="n">outdir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
 <span class="n">out_filepaths</span><span class="o">=</span><span class="p">[]</span>
 <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">jobs</span><span class="p">:</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">download_result</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="n">outdir</span> <span class="o">/</span> <span class="s2">&quot;img&quot;</span><span class="p">)</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">download_results</span><span class="p">(</span><span class="n">out_dir</span><span class="o">=</span><span class="n">outdir</span> <span class="o">/</span> <span class="s2">&quot;img&quot;</span><span class="p">)</span>
     <span class="n">out_filepaths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finished&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code><span class="c1"># Visualize downloaded results</span>
-<span class="n">api</span><span class="o">.</span><span class="n">plot_result</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">22</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="n">out_filepaths</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="n">airports</span><span class="o">.</span><span class="n">airport</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+<span class="n">api</span><span class="o">.</span><span class="n">plot_results</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span><span class="mi">22</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="n">out_filepaths</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="n">airports</span><span class="o">.</span><span class="n">airport</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>

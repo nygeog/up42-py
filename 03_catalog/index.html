@@ -574,13 +574,21 @@
                 
                 
                 <h1 id="catalog-search">Catalog Search<a class="headerlink" href="#catalog-search" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
-</code></pre></div>
-
 <div class="highlight"><pre><span></span><code><span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span><span class="p">)</span>
 <span class="n">catalog</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_catalog</span><span class="p">()</span>
 <span class="n">catalog</span>
 </code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>2020-04-06 17:10:53,304 - up42.auth - INFO - Got credentials from config file.
+2020-04-06 17:10:53,570 - up42.auth - INFO - Authentication with UP42 successful!
+
+
+
+
+
+Catalog(querystring={&#39;backend&#39;: &#39;ONE_ATLAS&#39;}, auth=UP42ProjectAuth(project_id=8956d18d-33bc-47cb-93bd-0055ff21da8f, env=dev))
+</code></pre></div>
+
 
 <h2 id="search-available-scenes-within-aoi">Search available scenes within aoi<a class="headerlink" href="#search-available-scenes-within-aoi" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1">#aoi = up42.read_vector_file(&quot;data/aoi_berlin.geojson&quot;, </span>
@@ -589,16 +597,142 @@
 <span class="n">aoi</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">search_paramaters</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">construct_parameter</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
-                                                <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2014-01-01&quot;</span><span class="p">,</span>
-                                                <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2016-12-31&quot;</span><span class="p">,</span>
-                                                <span class="n">sensors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pleiades&quot;</span><span class="p">],</span>
-                                                <span class="n">max_cloudcover</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-                                                <span class="n">sortby</span><span class="o">=</span><span class="s2">&quot;cloudCoverage&quot;</span><span class="p">,</span> 
-                                                <span class="n">limit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code>2020-04-06 17:10:54,784 - up42.tools - INFO - Getting small example aoi in Berlin.
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>POLYGON ((13.37597 52.51507, 13.37597 52.51664...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="highlight"><pre><span></span><code><span class="n">search_paramaters</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">construct_parameters</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
+                                                 <span class="n">start_date</span><span class="o">=</span><span class="s2">&quot;2019-01-01&quot;</span><span class="p">,</span>
+                                                 <span class="n">end_date</span><span class="o">=</span><span class="s2">&quot;2020-12-31&quot;</span><span class="p">,</span>
+                                                 <span class="n">sensors</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;pleiades&quot;</span><span class="p">],</span>
+                                                 <span class="n">max_cloudcover</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+                                                 <span class="n">sortby</span><span class="o">=</span><span class="s2">&quot;cloudCoverage&quot;</span><span class="p">,</span> 
+                                                 <span class="n">limit</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">search_results</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">search_paramaters</span><span class="o">=</span><span class="n">search_paramaters</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">search_results</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>2020-04-06 17:11:06,639 - up42.catalog - INFO - Searching catalog with: {&#39;datetime&#39;: &#39;2019-01-01T00:00:00Z/2020-12-31T00:00:00Z&#39;, &#39;intersects&#39;: {&#39;type&#39;: &#39;Polygon&#39;, &#39;coordinates&#39;: (((13.375966, 52.515068), (13.375966, 52.516639), (13.378314, 52.516639), (13.378314, 52.515068), (13.375966, 52.515068)),)}, &#39;limit&#39;: 4, &#39;query&#39;: {&#39;cloudCoverage&#39;: {&#39;lte&#39;: 20}, &#39;dataBlock&#39;: {&#39;in&#39;: [&#39;oneatlas-pleiades-fullscene&#39;, &#39;oneatlas-pleiades-aoiclipped&#39;]}}, &#39;sortby&#39;: [{&#39;field&#39;: &#39;properties.cloudCoverage&#39;, &#39;direction&#39;: &#39;asc&#39;}]}
+2020-04-06 17:11:07,251 - up42.catalog - INFO - 4 results returned.
+</code></pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>geometry</th>
+      <th>id</th>
+      <th>acquisitionDate</th>
+      <th>constellation</th>
+      <th>providerName</th>
+      <th>blockNames</th>
+      <th>cloudCoverage</th>
+      <th>providerProperties</th>
+      <th>scene_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>POLYGON ((13.09289 52.79625, 13.09433 52.29334...</td>
+      <td>dbae2873-1f28-4525-9c15-79bcf83cf9cb</td>
+      <td>2020-01-16T10:23:35Z</td>
+      <td>PHR</td>
+      <td>oneatlas</td>
+      <td>[oneatlas-pleiades-fullscene, oneatlas-pleiade...</td>
+      <td>0.000000</td>
+      <td>{'acquisitionDate': '2020-01-16T10:23:35.93Z',...</td>
+      <td>DS_PHR1A_202001161023359_FR1_PX_E013N52_0314_0...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>POLYGON ((13.24672 52.55035, 13.24685 52.48391...</td>
+      <td>8eb6d2fb-f508-45ce-a4ce-fa67422a913d</td>
+      <td>2020-03-27T10:26:45Z</td>
+      <td>PHR</td>
+      <td>oneatlas</td>
+      <td>[oneatlas-pleiades-fullscene, oneatlas-pleiade...</td>
+      <td>0.000000</td>
+      <td>{'commercialReference': 'SO20013308', 'acquisi...</td>
+      <td>DS_PHR1A_202003271026453_FR1_PX_E013N52_0513_0...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>POLYGON ((13.33259 52.63683, 13.33508 52.29182...</td>
+      <td>66d7efe9-74d5-4cd7-bf4a-6b2f8b9e8b8f</td>
+      <td>2020-01-18T10:08:43Z</td>
+      <td>PHR</td>
+      <td>oneatlas</td>
+      <td>[oneatlas-pleiades-fullscene, oneatlas-pleiade...</td>
+      <td>0.030175</td>
+      <td>{'acquisitionDate': '2020-01-18T10:08:43.43Z',...</td>
+      <td>DS_PHR1A_202001181008434_FR1_PX_E013N52_0612_0...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>POLYGON ((13.08185 52.64325, 13.08460 52.29103...</td>
+      <td>573f7a1e-a7ab-4d7e-9ae9-cd16af30f87d</td>
+      <td>2020-01-18T10:08:56Z</td>
+      <td>PHR</td>
+      <td>oneatlas</td>
+      <td>[oneatlas-pleiades-fullscene, oneatlas-pleiade...</td>
+      <td>0.045232</td>
+      <td>{'acquisitionDate': '2020-01-18T10:08:56.931Z'...</td>
+      <td>DS_PHR1A_202001181008569_FR1_PX_E013N52_0312_0...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 <div class="highlight"><pre><span></span><code><span class="n">catalog</span><span class="o">.</span><span class="n">plot_coverage</span><span class="p">(</span><span class="n">scenes</span><span class="o">=</span><span class="n">search_results</span><span class="p">,</span> 
                       <span class="n">aoi</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> 
@@ -606,12 +740,10 @@
 </code></pre></div>
 
 <h2 id="quicklooks">Quicklooks<a class="headerlink" href="#quicklooks" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="n">catalog</span><span class="o">.</span><span class="n">download_quicklook</span><span class="p">(</span><span class="n">image_ids</span><span class="o">=</span><span class="n">search_results</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> 
-                           <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;oneatlas&quot;</span><span class="p">,</span> 
-                           <span class="n">out_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">catalog</span><span class="o">.</span><span class="n">download_quicklooks</span><span class="p">(</span><span class="n">image_ids</span><span class="o">=</span><span class="n">search_results</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span> <span class="n">provider</span><span class="o">=</span><span class="s2">&quot;oneatlas&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">catalog</span><span class="o">.</span><span class="n">plot_quicklook</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">catalog</span><span class="o">.</span><span class="n">plot_quicklooks</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>
