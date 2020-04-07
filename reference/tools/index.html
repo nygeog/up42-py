@@ -818,7 +818,7 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 <span class="sd">        Returns:</span>
 <span class="sd">            A dict of the block details metadata for the specific block.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">&quot;</span>  <span class="c1"># public blocks</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/blocks/</span><span class="si">{block_id}</span><span class="s2">&quot;</span>  <span class="c1"># public blocks</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">details_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
@@ -944,7 +944,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
             <span class="k">pass</span>
 
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/blocks&quot;</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">public_blocks_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
@@ -1077,11 +1077,11 @@ the server, includes all manifest.json and marketplace.json contents.</p>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting small example aoi in </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">:</span>
             <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_berlin.geojson&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;{os.path.dirname(__file__)}/data/aoi_berlin.geojson&quot;</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Washington&quot;</span><span class="p">:</span>
             <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_washington.geojson&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;{os.path.dirname(__file__)}/data/aoi_washington.geojson&quot;</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">:</span>
             <span class="k">pass</span>
@@ -1469,7 +1469,7 @@ respective object, e.g. job, catalog).</p>
         <span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">imagepaths</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Only results of the formats </span><span class="si">{</span><span class="n">plot_file_format</span><span class="si">}</span><span class="s2"> can &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Only results of the formats </span><span class="si">{plot_file_format}</span><span class="s2"> can &quot;</span>
                 <span class="s2">&quot;currently be plotted.&quot;</span>
             <span class="p">)</span>
 
@@ -1781,7 +1781,7 @@ for use as the aoi geometry in the workflow input parameters
                 <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">path_or_json</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/validate-schema/block&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/validate-schema/block&quot;</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
             <span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">manifest_json</span>
         <span class="p">)</span>

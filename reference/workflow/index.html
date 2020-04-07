@@ -801,8 +801,8 @@ and aoi.</p>
             <span class="n">input_tasks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_construct_full_workflow_tasks_dict</span><span class="p">(</span><span class="n">input_tasks</span><span class="p">)</span>
 
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/workflows/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">/tasks/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/workflows/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.workflow_id}</span><span class="s2">/tasks/&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">input_tasks</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Added tasks to workflow: </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">input_tasks</span><span class="p">)</span>
@@ -921,7 +921,8 @@ and aoi.</p>
 307
 308
 309
-310</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">construct_parameters</span><span class="p">(</span>
+310
+311</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">construct_parameters</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">geometry</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span>
             <span class="n">Union</span><span class="p">[</span>
@@ -931,7 +932,8 @@ and aoi.</p>
                 <span class="n">geojson</span><span class="o">.</span><span class="n">Polygon</span><span class="p">,</span>
                 <span class="n">List</span><span class="p">,</span>
                 <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span>
-                <span class="n">shapely</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">polygon</span><span class="o">.</span><span class="n">Polygon</span><span class="p">,</span>
+                <span class="n">Polygon</span><span class="p">,</span>
+                <span class="n">Point</span><span class="p">,</span>
             <span class="p">]</span>
         <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">geometry_operation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -949,8 +951,8 @@ and aoi.</p>
 
 <span class="sd">        Args:</span>
 <span class="sd">            geometry: One of Dict, FeatureCollection, Feature, List,</span>
-<span class="sd">                gpd.GeoDataFrame, shapely.geometry.polygon.Polygon. All assume EPSG 4326</span>
-<span class="sd">                and Polygons!</span>
+<span class="sd">                gpd.GeoDataFrame, shapely.geometry.Polygon, shapely.geometry.Point. All</span>
+<span class="sd">                assume EPSG 4326.</span>
 <span class="sd">            geometry_operation: Desired operation, One of &quot;bbox&quot;, &quot;intersects&quot;, &quot;contains&quot;.</span>
 <span class="sd">            limit: Maximum number of expected results.</span>
 <span class="sd">            start_date: Query period starting day, format &quot;2020-01-01&quot;.</span>
@@ -982,7 +984,7 @@ and aoi.</p>
                 <span class="n">input_parameters</span><span class="p">[</span><span class="n">data_block_name</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
                 <span class="c1"># TODO: In case of ids remove all non-relevant parameters. Cleaner.</span>
             <span class="k">elif</span> <span class="n">start_date</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">end_date</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">datetime</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">start_date</span><span class="si">}</span><span class="s2">T00:00:00Z/</span><span class="si">{</span><span class="n">end_date</span><span class="si">}</span><span class="s2">T00:00:00Z&quot;</span>
+                <span class="n">datetime</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{start_date}</span><span class="s2">T00:00:00Z/</span><span class="si">{end_date}</span><span class="s2">T00:00:00Z&quot;</span>
                 <span class="n">input_parameters</span><span class="p">[</span><span class="n">data_block_name</span><span class="p">][</span><span class="s2">&quot;time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datetime</span>
             <span class="n">aoi_fc</span> <span class="o">=</span> <span class="n">any_vector_to_fc</span><span class="p">(</span><span class="n">vector</span><span class="o">=</span><span class="n">geometry</span><span class="p">,)</span>
             <span class="n">aoi_feature</span> <span class="o">=</span> <span class="n">fc_to_query_geometry</span><span class="p">(</span>
@@ -1013,8 +1015,8 @@ via dict.update({key:value}).</p>
 <tbody>
 <tr>
 <td><code>geometry</code></td>
-<td><code>Optional[Union[Dict, geojson.feature.Feature, geojson.feature.FeatureCollection, geojson.geometry.Polygon, List, geopandas.geodataframe.GeoDataFrame, shapely.geometry.polygon.Polygon]]</code></td>
-<td>One of Dict, FeatureCollection, Feature, List, gpd.GeoDataFrame, shapely.geometry.polygon.Polygon. All assume EPSG 4326 and Polygons!</td>
+<td><code>Optional[Union[Dict, geojson.feature.Feature, geojson.feature.FeatureCollection, geojson.geometry.Polygon, List, geopandas.geodataframe.GeoDataFrame, shapely.geometry.polygon.Polygon, shapely.geometry.point.Point]]</code></td>
+<td>One of Dict, FeatureCollection, Feature, List, gpd.GeoDataFrame, shapely.geometry.Polygon, shapely.geometry.Point. All assume EPSG 4326.</td>
 <td><code>None</code></td>
 </tr>
 <tr>
@@ -1071,8 +1073,7 @@ via dict.update({key:value}).</p>
 </tbody>
 </table>
 <h2 id="up42.workflow.Workflow.create_and_run_job"><code class="highlight"><span class="n">create_and_run_job</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_parameters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">test_query</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">track_status</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.create_and_run_job" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>312
-313
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>313
 314
 315
 316
@@ -1122,7 +1123,8 @@ via dict.update({key:value}).</p>
 360
 361
 362
-363</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_and_run_job</span><span class="p">(</span>
+363
+364</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">create_and_run_job</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">input_parameters</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">test_query</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1161,8 +1163,8 @@ via dict.update({key:value}).</p>
 
         <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;_py&quot;</span>  <span class="c1"># Enables recognition of python API usage.</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;workflows/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">/jobs?name=</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;workflows/</span><span class="si">{self.workflow_id}</span><span class="s2">/jobs?name=</span><span class="si">{name}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
             <span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">input_parameters</span>
@@ -1226,8 +1228,7 @@ via dict.update({key:value}).</p>
 </tbody>
 </table>
 <h2 id="up42.workflow.Workflow.delete"><code class="highlight"><span class="n">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.delete" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>409
-410
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>410
 411
 412
 413
@@ -1236,13 +1237,14 @@ via dict.update({key:value}).</p>
 416
 417
 418
-419</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+419
+420</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Deletes the workflow and sets the Python object to None.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/workflows/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/workflows/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.workflow_id}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;DELETE&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">return_text</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Successfully deleted workflow: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="p">)</span>
@@ -1282,8 +1284,8 @@ via dict.update({key:value}).</p>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">last_task</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_workflow_tasks</span><span class="p">(</span><span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># type: ignore</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/workflows/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;compatible-blocks?parentTaskName=</span><span class="si">{</span><span class="n">last_task</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/workflows/</span><span class="si">{self.workflow_id}</span><span class="s2">/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;compatible-blocks?parentTaskName=</span><span class="si">{last_task}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">compatible_blocks</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;blocks&quot;</span><span class="p">]</span>
@@ -1301,8 +1303,7 @@ it will provide all data blocks, if the workflow already has workflow tasks, it
 will provide the compatible blocks for the last workflow task in the workflow.</p>
 <p>Currently no data blocks can be attached to other data blocks.</p>
 <h2 id="up42.workflow.Workflow.get_jobs"><code class="highlight"><span class="n">get_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.get_jobs" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>365
-366
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>366
 367
 368
 369
@@ -1327,7 +1328,8 @@ will provide the compatible blocks for the last workflow task in the workflow.</
 388
 389
 390
-391</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Job&quot;</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+391
+392</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_jobs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">return_json</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="s2">&quot;Job&quot;</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get all jobs in the specific project as job objects or json.</span>
 
@@ -1337,7 +1339,7 @@ will provide the compatible blocks for the last workflow task in the workflow.</
 <span class="sd">        Returns:</span>
 <span class="sd">            All job objects as a list, or alternatively the jobs info as json.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs&quot;</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">jobs_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
@@ -1477,8 +1479,8 @@ make it easy to construct the desired parameters.</p>
 <span class="sd">            The workflow task info.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/workflows/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">/tasks&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/workflows/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.workflow_id}</span><span class="s2">/tasks&quot;</span>
         <span class="p">)</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">tasks</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
@@ -1528,8 +1530,7 @@ make it easy to construct the desired parameters.</p>
 </tbody>
 </table>
 <h2 id="up42.workflow.Workflow.update_name"><code class="highlight"><span class="n">update_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.workflow.Workflow.update_name" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>393
-394
+<details class="note"><summary>Show source code in <code>up42/workflow.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>394
 395
 396
 397
@@ -1542,7 +1543,8 @@ make it easy to construct the desired parameters.</p>
 404
 405
 406
-407</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">update_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+407
+408</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">update_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Updates the workflow name and description.</span>
 
@@ -1552,8 +1554,8 @@ make it easy to construct the desired parameters.</p>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">properties_to_update</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="n">description</span><span class="p">}</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/workflows/&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">workflow_id</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/workflows/&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.workflow_id}</span><span class="s2">&quot;</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;PUT&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">properties_to_update</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Updated workflow name: </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">properties_to_update</span><span class="p">)</span>

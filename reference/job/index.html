@@ -771,7 +771,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 116
 117</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">cancel_job</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Cancels a pending or running job.&quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">/cancel/&quot;</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/jobs/</span><span class="si">{self.job_id}</span><span class="s2">/cancel/&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Job canceled: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="p">)</span>
 </code></pre></div>
@@ -779,7 +779,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 
 </details>
 <p>Cancels a pending or running job.</p>
-<h2 id="up42.job.Job.download_quicklooks"><code class="highlight"><span class="n">download_quicklooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.download_quicklooks" title="Permanent link">&para;</a></h2>
+<h2 id="up42.job.Job.download_quicklooks"><code class="highlight"><span class="n">download_quicklooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.job.Job.download_quicklooks" title="Permanent link">&para;</a></h2>
 <details class="note"><summary>Show source code in <code>up42/job.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>119
 120
 121
@@ -795,7 +795,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 131
 132
 133</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_quicklooks</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Conveniance function that downloads the quicklooks of the data (dirst) jobtask.</span>
@@ -865,7 +865,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 
         <span class="k">if</span> <span class="n">output_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">output_directory</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;project_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;job_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;project_</span><span class="si">{self.auth.project_id}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;job_</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">output_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
@@ -964,7 +964,7 @@ Jobs (Workflows that have been run as Jobs).</p>
 <span class="sd">            The job task objects in a list.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs/</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
             <span class="sa">f</span><span class="s2">&quot;/tasks/&quot;</span>
         <span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting job tasks: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="p">)</span>
@@ -1056,8 +1056,8 @@ Jobs (Workflows that have been run as Jobs).</p>
         <span class="n">jobtasks_results_json</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="k">for</span> <span class="n">jobtask_id</span> <span class="ow">in</span> <span class="n">jobtasks_ids</span><span class="p">:</span>
             <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/outputs/data-json&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs/</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{jobtask_id}</span><span class="s2">/outputs/data-json&quot;</span>
             <span class="p">)</span>
             <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
 
@@ -1145,14 +1145,14 @@ in a dictionary of strings.</p>
 
         <span class="k">if</span> <span class="n">as_print</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Printing logs of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">jobtasks_ids</span><span class="p">)</span><span class="si">}</span><span class="s2"> JobTasks in Job with job_id &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Printing logs of {len(jobtasks_ids)} JobTasks in Job with job_id &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.job_id}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span>
             <span class="p">)</span>
 
         <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">jobtask_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">jobtasks_ids</span><span class="p">):</span>
             <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">/tasks/</span><span class="si">{</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/logs&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs/&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.job_id}</span><span class="s2">/tasks/</span><span class="si">{jobtask_id}</span><span class="s2">/logs&quot;</span>
             <span class="p">)</span>
             <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
 
@@ -1160,7 +1160,7 @@ in a dictionary of strings.</p>
 
             <span class="k">if</span> <span class="n">as_print</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------------------------------------&quot;</span><span class="p">)</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JobTask </span><span class="si">{</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> with jobtask_id </span><span class="si">{</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JobTask {idx+1} with jobtask_id </span><span class="si">{jobtask_id}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="nb">print</span><span class="p">(</span><span class="n">response_json</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">as_return</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">job_logs</span>
@@ -1246,7 +1246,7 @@ in a dictionary of strings.</p>
 <span class="sd">            The job data.json json.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs/</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
             <span class="sa">f</span><span class="s2">&quot;/outputs/data-json/&quot;</span>
         <span class="p">)</span>
         <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
@@ -1493,7 +1493,7 @@ in a dictionary of strings.</p>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">layer_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">name_column</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                <span class="n">layer_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Layer </span><span class="si">{</span><span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="n">layer_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Layer {index+1}&quot;</span>
 
             <span class="n">f</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">GeoJson</span><span class="p">(</span>
                 <span class="n">row</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">],</span>
@@ -1503,13 +1503,13 @@ in a dictionary of strings.</p>
             <span class="p">)</span>
 
             <span class="k">if</span> <span class="ow">not</span> <span class="n">info_columns</span><span class="p">:</span>
-                <span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{layer_name}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">info_columns</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Provide a list!&quot;</span><span class="p">)</span>
-                <span class="n">infos</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="n">info_col</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">info_col</span> <span class="ow">in</span> <span class="n">info_columns</span><span class="p">]</span>
+                <span class="n">infos</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{row[info_col]}</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">info_col</span> <span class="ow">in</span> <span class="n">info_columns</span><span class="p">]</span>
                 <span class="n">infos</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">infos</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
-                <span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">layer_name</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">infos</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{layer_name}</span><span class="se">\n</span><span class="si">{infos}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
             <span class="n">f</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
         <span class="c1"># Same: folium.GeoJson(df, name=name_column, style_function=style_function,</span>
         <span class="c1"># highlight_function=highlight_function).add_to(map)</span>
@@ -1559,7 +1559,7 @@ in a dictionary of strings.</p>
                 <span class="n">folium</span><span class="o">.</span><span class="n">raster_layers</span><span class="o">.</span><span class="n">ImageOverlay</span><span class="p">(</span>
                     <span class="n">dst_array</span><span class="p">,</span>
                     <span class="n">bounds</span><span class="o">=</span><span class="p">[[</span><span class="n">miny</span><span class="p">,</span> <span class="n">minx</span><span class="p">],</span> <span class="p">[</span><span class="n">maxy</span><span class="p">,</span> <span class="n">maxx</span><span class="p">]],</span>  <span class="c1"># andere reihenfolge.</span>
-                    <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Image - </span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">raster_fp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Image - </span><span class="si">{idx}</span><span class="s2"> - </span><span class="si">{raster_fp}</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
 
