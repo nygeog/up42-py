@@ -8,7 +8,7 @@
 <meta content="UP42 Python SDK" name="description"/>
 <link href="../assets/logo-up42.ico" rel="shortcut icon"/>
 <meta content="mkdocs-1.1, mkdocs-material-5.0.2" name="generator"/>
-<title>Installation - UP42 Python SDK</title>
+<title>Typical Usage - UP42 Python SDK</title>
 <link href="../assets/stylesheets/main.07c9fbf5.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.ecd4686e.min.css" rel="stylesheet"/>
 <meta content="#3f51b5" name="theme-color"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#installation">
+<a class="md-skip" href="#typical-usage">
           Skip to content
         </a>
 </div>
@@ -49,7 +49,7 @@
           </span>
 <span class="md-header-nav__topic md-ellipsis">
             
-              Installation
+              Typical Usage
             
           </span>
 </div>
@@ -104,7 +104,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="./">
+<a class="md-tabs__link md-tabs__link--active" href="../installation/">
           Guides
         </a>
 </li>
@@ -177,37 +177,10 @@
         Guides
       </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-        Installation
-        <span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
-</span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./" title="Installation">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../installation/" title="Installation">
       Installation
     </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
-</span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#user-installation">
-    User installation
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#development-installation">
-    Development installation
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../authentication/" title="Authentication">
@@ -224,10 +197,57 @@
       30 Seconds Example
     </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../typical-usage/" title="Typical Usage">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+        Typical Usage
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Typical Usage">
       Typical Usage
     </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#authentificate-access-project">
+    Authentificate &amp; access project
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-or-access-the-workflow">
+    Create or access the workflow
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#select-the-aoi">
+    Select the aoi
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#select-the-workflow-parameters">
+    Select the workflow parameters
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-the-workflow-download-results">
+    Run the workflow &amp; download results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#download-display-results">
+    Download &amp; Display results
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../catalog/" title="Catalog Search">
@@ -356,13 +376,33 @@
     </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#user-installation">
-    User installation
+<a class="md-nav__link" href="#authentificate-access-project">
+    Authentificate &amp; access project
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#development-installation">
-    Development installation
+<a class="md-nav__link" href="#create-or-access-the-workflow">
+    Create or access the workflow
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#select-the-aoi">
+    Select the aoi
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#select-the-workflow-parameters">
+    Select the workflow parameters
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-the-workflow-download-results">
+    Run the workflow &amp; download results
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#download-display-results">
+    Download &amp; Display results
   </a>
 </li>
 </ul>
@@ -372,29 +412,135 @@
 </div>
 <div class="md-content">
 <article class="md-content__inner md-typeset">
-<h1 id="installation"><img alt="💾" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4be.png" title=":floppy_disk:"/> Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h1>
-<h2 id="user-installation">User installation<a class="headerlink" href="#user-installation" title="Permanent link">¶</a></h2>
-<p>Install up42-py via pip. It requires Python version &gt; 3.6.</p>
-<div class="highlight"><pre><span></span><code>pip install up42-py
-</code></pre></div>
-<p>If you have an existing installation, update to the newest version via:</p>
-<div class="highlight"><pre><span></span><code>pip install up42-py --upgrade
-</code></pre></div>
-<p>Test the successful installation by importing the package in Python:
+<h1 id="typical-usage"><img alt="🏞️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f3de.png" title=":national_park:"/> Typical Usage<a class="headerlink" href="#typical-usage" title="Permanent link">¶</a></h1>
+<p>This overview of the most important functions repeats the previous 30-seconds-example, but in more detail and shows additional functionality and alternative steps.</p>
+<h2 id="authentificate-access-project">Authentificate &amp; access project<a class="headerlink" href="#authentificate-access-project" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
-</code></pre></div></p>
-<div class="admonition success">
-<p class="admonition-title">Success!</p>
-<p>Continue with the <a href="../30-seconds-example/">Quickstart</a> and the step-for-step 
-<a href="../authentication/">Getting Started</a> sections!</p>
-</div>
-<p><br/></p>
-<h2 id="development-installation">Development installation<a class="headerlink" href="#development-installation" title="Permanent link">¶</a></h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The development installation is only necessary if you want to contribute to up42-py, e.g. to fix a bug.
-Please see the <a href="https://github.com/up42/up42-py/blob/master/README-dev.md">developer readme</a> for the full installation instructions and further information.</p>
-</div>
+<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">"config.json"</span><span class="p">)</span>
+
+<span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
+</code></pre></div>
+<p>Get information about the available blocks to later construct your workflow.</p>
+<div class="highlight"><pre><span></span><code><span class="n">up42</span><span class="o">.</span><span class="n">get_blocks</span><span class="p">(</span><span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="create-or-access-the-workflow">Create or access the workflow<a class="headerlink" href="#create-or-access-the-workflow" title="Permanent link">¶</a></h2>
+<p>You can either create a new workflow, use project.get_workflows() to get all existing workflows within the project, or access an exisiting workflow directly via its workflow_id.</p>
+<p>Example: Sentinel 2 streaming &amp; sharpening filter</p>
+<p align="center">
+<img align="center" src="_assets/workflow.png" width="400"/>
+</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create a new, empty workflow.</span>
+
+<span class="n">workflow</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">create_workflow</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"30-seconds-workflow"</span><span class="p">,</span> <span class="n">use_existing</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">workflow</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add workflow tasks - simple version</span>
+
+<span class="n">input_tasks</span><span class="o">=</span> <span class="p">[</span><span class="s2">"a2daaab4-196d-4226-a018-a810444dcad1"</span><span class="p">,</span> <span class="s2">"4ed70368-d4e1-4462-bef6-14e768049471"</span><span class="p">]</span>
+<span class="n">workflow</span><span class="o">.</span><span class="n">add_workflow_tasks</span><span class="p">(</span><span class="n">input_tasks</span><span class="o">=</span><span class="n">input_tasks</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Alternative: Add workflow tasks - complex version, gives you more control about the block connections.</span>
+
+<span class="n">input_tasks</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sobloo-s2-l1c-aoiclipped:1"</span><span class="p">,</span>
+        <span class="s2">"parentName"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">"blockId"</span><span class="p">:</span> <span class="s2">"a2daaab4-196d-4226-a018-a810444dcad1"</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sharpening:1"</span><span class="p">,</span>
+        <span class="s2">"parentName"</span><span class="p">:</span> <span class="s2">"sobloo-s2-l1c-aoiclipped:1"</span><span class="p">,</span>
+        <span class="s2">"blockId"</span><span class="p">:</span> <span class="s2">"4ed70368-d4e1-4462-bef6-14e768049471"</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="n">workflow</span><span class="o">.</span><span class="n">add_workflow_tasks</span><span class="p">(</span><span class="n">input_tasks</span><span class="o">=</span><span class="n">input_tasks</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Check the added tasks.</span>
+
+<span class="n">workflow</span><span class="o">.</span><span class="n">get_workflow_tasks</span><span class="p">(</span><span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#workflow.get_jobs()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Alternative: Get all existing workflows within the project.</span>
+
+<span class="n">all_workflows</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">get_workflows</span><span class="p">()</span>
+<span class="n">workflow</span> <span class="o">=</span> <span class="n">all_workflows</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">workflow</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Alternative: Directly access the existing workflow the id (has to exist within the accessed project).</span>
+
+<span class="n">UP42_WORKFLOW_ID</span><span class="o">=</span><span class="s2">"7fb2ec8a-45be-41ad-a50f-98ba6b528b98"</span>
+<span class="n">workflow</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_workflow</span><span class="p">(</span><span class="n">workflow_id</span><span class="o">=</span><span class="n">UP42_WORKFLOW_ID</span><span class="p">)</span>
+
+<span class="n">workflow</span>
+</code></pre></div>
+<h2 id="select-the-aoi">Select the aoi<a class="headerlink" href="#select-the-aoi" title="Permanent link">¶</a></h2>
+<p>There are multiple ways to select an aoi, you can:
+- Provide aoi the geometry directly in code as a FeatureCollection, Feature, GeoDataFrame, shapely Polygon or list of bounds coordinates.
+- Use .draw_aoi() to draw the aoi and export it as a geojson.
+- Use .read_vector_file() to read a geojson, json, shapefile, kml or wkt file.
+- Use .get_example_aoi() to read multiple provided sample aois.</p>
+<div class="highlight"><pre><span></span><code><span class="n">aoi</span> <span class="o">=</span> <span class="p">[</span><span class="mf">13.375966</span><span class="p">,</span> <span class="mf">52.515068</span><span class="p">,</span> <span class="mf">13.378314</span><span class="p">,</span> <span class="mf">52.516639</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">aoi</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span><span class="s2">"data/aoi_berlin.geojson"</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">aoi</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#aoi = workflow.get_example_aoi(location="Berlin")</span>
+<span class="c1">#aoi</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#workflow.draw_aoi()</span>
+</code></pre></div>
+<h2 id="select-the-workflow-parameters">Select the workflow parameters<a class="headerlink" href="#select-the-workflow-parameters" title="Permanent link">¶</a></h2>
+<p>There are also multiple ways to construct the workflow input parameters, you can:
+- Provide the parameters directly in code as a json string.
+- Use .get_parameters_info() to get a an overview of all potential parameters for the selected workflow and information about the parameter defaults and ranges.
+- Use .get_input_parameters(aoi_type="bbox", aoi_geometry=aoi) to construct the parameters with the provided aoi and all default parameters. Selecting the aoi_type is independent from the provided aoi, you can e.g. provide a irregular Polygon and still select aoi_type="bbox", then the bounding box of the polygon will be selected.</p>
+<div class="highlight"><pre><span></span><code><span class="n">workflow</span><span class="o">.</span><span class="n">get_parameters_info</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">input_parameters</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">"sobloo-s2-l1c-aoiclipped:1"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"bbox"</span><span class="p">:</span> <span class="p">[</span><span class="mf">13.375966</span><span class="p">,</span> <span class="mf">52.515068</span><span class="p">,</span> <span class="mf">13.378314</span><span class="p">,</span> <span class="mf">52.516639</span><span class="p">],</span>
+    <span class="s2">"ids"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">"time"</span><span class="p">:</span> <span class="s2">"2018-01-01T00:00:00+00:00/2020-12-31T23:59:59+00:00"</span><span class="p">,</span>
+    <span class="s2">"limit"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"zoom_level"</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span>
+    <span class="s2">"time_series"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s2">"max_cloud_cover"</span><span class="p">:</span> <span class="mi">30</span>
+  <span class="p">},</span>
+  <span class="s2">"sharpening:1"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">"strength"</span><span class="p">:</span> <span class="s2">"medium"</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">input_parameters</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">construct_parameters</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">aoi</span><span class="p">,</span> <span class="n">geometry_operation</span><span class="o">=</span><span class="s2">"bbox"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">input_parameters</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Further update the input_parameters manually</span>
+<span class="n">input_parameters</span><span class="p">[</span><span class="s2">"sobloo-s2-l1c-aoiclipped:1"</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"max_cloud_cover"</span><span class="p">:</span><span class="mi">60</span><span class="p">})</span>
+<span class="n">input_parameters</span>
+</code></pre></div>
+<h2 id="run-the-workflow-download-results">Run the workflow &amp; download results<a class="headerlink" href="#run-the-workflow-download-results" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run the workflow as a test job: Similar to catalog search, only returns whoch images were found for the configuration.</span>
+<span class="n">query_job</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">create_and_run_job</span><span class="p">(</span><span class="n">input_parameters</span><span class="o">=</span><span class="n">input_parameters</span><span class="p">,</span> <span class="n">test_query</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">track_status</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+<span class="n">query_job</span><span class="o">.</span><span class="n">get_results_json</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Run the actual workflow.</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">create_and_run_job</span><span class="p">(</span><span class="n">input_parameters</span><span class="o">=</span><span class="n">input_parameters</span><span class="p">,</span> <span class="n">track_status</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p align="center">
+<img src="_assets/job_running.png" width="700"/>
+</p>
+<h2 id="download-display-results">Download &amp; Display results<a class="headerlink" href="#download-display-results" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Download job result (default downloads to Desktop). Only works after download is finished.</span>
+<span class="n">results_fp</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">download_results</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">job</span><span class="o">.</span><span class="n">plot_results</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">job</span><span class="o">.</span><span class="n">map_results</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
 </article>
 </div>
 </div>
@@ -402,7 +548,7 @@ Please see the <a href="https://github.com/up42/up42-py/blob/master/README-dev.m
 <footer class="md-footer">
 <div class="md-footer-nav">
 <nav aria-label="Footer" class="md-footer-nav__inner md-grid">
-<a class="md-footer-nav__link md-footer-nav__link--prev" href=".." rel="prev" title="Home">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../30-seconds-example/" rel="prev" title="30 Seconds Example">
 <div class="md-footer-nav__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
 </div>
@@ -411,17 +557,17 @@ Please see the <a href="https://github.com/up42/up42-py/blob/master/README-dev.m
 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Home
+                30 Seconds Example
               </div>
 </div>
 </a>
-<a class="md-footer-nav__link md-footer-nav__link--next" href="../authentication/" rel="next" title="Authentication">
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../catalog/" rel="next" title="Catalog Search">
 <div class="md-footer-nav__title">
 <div class="md-ellipsis">
 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Authentication
+                Catalog Search
               </div>
 </div>
 <div class="md-footer-nav__button md-icon">

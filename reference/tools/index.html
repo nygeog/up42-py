@@ -1,694 +1,494 @@
 
+<!DOCTYPE html>
 
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="UP42 Python SDK">
-      
-      
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../../_assets/logo.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
-    
-    
-      
-        <title>Tools - UP42 Python SDK</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#3f51b5">
-      
-    
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-    
-      <link rel="manifest" type="application/manifest+json" href="../../manifest.webmanifest" crossorigin="use-credentials">
-    
-    
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-    
-    
-      
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="purple">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#tools-class" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="UP42 Python SDK" aria-label="UP42 Python SDK" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../_assets/logo.ico" width="24" height="24">
-          
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="UP42 Python SDK" name="description"/>
+<link href="../../assets/logo-up42.ico" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.0.2" name="generator"/>
+<title>Tools - UP42 Python SDK</title>
+<link href="../../assets/stylesheets/main.07c9fbf5.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecd4686e.min.css" rel="stylesheet"/>
+<meta content="#3f51b5" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="https://www.google-analytics.com" rel="preconnect dns-prefetch"/>
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-XXXXXXXX-X","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+</head>
+<body data-md-color-accent="purple" data-md-color-primary="indigo" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#tools-class">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              UP42 Python SDK
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Tools
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header-nav md-grid">
+<a aria-label="UP42 Python SDK" class="md-header-nav__button md-logo" href="../.." title="UP42 Python SDK">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg height="300" preserveaspectratio="xMidYMid meet" version="1.1" viewbox="0 0 300 300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 0L301.5 0L301.5 300L0 300L0 0Z" id="a1GmkaXFhc"></path><path d="M46.9 105.6C46.9 142.93 46.9 163.67 46.9 167.82C46.9 177.98 53.89 183.69 64.36 183.69C74.84 183.69 81.82 178.3 81.82 167.82C81.82 163.67 81.82 142.93 81.82 105.6L105.95 105.6C105.95 142.93 105.95 163.67 105.95 167.82C105.95 190.04 89.44 205.6 64.36 205.6C39.28 205.6 22.46 190.04 22.46 167.82C22.46 163.67 22.46 142.93 22.46 105.6L46.9 105.6Z" id="ePubGLbJJ"></path><path d="M164.89 105.6C184.57 105.6 197.8 119.79 197.8 139.79C197.8 159.79 184.57 174.63 164.89 174.63C163.73 174.63 157.93 174.63 147.48 174.63L147.48 205.6L122.64 205.6L122.64 105.6C147.99 105.6 162.08 105.6 164.89 105.6ZM172.64 140.11C172.64 132.37 168.44 126.56 160.06 126.56C159.22 126.56 155.02 126.56 147.48 126.56L147.48 153.66L159.73 153.66C168.34 149.79 172.64 145.27 172.64 140.11Z" id="e3xlgi979P"></path><path d="M228.42 85.15L237.44 85.15L237.44 118.88L245.01 118.88L245.01 125.37L237.44 125.37L237.44 140.15L229.68 140.15L229.68 125.55L202.63 125.55L202.45 120.5L228.42 85.15ZM229.5 118.7C229.5 106.79 229.5 100.18 229.5 98.86C229.5 96.33 229.86 93.45 229.86 93.45C229.85 93.45 229.7 93.45 229.68 93.45C228.96 95.07 227.88 96.52 226.98 97.96C225.92 99.35 220.63 106.32 211.11 118.88L211.11 118.88L229.5 118.88L229.5 118.7Z" id="c1yTzdREXX"></path><path d="M276.4 101.25C276.4 95.94 272.34 92.23 266.5 92.23C259.25 92.23 255.36 99.13 255.36 99.13C254.8 98.75 250.27 95.78 249.7 95.41C253.24 89.05 259.78 85.15 267.03 85.15C277.11 85.15 284.36 91.34 284.36 100.72C284.36 118.4 258.19 121.23 258.01 133.61C259.83 133.61 268.91 133.61 285.25 133.61L285.25 140.15C264.03 140.15 252.24 140.15 249.88 140.15C249.7 138.56 249.53 137.15 249.53 135.91C249.53 116.63 276.4 113.8 276.4 101.25Z" id="d2t6xtf3zG"></path></defs><g><g><g><use fill="#242c5c" fill-opacity="1" opacity="1" xlink:href="#a1GmkaXFhc"></use></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#ePubGLbJJ"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#ePubGLbJJ"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#e3xlgi979P"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#e3xlgi979P"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#c1yTzdREXX"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#c1yTzdREXX"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#d2t6xtf3zG"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#d2t6xtf3zG"></use></g></g></g></g></svg>
+</a>
+<label class="md-header-nav__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg>
+</label>
+<div class="md-header-nav__title" data-md-component="header-title">
+<div class="md-header-nav__ellipsis">
+<span class="md-header-nav__topic md-ellipsis">
+            UP42 Python SDK
+          </span>
+<span class="md-header-nav__topic md-ellipsis">
+            
+              Tools
+            
+          </span>
+</div>
+</div>
+<label class="md-header-nav__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+</label>
 <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Type to start searching
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/up42/up42-py" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header-nav__source">
+<a class="md-source" href="https://github.com/up42/up42-py" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
     up42-py
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="UP42 Python SDK" class="md-nav__button md-logo">
-      
-        <img alt="logo" src="../../_assets/logo.ico" width="48" height="48">
-      
-    </a>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../installation/">
+          Guides
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../project/">
+          Code Reference
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../examples/examples-intro/">
+          Examples
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../support-faq/">
+          Support &amp; FAQ
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<style>
+    .md-header{position:initial; padding-top: 0.4rem;}
+    .md-tabs{position:initial; padding-top: 0.4rem;}
+  </style>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="UP42 Python SDK" class="md-nav__button md-logo" href="../.." title="UP42 Python SDK">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg height="300" preserveaspectratio="xMidYMid meet" version="1.1" viewbox="0 0 300 300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 0L301.5 0L301.5 300L0 300L0 0Z" id="a1GmkaXFhc"></path><path d="M46.9 105.6C46.9 142.93 46.9 163.67 46.9 167.82C46.9 177.98 53.89 183.69 64.36 183.69C74.84 183.69 81.82 178.3 81.82 167.82C81.82 163.67 81.82 142.93 81.82 105.6L105.95 105.6C105.95 142.93 105.95 163.67 105.95 167.82C105.95 190.04 89.44 205.6 64.36 205.6C39.28 205.6 22.46 190.04 22.46 167.82C22.46 163.67 22.46 142.93 22.46 105.6L46.9 105.6Z" id="ePubGLbJJ"></path><path d="M164.89 105.6C184.57 105.6 197.8 119.79 197.8 139.79C197.8 159.79 184.57 174.63 164.89 174.63C163.73 174.63 157.93 174.63 147.48 174.63L147.48 205.6L122.64 205.6L122.64 105.6C147.99 105.6 162.08 105.6 164.89 105.6ZM172.64 140.11C172.64 132.37 168.44 126.56 160.06 126.56C159.22 126.56 155.02 126.56 147.48 126.56L147.48 153.66L159.73 153.66C168.34 149.79 172.64 145.27 172.64 140.11Z" id="e3xlgi979P"></path><path d="M228.42 85.15L237.44 85.15L237.44 118.88L245.01 118.88L245.01 125.37L237.44 125.37L237.44 140.15L229.68 140.15L229.68 125.55L202.63 125.55L202.45 120.5L228.42 85.15ZM229.5 118.7C229.5 106.79 229.5 100.18 229.5 98.86C229.5 96.33 229.86 93.45 229.86 93.45C229.85 93.45 229.7 93.45 229.68 93.45C228.96 95.07 227.88 96.52 226.98 97.96C225.92 99.35 220.63 106.32 211.11 118.88L211.11 118.88L229.5 118.88L229.5 118.7Z" id="c1yTzdREXX"></path><path d="M276.4 101.25C276.4 95.94 272.34 92.23 266.5 92.23C259.25 92.23 255.36 99.13 255.36 99.13C254.8 98.75 250.27 95.78 249.7 95.41C253.24 89.05 259.78 85.15 267.03 85.15C277.11 85.15 284.36 91.34 284.36 100.72C284.36 118.4 258.19 121.23 258.01 133.61C259.83 133.61 268.91 133.61 285.25 133.61L285.25 140.15C264.03 140.15 252.24 140.15 249.88 140.15C249.7 138.56 249.53 137.15 249.53 135.91C249.53 116.63 276.4 113.8 276.4 101.25Z" id="d2t6xtf3zG"></path></defs><g><g><g><use fill="#242c5c" fill-opacity="1" opacity="1" xlink:href="#a1GmkaXFhc"></use></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#ePubGLbJJ"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#ePubGLbJJ"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#e3xlgi979P"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#e3xlgi979P"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#c1yTzdREXX"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#c1yTzdREXX"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#d2t6xtf3zG"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#d2t6xtf3zG"></use></g></g></g></g></svg>
+</a>
     UP42 Python SDK
   </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/up42/up42-py" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" href="https://github.com/up42/up42-py" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
     up42-py
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Overview" class="md-nav__link">
-      Overview
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../.." title="Home">
+      Home
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../installation/" title="Installation" class="md-nav__link">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
+      Guides
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Guides
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../installation/" title="Installation">
       Installation
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Getting started
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Getting started
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../01_quickstart/" title="Quickstart" class="md-nav__link">
-      Quickstart
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../authentication/" title="Authentication">
+      Authentication
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../02_objects/" title="Objects" class="md-nav__link">
-      Objects
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../structure/" title="Structure">
+      Structure
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../03_catalog/" title="Catalog Search" class="md-nav__link">
-      Catalog Search
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../30-seconds-example/" title="30 Seconds Example">
+      30 Seconds Example
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../04_typical_usage/" title="Typical Usage" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../typical-usage/" title="Typical Usage">
       Typical Usage
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../05_cli/" title="CLI" class="md-nav__link">
-      CLI
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../catalog/" title="Catalog Search">
+      Catalog Search
     </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cli/" title="Command Line Interface">
+      Command Line Interface
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-3">
       Code Reference
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Code Reference" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-3">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
         Code Reference
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../project/" title="Project" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../project/" title="Project">
       Project
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflow/" title="Workflow" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../workflow/" title="Workflow">
       Workflow
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../job/" title="Job" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../job/" title="Job">
       Job
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../jobtask/" title="JobTask" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../jobtask/" title="JobTask">
       JobTask
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
         Tools
-      </label>
-    
-    <a href="./" title="Tools" class="md-nav__link md-nav__link--active">
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="Tools">
       Tools
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.9595init9595" class="md-nav__link">
-    __init__()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.draw_aoi" class="md-nav__link">
-    draw_aoi()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_block_details" class="md-nav__link">
-    get_block_details()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_blocks" class="md-nav__link">
-    get_blocks()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_example_aoi" class="md-nav__link">
-    get_example_aoi()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_coverage" class="md-nav__link">
-    plot_coverage()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_quicklooks" class="md-nav__link">
-    plot_quicklooks()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_results" class="md-nav__link">
-    plot_results()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.read_vector_file" class="md-nav__link">
-    read_vector_file()
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.validate_manifest" class="md-nav__link">
-    validate_manifest()
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Advanced Tutorials
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Advanced Tutorials
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../advanced/airports-parallel/" title="Parallel Jobs" class="md-nav__link">
-      Parallel Jobs
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.9595init9595" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools">
+    up42.tools.Tools
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.__init__">
     __init__()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.draw_aoi" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.draw_aoi">
     draw_aoi()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_block_details" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.get_block_details">
     get_block_details()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_blocks" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.get_blocks">
     get_blocks()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.get_example_aoi" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.get_example_aoi">
     get_example_aoi()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_coverage" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.plot_coverage">
     plot_coverage()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_quicklooks" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.plot_quicklooks">
     plot_quicklooks()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.plot_results" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.plot_results">
     plot_results()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.read_vector_file" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.read_vector_file">
     read_vector_file()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.tools.Tools.validate_manifest" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.validate_manifest">
     validate_manifest()
   </a>
-  
 </li>
-      
-      
-      
-      
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                
-                <h1 id="tools-class">Tools class<a class="headerlink" href="#tools-class" title="Permanent link">&para;</a></h1>
-<h2 id="up42.tools.Tools.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.__init__" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>23
-24
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Examples
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Examples" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Examples
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/examples-intro/" title="Examples">
+      Examples
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/airport-monitoring/" title="Airport monitoring">
+      Airport monitoring
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
+      Support &amp; FAQ
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Support &amp; FAQ" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Support &amp; FAQ
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../support-faq/" title="FAQ">
+      FAQ
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools">
+    up42.tools.Tools
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.__init__">
+    __init__()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.draw_aoi">
+    draw_aoi()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.get_block_details">
+    get_block_details()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.get_blocks">
+    get_blocks()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.get_example_aoi">
+    get_example_aoi()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.plot_coverage">
+    plot_coverage()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.plot_quicklooks">
+    plot_quicklooks()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.plot_results">
+    plot_results()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.read_vector_file">
+    read_vector_file()
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.tools.Tools.validate_manifest">
+    validate_manifest()
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<h1 id="tools-class">Tools class<a class="headerlink" href="#tools-class" title="Permanent link">¶</a></h1>
+<div class="doc doc-object doc-class">
+<h2 class="hidden-toc" href="#up42.tools.Tools" id="up42.tools.Tools" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#up42.tools.Tools" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents first">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.__init__">
+<code class="highlight language-python">
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#up42.tools.Tools.__init__" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>The tools class contains functionality that is not bound to a specific UP42 object,
+e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.
+They can be accessed from every object and also from the imported up42 package directly.</p>
+<p>Public methods:
+    read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklooks</p>
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>24
 25
 26
 27
@@ -699,31 +499,51 @@
 32
 33
 34
-35</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        The tools class contains functionality that is not bound to a specific UP42 object,</span>
-<span class="sd">        e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.</span>
-<span class="sd">        They can be accessed from every object and also from the imported up42 package directly.</span>
+35
+36</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    The tools class contains functionality that is not bound to a specific UP42 object,</span>
+<span class="sd">    e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.</span>
+<span class="sd">    They can be accessed from every object and also from the imported up42 package directly.</span>
 
-<span class="sd">        Public methods:</span>
-<span class="sd">            read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklooks</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
-</code></pre></div>
-</td></tr></table>
-
+<span class="sd">    Public methods:</span>
+<span class="sd">        read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklooks</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">auth</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>The tools class contains functionality that is not bound to a specific UP42 object,
-e.g. for aoi handling etc., UP42 block information, validatin a block manifest etc.
-They can be accessed from every object and also from the imported up42 package directly.</p>
-<p>Public methods:
-    read_vector_file, get_example_aoi, draw_aoi, plot_coverage, plot_quicklooks</p>
-<h2 id="up42.tools.Tools.draw_aoi"><code class="highlight"><span class="n">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.draw_aoi" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>116
-117
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.draw_aoi">
+<code class="highlight language-python">
+draw_aoi<span class="p">(</span><span class="bp">self</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.draw_aoi" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Opens a interactive map to draw an aoi by hand, export via the export button.
+Then read in via read_aoi_file().</p>
+<p>Currently no way to get the drawn geometry via a callback in Python, as not
+supported by folium.
+And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</p>
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>117
 118
 119
 120
@@ -749,90 +569,57 @@ They can be accessed from every object and also from the imported up42 package d
 140
 141
 142
-143</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Opens a interactive map to draw an aoi by hand, export via the export button.</span>
-<span class="sd">        Then read in via read_aoi_file().</span>
+143
+144</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">draw_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Opens a interactive map to draw an aoi by hand, export via the export button.</span>
+<span class="sd">    Then read in via read_aoi_file().</span>
 
-<span class="sd">        Currently no way to get the drawn geometry via a callback in Python, as not</span>
-<span class="sd">        supported by folium.</span>
-<span class="sd">        And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_notebook</span><span class="p">():</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only works in Jupyter notebook.&quot;</span><span class="p">)</span>
+<span class="sd">    Currently no way to get the drawn geometry via a callback in Python, as not</span>
+<span class="sd">    supported by folium.</span>
+<span class="sd">    And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_notebook</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Only works in Jupyter notebook."</span><span class="p">)</span>
 
-        <span class="n">m</span> <span class="o">=</span> <span class="n">folium_base_map</span><span class="p">(</span><span class="n">layer_control</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">DrawFoliumOverride</span><span class="p">(</span>
-            <span class="n">export</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;aoi.geojson&quot;</span><span class="p">,</span>
-            <span class="n">position</span><span class="o">=</span><span class="s2">&quot;topleft&quot;</span><span class="p">,</span>
-            <span class="n">draw_options</span><span class="o">=</span><span class="p">{</span>
-                <span class="s2">&quot;rectangle&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;repeatMode&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;showArea&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
-                <span class="s2">&quot;polygon&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;showArea&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;allowIntersection&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-                <span class="s2">&quot;polyline&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;circle&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;marker&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-                <span class="s2">&quot;circlemarker&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="p">},</span>
-            <span class="n">edit_options</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;polygon&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;allowIntersection&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
-        <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-        <span class="n">display</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
-</code></pre></div>
-</td></tr></table>
-
+    <span class="n">m</span> <span class="o">=</span> <span class="n">folium_base_map</span><span class="p">(</span><span class="n">layer_control</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">DrawFoliumOverride</span><span class="p">(</span>
+        <span class="n">export</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">filename</span><span class="o">=</span><span class="s2">"aoi.geojson"</span><span class="p">,</span>
+        <span class="n">position</span><span class="o">=</span><span class="s2">"topleft"</span><span class="p">,</span>
+        <span class="n">draw_options</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">"rectangle"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"repeatMode"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"showArea"</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>
+            <span class="s2">"polygon"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"showArea"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">"allowIntersection"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+            <span class="s2">"polyline"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"circle"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"marker"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+            <span class="s2">"circlemarker"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">edit_options</span><span class="o">=</span><span class="p">{</span><span class="s2">"polygon"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"allowIntersection"</span><span class="p">:</span> <span class="kc">False</span><span class="p">}},</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Opens a interactive map to draw an aoi by hand, export via the export button.
-Then read in via read_aoi_file().</p>
-<p>Currently no way to get the drawn geometry via a callback in Python, as not
-supported by folium.
-And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</p>
-<h2 id="up42.tools.Tools.get_block_details"><code class="highlight"><span class="n">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_block_details" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>349
-350
-351
-352
-353
-354
-355
-356
-357
-358
-359
-360
-361
-362
-363
-364
-365
-366
-367
-368</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets the detailed information about a specific public block from</span>
-<span class="sd">        the server, includes all manifest.json and marketplace.json contents.</span>
-
-<span class="sd">        Args:</span>
-<span class="sd">            block_id: The block id.</span>
-<span class="sd">            as_dataframe: Returns a dataframe instead of json (default).</span>
-
-<span class="sd">        Returns:</span>
-<span class="sd">            A dict of the block details metadata for the specific block.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/blocks/</span><span class="si">{block_id}</span><span class="s2">&quot;</span>  <span class="c1"># public blocks</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">details_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">details_json</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">details_json</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.get_block_details">
+<code class="highlight language-python">
+get_block_details<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.get_block_details" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
 <p>Gets the detailed information about a specific public block from
 the server, includes all manifest.json and marketplace.json contents.</p>
-<p><strong>Parameters</strong></p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -846,18 +633,22 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 <tr>
 <td><code>block_id</code></td>
 <td><code>str</code></td>
-<td>The block id.</td>
+<td>
+<p>The block id.</p>
+</td>
 <td><em>required</em></td>
 </tr>
 <tr>
 <td><code>as_dataframe</code></td>
-<td></td>
-<td>Returns a dataframe instead of json (default).</td>
+<td><code></code></td>
+<td>
+<p>Returns a dataframe instead of json (default).</p>
+</td>
 <td><code>False</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -868,17 +659,139 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 <tbody>
 <tr>
 <td><code>Dict</code></td>
-<td>A dict of the block details metadata for the specific block.</td>
+<td>
+<p>A dict of the block details metadata for the specific block.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.get_blocks"><code class="highlight"><span class="n">get_blocks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_blocks" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>296
-297
-298
-299
-300
-301
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_block_details</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Gets the detailed information about a specific public block from</span>
+<span class="sd">    the server, includes all manifest.json and marketplace.json contents.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        block_id: The block id.</span>
+<span class="sd">        as_dataframe: Returns a dataframe instead of json (default).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        A dict of the block details metadata for the specific block.</span>
+<span class="sd">    """</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks/</span><span class="si">{</span><span class="n">block_id</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># public blocks</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">details_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">details_json</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">"index"</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">details_json</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.get_blocks">
+<code class="highlight language-python">
+get_blocks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.get_blocks" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Gets a list of all public blocks on the marketplace.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>block_type</code></td>
+<td><code></code></td>
+<td>
+<p>Optionally filters to "data" or "processing" blocks, default None.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>basic</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Optionally returns simple version {block_id : block_name}</p>
+</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>as_dataframe</code></td>
+<td><code></code></td>
+<td>
+<p>Returns a dataframe instead of json (default).</p>
+</td>
+<td><code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Union[List[Dict], Dict]</code></td>
+<td>
+<p>A list of the public blocks and their metadata. Optional a simpler version
+dict.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>301
 302
 303
 304
@@ -924,64 +837,84 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 344
 345
 346
-347</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_blocks</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets a list of all public blocks on the marketplace.</span>
+347
+348
+349
+350
+351
+352</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_blocks</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">block_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">basic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">],</span> <span class="n">Dict</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Gets a list of all public blocks on the marketplace.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            block_type: Optionally filters to &quot;data&quot; or &quot;processing&quot; blocks, default None.</span>
-<span class="sd">            basic: Optionally returns simple version {block_id : block_name}</span>
-<span class="sd">            as_dataframe: Returns a dataframe instead of json (default).</span>
+<span class="sd">    Args:</span>
+<span class="sd">        block_type: Optionally filters to "data" or "processing" blocks, default None.</span>
+<span class="sd">        basic: Optionally returns simple version {block_id : block_name}</span>
+<span class="sd">        as_dataframe: Returns a dataframe instead of json (default).</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            A list of the public blocks and their metadata. Optional a simpler version</span>
-<span class="sd">            dict.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">block_type</span> <span class="o">=</span> <span class="n">block_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-            <span class="k">pass</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A list of the public blocks and their metadata. Optional a simpler version</span>
+<span class="sd">        dict.</span>
+<span class="sd">    """</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">block_type</span> <span class="o">=</span> <span class="n">block_type</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+        <span class="k">pass</span>
 
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/blocks&quot;</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">public_blocks_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/blocks"</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">public_blocks_json</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="n">block_type</span> <span class="o">==</span> <span class="s2">&quot;data&quot;</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting only data blocks.&quot;</span><span class="p">)</span>
-            <span class="n">blocks_json</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">block</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">public_blocks_json</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;DATA&quot;</span>
-            <span class="p">]</span>
-        <span class="k">elif</span> <span class="n">block_type</span> <span class="o">==</span> <span class="s2">&quot;processing&quot;</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting only processing blocks.&quot;</span><span class="p">)</span>
-            <span class="n">blocks_json</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">block</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">public_blocks_json</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;PROCESSING&quot;</span>
-            <span class="p">]</span>
+    <span class="k">if</span> <span class="n">block_type</span> <span class="o">==</span> <span class="s2">"data"</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Getting only data blocks."</span><span class="p">)</span>
+        <span class="n">blocks_json</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">block</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">public_blocks_json</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"DATA"</span>
+        <span class="p">]</span>
+    <span class="k">elif</span> <span class="n">block_type</span> <span class="o">==</span> <span class="s2">"processing"</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Getting only processing blocks."</span><span class="p">)</span>
+        <span class="n">blocks_json</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">block</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">public_blocks_json</span> <span class="k">if</span> <span class="n">block</span><span class="p">[</span><span class="s2">"type"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"PROCESSING"</span>
+        <span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">blocks_json</span> <span class="o">=</span> <span class="n">public_blocks_json</span>
+
+    <span class="k">if</span> <span class="n">basic</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">"Getting blocks name and id, use basic=False for all block details."</span>
+        <span class="p">)</span>
+        <span class="n">blocks_basic</span> <span class="o">=</span> <span class="p">{</span><span class="n">block</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]:</span> <span class="n">block</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocks_json</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">blocks_basic</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">"index"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">blocks_json</span> <span class="o">=</span> <span class="n">public_blocks_json</span>
+            <span class="k">return</span> <span class="n">blocks_basic</span>
 
-        <span class="k">if</span> <span class="n">basic</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="s2">&quot;Getting blocks name and id, use basic=False for all block details.&quot;</span>
-            <span class="p">)</span>
-            <span class="n">blocks_basic</span> <span class="o">=</span> <span class="p">{</span><span class="n">block</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]:</span> <span class="n">block</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">block</span> <span class="ow">in</span> <span class="n">blocks_json</span><span class="p">}</span>
-            <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">blocks_basic</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">blocks_basic</span>
-
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">blocks_json</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">blocks_json</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">blocks_json</span>
-</code></pre></div>
-</td></tr></table>
-
+            <span class="k">return</span> <span class="n">blocks_json</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Gets a list of all public blocks on the marketplace.</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.get_example_aoi">
+<code class="highlight language-python">
+get_example_aoi<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">'Berlin'</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.get_example_aoi" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Gets predefined, small, rectangular example aoi for the selected location.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -993,26 +926,25 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>block_type</code></td>
-<td></td>
-<td>Optionally filters to "data" or "processing" blocks, default None.</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>basic</code></td>
-<td><code>bool</code></td>
-<td :=":" block_id="block_id" block_name="block_name">Optionally returns simple version </td>
-<td><code>True</code></td>
+<td><code>location</code></td>
+<td><code>str</code></td>
+<td>
+<p>Location, one of Berlin, Washington.</p>
+</td>
+<td><code>'Berlin'</code></td>
 </tr>
 <tr>
 <td><code>as_dataframe</code></td>
-<td></td>
-<td>Returns a dataframe instead of json (default).</td>
+<td><code>bool</code></td>
+<td>
+<p>Returns a dataframe instead of dict FeatureColletions
+(default).</p>
+</td>
 <td><code>False</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1022,14 +954,20 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>Union[List[Dict], Dict]</code></td>
-<td>A list of the public blocks and their metadata. Optional a simpler version     dict.</td>
+<td><code>Union[dict, geopandas.geodataframe.GeoDataFrame]</code></td>
+<td>
+<p>Feature collection json with the selected aoi.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.get_example_aoi"><code class="highlight"><span class="n">get_example_aoi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="s1">&#39;Berlin&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.get_example_aoi" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 81
- 82
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span> 82
  83
  84
  85
@@ -1060,45 +998,64 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 110
 111
 112
-113</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_example_aoi</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets predefined, small, rectangular example aoi for the selected location.</span>
+113
+114</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_example_aoi</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Berlin"</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Gets predefined, small, rectangular example aoi for the selected location.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            location: Location, one of Berlin, Washington.</span>
-<span class="sd">            as_dataframe:</span>
+<span class="sd">    Args:</span>
+<span class="sd">        location: Location, one of Berlin, Washington.</span>
+<span class="sd">        as_dataframe: Returns a dataframe instead of dict FeatureColletions</span>
+<span class="sd">            (default).</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Feature collection json with the selected aoi.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Add more geometries.</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Getting small example aoi in </span><span class="si">%s</span><span class="s2">.&quot;</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">:</span>
-            <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;{os.path.dirname(__file__)}/data/aoi_berlin.geojson&quot;</span>
-            <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Washington&quot;</span><span class="p">:</span>
-            <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;{os.path.dirname(__file__)}/data/aoi_washington.geojson&quot;</span>
-            <span class="p">)</span>
-        <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">&quot;Tokyo&quot;</span><span class="p">:</span>
-            <span class="k">pass</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Please select one of &#39;Berlin&#39;, &#39;Washington&#39; or &#39;Tokyo&#39;!&quot;</span><span class="p">)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Feature collection json with the selected aoi.</span>
+<span class="sd">    """</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Getting small example aoi in </span><span class="si">%s</span><span class="s2">."</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">"Berlin"</span><span class="p">:</span>
+        <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_berlin.geojson"</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">"Washington"</span><span class="p">:</span>
+        <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_washington.geojson"</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">"Please select one of 'Berlin' or 'Washington' as the "</span> <span class="s2">"location!"</span>
+        <span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="n">example_aoi</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">df</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">example_aoi</span>
-</code></pre></div>
-</td></tr></table>
-
+    <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="n">example_aoi</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">example_aoi</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Gets predefined, small, rectangular example aoi for the selected location.</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.plot_coverage">
+<code class="highlight language-python">
+plot_coverage<span class="p">(</span><span class="n">scenes</span><span class="p">,</span> <span class="n">aoi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_column</span><span class="o">=</span><span class="s1">'scene_id'</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-staticmethod"><code>staticmethod</code></small>
+</span>
+<a class="headerlink" href="#up42.tools.Tools.plot_coverage" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Plots a coverage map of a dataframe with geometries e.g. the results of catalog.search())</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1110,37 +1067,47 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>location</code></td>
+<td><code>scenes</code></td>
+<td><code>GeoDataFrame</code></td>
+<td>
+<p>GeoDataFrame of scenes, results of catalog.search()</p>
+</td>
+<td><em>required</em></td>
+</tr>
+<tr>
+<td><code>aoi</code></td>
+<td><code>GeoDataFrame</code></td>
+<td>
+<p>GeoDataFrame of aoi.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+<tr>
+<td><code>legend_column</code></td>
 <td><code>str</code></td>
-<td>Location, one of Berlin, Washington.</td>
-<td><code>'Berlin'</code></td>
+<td>
+<p>Dataframe column set to legend, default is "scene_id".
+Legend entries are sorted and this determines plotting order.</p>
+</td>
+<td><code>'scene_id'</code></td>
 </tr>
 <tr>
-<td><code>as_dataframe</code></td>
-<td><code>bool</code></td>
-<td></td>
-<td><code>False</code></td>
+<td><code>figsize</code></td>
+<td><code></code></td>
+<td>
+<p>Matplotlib figure size.</p>
+</td>
+<td><code>(12, 16)</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
 <tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Union[dict, geopandas.geodataframe.GeoDataFrame]</code></td>
-<td>Feature collection json with the selected aoi.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="up42.tools.Tools.plot_coverage"><code class="highlight"><span class="n">plot_coverage</span><span class="p">(</span><span class="n">scenes</span><span class="p">,</span> <span class="n">aoi</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend_column</span><span class="o">=</span><span class="s1">&#39;scene_id&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span></code> <em>(staticmethod)</em><a class="headerlink" href="#up42.tools.Tools.plot_coverage" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>145
-146
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>146
 147
 148
 149
@@ -1183,57 +1150,74 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 186
 187
 188
-189</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">plot_coverage</span><span class="p">(</span>
-        <span class="n">scenes</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span>
-        <span class="n">aoi</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">legend_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;scene_id&quot;</span><span class="p">,</span>
-        <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots a coverage map of a dataframe with geometries e.g. the results of catalog.search())</span>
-<span class="sd">        Args:</span>
-<span class="sd">            scenes: GeoDataFrame of scenes, results of catalog.search()</span>
-<span class="sd">            aoi: GeoDataFrame of aoi.</span>
-<span class="sd">            legend_column: Dataframe column set to legend, default is &quot;scene_id&quot;.</span>
-<span class="sd">                Legend entries are sorted and this determines plotting order.</span>
-<span class="sd">            figsize: Matplotlib figure size.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
-            <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;inline&quot;</span><span class="p">)</span>
+189
+190</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="nd">@staticmethod</span>
+<span class="k">def</span> <span class="nf">plot_coverage</span><span class="p">(</span>
+    <span class="n">scenes</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">,</span>
+    <span class="n">aoi</span><span class="p">:</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">legend_column</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"scene_id"</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Plots a coverage map of a dataframe with geometries e.g. the results of catalog.search())</span>
+<span class="sd">    Args:</span>
+<span class="sd">        scenes: GeoDataFrame of scenes, results of catalog.search()</span>
+<span class="sd">        aoi: GeoDataFrame of aoi.</span>
+<span class="sd">        legend_column: Dataframe column set to legend, default is "scene_id".</span>
+<span class="sd">            Legend entries are sorted and this determines plotting order.</span>
+<span class="sd">        figsize: Matplotlib figure size.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
+        <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">"matplotlib"</span><span class="p">,</span> <span class="s2">"inline"</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">legend_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scenes</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">legend_column</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-                <span class="s2">&quot;Given legend_column name not in scene dataframe, &quot;</span>
-                <span class="s2">&quot;plotting without legend.&quot;</span>
-            <span class="p">)</span>
-
-        <span class="n">ax</span> <span class="o">=</span> <span class="n">scenes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-            <span class="n">legend_column</span><span class="p">,</span>
-            <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span>
-            <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;Set3&quot;</span><span class="p">,</span>
-            <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-            <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
-            <span class="n">legend_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="k">if</span> <span class="n">legend_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">scenes</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">legend_column</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># type: ignore</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s2">"Given legend_column name not in scene dataframe, "</span>
+            <span class="s2">"plotting without legend."</span>
         <span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">aoi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">aoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">&quot;None&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-            <span class="c1"># TODO: Add aoi to legend.</span>
-            <span class="c1"># from matplotlib.patches import Patch</span>
-            <span class="c1"># patch = Patch(label=&quot;aoi&quot;, facecolor=&#39;None&#39;, edgecolor=&#39;r&#39;)</span>
-            <span class="c1"># ax.legend(handles=handles, labels=labels)</span>
-            <span class="c1"># TODO: Overlay quicklooks on geometry.</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">scenes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">legend_column</span><span class="p">,</span>
+        <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">,</span>
+        <span class="n">cmap</span><span class="o">=</span><span class="s2">"Set3"</span><span class="p">,</span>
+        <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">legend_kwds</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
+    <span class="p">)</span>
 
+    <span class="k">if</span> <span class="n">aoi</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">aoi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="s2">"None"</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># TODO: Add aoi to legend.</span>
+        <span class="c1"># from matplotlib.patches import Patch</span>
+        <span class="c1"># patch = Patch(label="aoi", facecolor='None', edgecolor='r')</span>
+        <span class="c1"># ax.legend(handles=handles, labels=labels)</span>
+        <span class="c1"># TODO: Overlay quicklooks on geometry.</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Plots a coverage map of a dataframe with geometries e.g. the results of catalog.search())
-<strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.plot_quicklooks">
+<code class="highlight language-python">
+plot_quicklooks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.plot_quicklooks" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Plots the downloaded quicklooks (filepaths saved to self.quicklooks of the
+respective object, e.g. job, catalog).</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1245,34 +1229,22 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>scenes</code></td>
-<td><code>GeoDataFrame</code></td>
-<td>GeoDataFrame of scenes, results of catalog.search()</td>
-<td><em>required</em></td>
-</tr>
-<tr>
-<td><code>aoi</code></td>
-<td><code>GeoDataFrame</code></td>
-<td>GeoDataFrame of aoi.</td>
-<td><code>None</code></td>
-</tr>
-<tr>
-<td><code>legend_column</code></td>
-<td><code>str</code></td>
-<td>Dataframe column set to legend, default is "scene_id". Legend entries are sorted and this determines plotting order.</td>
-<td><code>'scene_id'</code></td>
-</tr>
-<tr>
 <td><code>figsize</code></td>
-<td></td>
-<td>Matplotlib figure size.</td>
-<td><code>(12, 16)</code></td>
+<td><code>Tuple[int, int]</code></td>
+<td>
+<p>matplotlib figure size.</p>
+</td>
+<td><code>(8, 8)</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.plot_quicklooks"><code class="highlight"><span class="n">plot_quicklooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_quicklooks" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>191
-192
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>192
 193
 194
 195
@@ -1312,55 +1284,78 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 229
 230
 231
-232</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_quicklooks</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots the downloaded quicklooks (filepaths saved to self.quicklooks of the</span>
-<span class="sd">        respective object, e.g. job, catalog).</span>
+232
+233
+234
+235
+236
+237</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">plot_quicklooks</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Plots the downloaded quicklooks (filepaths saved to self.quicklooks of the</span>
+<span class="sd">    respective object, e.g. job, catalog).</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            figsize: matplotlib figure size.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
-            <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;inline&quot;</span><span class="p">)</span>
+<span class="sd">    Args:</span>
+<span class="sd">        figsize: matplotlib figure size.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
+        <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">"matplotlib"</span><span class="p">,</span> <span class="s2">"inline"</span><span class="p">)</span>
 
-        <span class="c1"># TODO: Remove empty axes &amp; give title option.</span>
-        <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">&quot;You first need to download the quicklooks via .download_quicklooks().&quot;</span>
-                <span class="p">)</span>
-            <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span>
+    <span class="c1"># TODO: Remove empty axes &amp; give title option.</span>
+    <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">"You first need to download the quicklooks via .download_quicklooks()."</span>
+            <span class="p">)</span>
+        <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span>
 
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span>
-            <span class="n">nrows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ncols</span><span class="p">)))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ncols</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">nrows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ncols</span><span class="p">)))</span>
 
-        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">axs</span> <span class="o">=</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filepaths</span><span class="p">):</span>
-            <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-                <span class="n">show</span><span class="p">(</span>
-                    <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
-                    <span class="n">transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span>
-                    <span class="n">title</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
-                    <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+        <span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">rasterio</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">NotGeoreferencedWarning</span>
+    <span class="p">)</span>
 
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">filepaths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">axs</span> <span class="o">=</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filepaths</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+            <span class="n">show</span><span class="p">(</span>
+                <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span>
+                <span class="n">transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span>
+                <span class="n">title</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span>
+                <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
+            <span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Plots the downloaded quicklooks (filepaths saved to self.quicklooks of the
-respective object, e.g. job, catalog).</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.plot_results">
+<code class="highlight language-python">
+plot_results<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.plot_results" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Plots the downloaded data.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1374,18 +1369,28 @@ respective object, e.g. job, catalog).</p>
 <tr>
 <td><code>figsize</code></td>
 <td><code>Tuple[int, int]</code></td>
-<td>matplotlib figure size.</td>
+<td>
+<p>matplotlib figure size.</p>
+</td>
 <td><code>(8, 8)</code></td>
+</tr>
+<tr>
+<td><code>filepaths</code></td>
+<td><code>List[Union[str, pathlib.Path]]</code></td>
+<td>
+<p>Paths to images to plot. Optional, by default picks up the downloaded results.</p>
+</td>
+<td><code>None</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.plot_results"><code class="highlight"><span class="n">plot_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">filepaths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">titles</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.plot_results" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>234
-235
-236
-237
-238
-239
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>239
 240
 241
 242
@@ -1440,73 +1445,96 @@ respective object, e.g. job, catalog).</p>
 291
 292
 293
-294</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
-        <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">titles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Plots the downloaded data.</span>
+294
+295
+296
+297
+298
+299</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+    <span class="n">filepaths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">titles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Plots the downloaded data.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            figsize: matplotlib figure size.</span>
-<span class="sd">            filepaths: Paths to images to plot. Optional, by default picks up the downloaded results.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Handle more bands.</span>
-        <span class="c1"># TODO: add histogram equalization? But requires skimage dependency.</span>
-        <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;You first need to download the results.&quot;</span><span class="p">)</span>
-            <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepaths</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-            <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">filepaths</span><span class="p">]</span>
-        <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span><span class="p">]</span>
+<span class="sd">    Args:</span>
+<span class="sd">        figsize: matplotlib figure size.</span>
+<span class="sd">        filepaths: Paths to images to plot. Optional, by default picks up the downloaded results.</span>
+<span class="sd">    """</span>
+    <span class="c1"># TODO: Handle more bands.</span>
+    <span class="c1"># TODO: add histogram equalization? But requires skimage dependency.</span>
+    <span class="k">if</span> <span class="n">filepaths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"You first need to download the results."</span><span class="p">)</span>
+        <span class="n">filepaths</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">results</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepaths</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">filepaths</span><span class="p">]</span>
+    <span class="n">filepaths</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span><span class="p">]</span>
 
-        <span class="n">plot_file_format</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;.tif&quot;</span><span class="p">]</span>  <span class="c1"># TODO: Add other fileformats.</span>
-        <span class="n">imagepaths</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">path</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span> <span class="ow">in</span> <span class="n">plot_file_format</span>  <span class="c1"># type: ignore</span>
-        <span class="p">]</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">imagepaths</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Only results of the formats </span><span class="si">{plot_file_format}</span><span class="s2"> can &quot;</span>
-                <span class="s2">&quot;currently be plotted.&quot;</span>
+    <span class="n">plot_file_format</span> <span class="o">=</span> <span class="p">[</span><span class="s2">".tif"</span><span class="p">]</span>  <span class="c1"># TODO: Add other fileformats.</span>
+    <span class="n">imagepaths</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">path</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">filepaths</span> <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">suffix</span><span class="p">)</span> <span class="ow">in</span> <span class="n">plot_file_format</span>  <span class="c1"># type: ignore</span>
+    <span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">imagepaths</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Only results of the formats </span><span class="si">{</span><span class="n">plot_file_format</span><span class="si">}</span><span class="s2"> can "</span>
+            <span class="s2">"currently be plotted."</span>
+        <span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">titles</span><span class="p">:</span>
+        <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">imagepaths</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
+        <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">"matplotlib"</span><span class="p">,</span> <span class="s2">"inline"</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Only works in Jupyter notebook."</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">nrows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ncols</span><span class="p">)))</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">axs</span> <span class="o">=</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">,</span> <span class="n">titles</span><span class="p">)):</span>
+        <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+            <span class="n">img_array</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">show</span><span class="p">(</span>
+                <span class="n">img_array</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
             <span class="p">)</span>
-
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">titles</span><span class="p">:</span>
-            <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="n">Path</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span> <span class="k">for</span> <span class="n">fp</span> <span class="ow">in</span> <span class="n">imagepaths</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">is_notebook</span><span class="p">():</span>
-            <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;inline&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only works in Jupyter notebook.&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
-            <span class="n">nrows</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">)</span> <span class="o">/</span> <span class="nb">float</span><span class="p">(</span><span class="n">ncols</span><span class="p">)))</span>
-
-        <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">axs</span> <span class="o">=</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">imagepaths</span><span class="p">,</span> <span class="n">titles</span><span class="p">)):</span>
-            <span class="k">with</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-                <span class="n">img_array</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-                <span class="n">show</span><span class="p">(</span>
-                    <span class="n">img_array</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">src</span><span class="o">.</span><span class="n">transform</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span>
-                <span class="p">)</span>
-            <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-
+        <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Plots the downloaded data.</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.read_vector_file">
+<code class="highlight language-python">
+read_vector_file<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">'aoi.geojson'</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.read_vector_file" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Reads vector files (geojson, shapefile, kml, wkt) to a feature collection,
+for use as the aoi geometry in the workflow input parameters
+(see get_input_parameters).</p>
+<p>Example aoi fiels are provided, e.g. example/data/aoi_Berlin.geojson</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1518,22 +1546,47 @@ respective object, e.g. job, catalog).</p>
 </thead>
 <tbody>
 <tr>
-<td><code>figsize</code></td>
-<td><code>Tuple[int, int]</code></td>
-<td>matplotlib figure size.</td>
-<td><code>(8, 8)</code></td>
+<td><code>filename</code></td>
+<td><code>str</code></td>
+<td>
+<p>File path of the vector file.</p>
+</td>
+<td><code>'aoi.geojson'</code></td>
 </tr>
 <tr>
-<td><code>filepaths</code></td>
-<td><code>List[Union[str, pathlib.Path]]</code></td>
-<td>Paths to images to plot. Optional, by default picks up the downloaded results.</td>
-<td><code>None</code></td>
+<td><code>as_dataframe</code></td>
+<td><code>bool</code></td>
+<td>
+<p>Return type, default FeatureCollection, GeoDataFrame if True.</p>
+</td>
+<td><code>False</code></td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.read_vector_file"><code class="highlight"><span class="n">read_vector_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;aoi.geojson&#39;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.read_vector_file" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>38
-39
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Union[Dict, geopandas.geodataframe.GeoDataFrame]</code></td>
+<td>
+<p>Feature Collection</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>39
 40
 41
 42
@@ -1573,57 +1626,70 @@ respective object, e.g. job, catalog).</p>
 76
 77
 78
-79</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">read_vector_file</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;aoi.geojson&quot;</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Reads vector files (geojson, shapefile, kml, wkt) to a feature collection,</span>
-<span class="sd">        for use as the aoi geometry in the workflow input parameters</span>
-<span class="sd">        (see get_input_parameters).</span>
+79
+80</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">read_vector_file</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"aoi.geojson"</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Reads vector files (geojson, shapefile, kml, wkt) to a feature collection,</span>
+<span class="sd">    for use as the aoi geometry in the workflow input parameters</span>
+<span class="sd">    (see get_input_parameters).</span>
 
-<span class="sd">        Example aoi fiels are provided, e.g. example/data/aoi_Berlin.geojson</span>
+<span class="sd">    Example aoi fiels are provided, e.g. example/data/aoi_Berlin.geojson</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            filename: File path of the vector file.</span>
-<span class="sd">            as_dataframe: Return type, default FeatureCollection, GeoDataFrame if True.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        filename: File path of the vector file.</span>
+<span class="sd">        as_dataframe: Return type, default FeatureCollection, GeoDataFrame if True.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Feature Collection</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">suffix</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Feature Collection</span>
+<span class="sd">    """</span>
+    <span class="n">suffix</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span>
 
-        <span class="k">if</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.kml&quot;</span><span class="p">:</span>
-            <span class="n">gpd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">fiona</span><span class="o">.</span><span class="n">drvsupport</span><span class="o">.</span><span class="n">supported_drivers</span><span class="p">[</span><span class="s2">&quot;KML&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;rw&quot;</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;KML&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s2">&quot;.wkt&quot;</span><span class="p">:</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">wkt_file</span><span class="p">:</span>
-                <span class="n">wkt</span> <span class="o">=</span> <span class="n">wkt_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-                <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;geometry&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">wkt</span><span class="p">]})</span>
-                <span class="n">df</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;geometry&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span>
-                <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s2">&quot;geometry&quot;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s2">".kml"</span><span class="p">:</span>
+        <span class="n">gpd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">fiona</span><span class="o">.</span><span class="n">drvsupport</span><span class="o">.</span><span class="n">supported_drivers</span><span class="p">[</span><span class="s2">"KML"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"rw"</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">"KML"</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">suffix</span> <span class="o">==</span> <span class="s2">".wkt"</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="k">as</span> <span class="n">wkt_file</span><span class="p">:</span>
+            <span class="n">wkt</span> <span class="o">=</span> <span class="n">wkt_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="p">[</span><span class="n">wkt</span><span class="p">]})</span>
+            <span class="n">df</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"geometry"</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">shapely</span><span class="o">.</span><span class="n">wkt</span><span class="o">.</span><span class="n">loads</span><span class="p">)</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="s2">"geometry"</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">crs</span> <span class="o">!=</span> <span class="s2">&quot;epsg:4326&quot;</span><span class="p">:</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="c1"># TODO: Explode multipolygons (if neccessary as union in aoi anyway most often).</span>
+    <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">crs</span> <span class="o">!=</span> <span class="s2">"epsg:4326"</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">epsg</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">geometry</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># TODO: Explode multipolygons (if neccessary as union in aoi anyway most often).</span>
 
-        <span class="c1"># TODO: Have both bboxes for each feature and overall?</span>
+    <span class="c1"># TODO: Have both bboxes for each feature and overall?</span>
 
-        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">df</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">__geo_interface__</span>
-</code></pre></div>
-</td></tr></table>
-
+    <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">__geo_interface__</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Reads vector files (geojson, shapefile, kml, wkt) to a feature collection,
-for use as the aoi geometry in the workflow input parameters
-(see get_input_parameters).</p>
-<p>Example aoi fiels are provided, e.g. example/data/aoi_Berlin.geojson</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.tools.Tools.validate_manifest">
+<code class="highlight language-python">
+validate_manifest<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.tools.Tools.validate_manifest" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Validates the block manifest, input either manifest json string or filepath.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1635,20 +1701,16 @@ for use as the aoi geometry in the workflow input parameters
 </thead>
 <tbody>
 <tr>
-<td><code>filename</code></td>
-<td><code>str</code></td>
-<td>File path of the vector file.</td>
-<td><code>'aoi.geojson'</code></td>
-</tr>
-<tr>
-<td><code>as_dataframe</code></td>
-<td><code>bool</code></td>
-<td>Return type, default FeatureCollection, GeoDataFrame if True.</td>
-<td><code>False</code></td>
+<td><code>path_or_json</code></td>
+<td><code>Union[str, pathlib.Path, Dict]</code></td>
+<td>
+<p>The input manifest, either filepath or json string, see example.</p>
+</td>
+<td><em>required</em></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -1658,18 +1720,63 @@ for use as the aoi geometry in the workflow input parameters
 </thead>
 <tbody>
 <tr>
-<td><code>Union[Dict, geopandas.geodataframe.GeoDataFrame]</code></td>
-<td>Feature Collection</td>
+<td><code>Dict</code></td>
+<td>
+<p>A dictionary with the validation results and potential validation errors.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.tools.Tools.validate_manifest"><code class="highlight"><span class="n">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">)</span></code><a class="headerlink" href="#up42.tools.Tools.validate_manifest" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/tools.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>370
-371
-372
-373
-374
-375
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight">
+<pre><span></span><code>    <span class="p">{</span>
+        <span class="nt">"_up42_specification_version"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="nt">"name"</span><span class="p">:</span> <span class="s2">"sharpening"</span><span class="p">,</span>
+        <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"processing"</span><span class="p">,</span>
+        <span class="nt">"tags"</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">"imagery"</span><span class="p">,</span>
+            <span class="s2">"processing"</span>
+        <span class="p">],</span>
+        <span class="nt">"display_name"</span><span class="p">:</span> <span class="s2">"Sharpening Filter"</span><span class="p">,</span>
+        <span class="nt">"description"</span><span class="p">:</span> <span class="s2">"This block enhances the sharpness of a raster</span>
+<span class="s2">            image by applying an unsharp mask filter algorithm."</span><span class="p">,</span>
+        <span class="nt">"parameters"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"strength"</span><span class="p">:</span> <span class="p">{</span><span class="nt">"type"</span><span class="p">:</span> <span class="s2">"string"</span><span class="p">,</span> <span class="nt">"default"</span><span class="p">:</span> <span class="s2">"medium"</span><span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">"machine"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"type"</span><span class="p">:</span> <span class="s2">"large"</span>
+        <span class="p">},</span>
+        <span class="nt">"input_capabilities"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"raster"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">"up42_standard"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">"format"</span><span class="p">:</span> <span class="s2">"GTiff"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="nt">"output_capabilities"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"raster"</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">"up42_standard"</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">"format"</span><span class="p">:</span> <span class="s2">"GTiff"</span><span class="p">,</span>
+                    <span class="nt">"bands"</span><span class="p">:</span> <span class="s2">"&gt;"</span><span class="p">,</span>
+                    <span class="nt">"sensor"</span><span class="p">:</span> <span class="s2">"&gt;"</span><span class="p">,</span>
+                    <span class="nt">"resolution"</span><span class="p">:</span> <span class="s2">"&gt;"</span><span class="p">,</span>
+                    <span class="nt">"dtype"</span><span class="p">:</span> <span class="s2">"&gt;"</span><span class="p">,</span>
+                    <span class="nt">"processing_level"</span><span class="p">:</span> <span class="s2">"&gt;"</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+</div>
+</div>
+<details class="quote">
+<summary>Source code in <code>up42/tools.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>375
 376
 377
 378
@@ -1725,240 +1832,162 @@ for use as the aoi geometry in the workflow input parameters
 428
 429
 430
-431</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Validates the block manifest, input either manifest json string or filepath.</span>
+431
+432
+433
+434
+435
+436</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">validate_manifest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path_or_json</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Validates the block manifest, input either manifest json string or filepath.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            path_or_json: The input manifest, either filepath or json string, see example.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        path_or_json: The input manifest, either filepath or json string, see example.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            A dictionary with the validation results and potential validation errors.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        A dictionary with the validation results and potential validation errors.</span>
 
-<span class="sd">        Example:</span>
-<span class="sd">            ```json</span>
-<span class="sd">                {</span>
-<span class="sd">                    &quot;_up42_specification_version&quot;: 2,</span>
-<span class="sd">                    &quot;name&quot;: &quot;sharpening&quot;,</span>
-<span class="sd">                    &quot;type&quot;: &quot;processing&quot;,</span>
-<span class="sd">                    &quot;tags&quot;: [</span>
-<span class="sd">                        &quot;imagery&quot;,</span>
-<span class="sd">                        &quot;processing&quot;</span>
-<span class="sd">                    ],</span>
-<span class="sd">                    &quot;display_name&quot;: &quot;Sharpening Filter&quot;,</span>
-<span class="sd">                    &quot;description&quot;: &quot;This block enhances the sharpness of a raster</span>
-<span class="sd">                        image by applying an unsharp mask filter algorithm.&quot;,</span>
-<span class="sd">                    &quot;parameters&quot;: {</span>
-<span class="sd">                        &quot;strength&quot;: {&quot;type&quot;: &quot;string&quot;, &quot;default&quot;: &quot;medium&quot;}</span>
-<span class="sd">                    },</span>
-<span class="sd">                    &quot;machine&quot;: {</span>
-<span class="sd">                        &quot;type&quot;: &quot;large&quot;</span>
-<span class="sd">                    },</span>
-<span class="sd">                    &quot;input_capabilities&quot;: {</span>
-<span class="sd">                        &quot;raster&quot;: {</span>
-<span class="sd">                            &quot;up42_standard&quot;: {</span>
-<span class="sd">                                &quot;format&quot;: &quot;GTiff&quot;</span>
-<span class="sd">                            }</span>
+<span class="sd">    Example:</span>
+<span class="sd">        ```json</span>
+<span class="sd">            {</span>
+<span class="sd">                "_up42_specification_version": 2,</span>
+<span class="sd">                "name": "sharpening",</span>
+<span class="sd">                "type": "processing",</span>
+<span class="sd">                "tags": [</span>
+<span class="sd">                    "imagery",</span>
+<span class="sd">                    "processing"</span>
+<span class="sd">                ],</span>
+<span class="sd">                "display_name": "Sharpening Filter",</span>
+<span class="sd">                "description": "This block enhances the sharpness of a raster</span>
+<span class="sd">                    image by applying an unsharp mask filter algorithm.",</span>
+<span class="sd">                "parameters": {</span>
+<span class="sd">                    "strength": {"type": "string", "default": "medium"}</span>
+<span class="sd">                },</span>
+<span class="sd">                "machine": {</span>
+<span class="sd">                    "type": "large"</span>
+<span class="sd">                },</span>
+<span class="sd">                "input_capabilities": {</span>
+<span class="sd">                    "raster": {</span>
+<span class="sd">                        "up42_standard": {</span>
+<span class="sd">                            "format": "GTiff"</span>
 <span class="sd">                        }</span>
-<span class="sd">                    },</span>
-<span class="sd">                    &quot;output_capabilities&quot;: {</span>
-<span class="sd">                        &quot;raster&quot;: {</span>
-<span class="sd">                            &quot;up42_standard&quot;: {</span>
-<span class="sd">                                &quot;format&quot;: &quot;GTiff&quot;,</span>
-<span class="sd">                                &quot;bands&quot;: &quot;&gt;&quot;,</span>
-<span class="sd">                                &quot;sensor&quot;: &quot;&gt;&quot;,</span>
-<span class="sd">                                &quot;resolution&quot;: &quot;&gt;&quot;,</span>
-<span class="sd">                                &quot;dtype&quot;: &quot;&gt;&quot;,</span>
-<span class="sd">                                &quot;processing_level&quot;: &quot;&gt;&quot;</span>
-<span class="sd">                            }</span>
+<span class="sd">                    }</span>
+<span class="sd">                },</span>
+<span class="sd">                "output_capabilities": {</span>
+<span class="sd">                    "raster": {</span>
+<span class="sd">                        "up42_standard": {</span>
+<span class="sd">                            "format": "GTiff",</span>
+<span class="sd">                            "bands": "&gt;",</span>
+<span class="sd">                            "sensor": "&gt;",</span>
+<span class="sd">                            "resolution": "&gt;",</span>
+<span class="sd">                            "dtype": "&gt;",</span>
+<span class="sd">                            "processing_level": "&gt;"</span>
 <span class="sd">                        }</span>
 <span class="sd">                    }</span>
 <span class="sd">                }</span>
-<span class="sd">            ```</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_json</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_or_json</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
-                <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">path_or_json</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/validate-schema/block&quot;</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
-            <span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">manifest_json</span>
-        <span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;The manifest is valid.&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
-</code></pre></div>
-</td></tr></table>
-
-</details>
-<p>Validates the block manifest, input either manifest json string or filepath.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>path_or_json</code></td>
-<td><code>Union[str, pathlib.Path, Dict]</code></td>
-<td>The input manifest, either filepath or json string, see example.</td>
-<td><em>required</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Dict</code></td>
-<td>A dictionary with the validation results and potential validation errors.</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition example">
-<p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code>    <span class="p">{</span>
-        <span class="nt">&quot;_up42_specification_version&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sharpening&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;processing&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="s2">&quot;imagery&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;processing&quot;</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Sharpening Filter&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This block enhances the sharpness of a raster</span>
-<span class="s2">            image by applying an unsharp mask filter algorithm.&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;strength&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span> <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span><span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;machine&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;large&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;input_capabilities&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;raster&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;up42_standard&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;GTiff&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;output_capabilities&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;raster&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;up42_standard&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;GTiff&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;bands&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;sensor&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;resolution&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;dtype&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;processing_level&quot;</span><span class="p">:</span> <span class="s2">&quot;&gt;&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-</code></pre></div>
-
+<span class="sd">            }</span>
+<span class="sd">        ```</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path_or_json</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path_or_json</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
+            <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">manifest_json</span> <span class="o">=</span> <span class="n">path_or_json</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/validate-schema/block"</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
+        <span class="n">request_type</span><span class="o">=</span><span class="s2">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">manifest_json</span>
+    <span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"The manifest is valid."</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span>
+</code></pre>
 </div>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
+</td>
+</tr>
+</table>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../jobtask/" title="JobTask" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+<div class="md-footer-nav">
+<nav aria-label="Footer" class="md-footer-nav__inner md-grid">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../jobtask/" rel="prev" title="JobTask">
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</div>
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
                   Previous
                 </span>
                 JobTask
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../../advanced/airports-parallel/" title="Parallel Jobs" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+              </div>
+</div>
+</a>
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../../examples/examples-intro/" rel="next" title="Examples">
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
                   Next
                 </span>
-                Parallel Jobs
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            UP42
+                Examples
+              </div>
+</div>
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            UP42 2020
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
-    
-      <a href="https://github.com/up42" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
-    
-      <a href="https://twitter.com/up42official" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://www.linkedin.com/company/up42/" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
-    
-  </div>
-
-    </div>
-  </div>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/up42" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://twitter.com/up42official" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://www.linkedin.com/company/up42/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
-      
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
-      
-        <script src="../../stylesheets/extra.js"></script>
-      
-    
-  </body>
+</div>
+<script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+<script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+<script src="../../stylesheets/extra.js"></script>
+</body>
 </html>

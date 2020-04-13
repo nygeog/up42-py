@@ -1,609 +1,434 @@
 
+<!DOCTYPE html>
 
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="UP42 Python SDK">
-      
-      
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../../_assets/logo.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
-    
-    
-      
-        <title>JobTask - UP42 Python SDK</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="#3f51b5">
-      
-    
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-    
-      <link rel="manifest" type="application/manifest+json" href="../../manifest.webmanifest" crossorigin="use-credentials">
-    
-    
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-    
-    
-      
-        
-<script>
-  window.ga = window.ga || function() {
-    (ga.q = ga.q || []).push(arguments)
-  }
-  ga.l = +new Date
-  /* Setup integration and send page view */
-  ga("create", "UA-XXXXXXXX-X", "auto")
-  ga("set", "anonymizeIp", true)
-  ga("send", "pageview")
-  /* Register handler to log search on blur */
-  document.addEventListener("DOMContentLoaded", () => {
-    if (document.forms.search) {
-      var query = document.forms.search.query
-      query.addEventListener("blur", function() {
-        if (this.value) {
-          var path = document.location.pathname;
-          ga("send", "pageview", path + "?q=" + this.value)
-        }
-      })
-    }
-  })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="purple">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#jobtask-class" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="UP42 Python SDK" aria-label="UP42 Python SDK" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../_assets/logo.ico" width="24" height="24">
-          
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="UP42 Python SDK" name="description"/>
+<link href="../../assets/logo-up42.ico" rel="shortcut icon"/>
+<meta content="mkdocs-1.1, mkdocs-material-5.0.2" name="generator"/>
+<title>JobTask - UP42 Python SDK</title>
+<link href="../../assets/stylesheets/main.07c9fbf5.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ecd4686e.min.css" rel="stylesheet"/>
+<meta content="#3f51b5" name="theme-color"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="https://www.google-analytics.com" rel="preconnect dns-prefetch"/>
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-XXXXXXXX-X","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview")})</script>
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+</head>
+<body data-md-color-accent="purple" data-md-color-primary="indigo" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#jobtask-class">
+          Skip to content
         </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              UP42 Python SDK
-            </span>
-            <span class="md-header-nav__topic">
-              
-                JobTask
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header-nav md-grid">
+<a aria-label="UP42 Python SDK" class="md-header-nav__button md-logo" href="../.." title="UP42 Python SDK">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg height="300" preserveaspectratio="xMidYMid meet" version="1.1" viewbox="0 0 300 300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 0L301.5 0L301.5 300L0 300L0 0Z" id="a1GmkaXFhc"></path><path d="M46.9 105.6C46.9 142.93 46.9 163.67 46.9 167.82C46.9 177.98 53.89 183.69 64.36 183.69C74.84 183.69 81.82 178.3 81.82 167.82C81.82 163.67 81.82 142.93 81.82 105.6L105.95 105.6C105.95 142.93 105.95 163.67 105.95 167.82C105.95 190.04 89.44 205.6 64.36 205.6C39.28 205.6 22.46 190.04 22.46 167.82C22.46 163.67 22.46 142.93 22.46 105.6L46.9 105.6Z" id="ePubGLbJJ"></path><path d="M164.89 105.6C184.57 105.6 197.8 119.79 197.8 139.79C197.8 159.79 184.57 174.63 164.89 174.63C163.73 174.63 157.93 174.63 147.48 174.63L147.48 205.6L122.64 205.6L122.64 105.6C147.99 105.6 162.08 105.6 164.89 105.6ZM172.64 140.11C172.64 132.37 168.44 126.56 160.06 126.56C159.22 126.56 155.02 126.56 147.48 126.56L147.48 153.66L159.73 153.66C168.34 149.79 172.64 145.27 172.64 140.11Z" id="e3xlgi979P"></path><path d="M228.42 85.15L237.44 85.15L237.44 118.88L245.01 118.88L245.01 125.37L237.44 125.37L237.44 140.15L229.68 140.15L229.68 125.55L202.63 125.55L202.45 120.5L228.42 85.15ZM229.5 118.7C229.5 106.79 229.5 100.18 229.5 98.86C229.5 96.33 229.86 93.45 229.86 93.45C229.85 93.45 229.7 93.45 229.68 93.45C228.96 95.07 227.88 96.52 226.98 97.96C225.92 99.35 220.63 106.32 211.11 118.88L211.11 118.88L229.5 118.88L229.5 118.7Z" id="c1yTzdREXX"></path><path d="M276.4 101.25C276.4 95.94 272.34 92.23 266.5 92.23C259.25 92.23 255.36 99.13 255.36 99.13C254.8 98.75 250.27 95.78 249.7 95.41C253.24 89.05 259.78 85.15 267.03 85.15C277.11 85.15 284.36 91.34 284.36 100.72C284.36 118.4 258.19 121.23 258.01 133.61C259.83 133.61 268.91 133.61 285.25 133.61L285.25 140.15C264.03 140.15 252.24 140.15 249.88 140.15C249.7 138.56 249.53 137.15 249.53 135.91C249.53 116.63 276.4 113.8 276.4 101.25Z" id="d2t6xtf3zG"></path></defs><g><g><g><use fill="#242c5c" fill-opacity="1" opacity="1" xlink:href="#a1GmkaXFhc"></use></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#ePubGLbJJ"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#ePubGLbJJ"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#e3xlgi979P"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#e3xlgi979P"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#c1yTzdREXX"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#c1yTzdREXX"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#d2t6xtf3zG"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#d2t6xtf3zG"></use></g></g></g></g></svg>
+</a>
+<label class="md-header-nav__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg>
+</label>
+<div class="md-header-nav__title" data-md-component="header-title">
+<div class="md-header-nav__ellipsis">
+<span class="md-header-nav__topic md-ellipsis">
+            UP42 Python SDK
+          </span>
+<span class="md-header-nav__topic md-ellipsis">
+            
+              JobTask
+            
+          </span>
+</div>
+</div>
+<label class="md-header-nav__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+</label>
 <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" data-md-state="active" name="query" placeholder="Search" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</label>
+<button aria-label="Clear" class="md-search__icon md-icon" data-md-component="search-reset" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"></path></svg>
+</button>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Type to start searching
           </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list"></ol>
 </div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/up42/up42-py" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+</div>
+</div>
+</div>
+</div>
+<div class="md-header-nav__source">
+<a class="md-source" href="https://github.com/up42/up42-py" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
     up42-py
   </div>
 </a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="UP42 Python SDK" class="md-nav__button md-logo">
-      
-        <img alt="logo" src="../../_assets/logo.ico" width="48" height="48">
-      
-    </a>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs md-tabs--active" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../installation/">
+          Guides
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../project/">
+          Code Reference
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../examples/examples-intro/">
+          Examples
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../support-faq/">
+          Support &amp; FAQ
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<style>
+    .md-header{position:initial; padding-top: 0.4rem;}
+    .md-tabs{position:initial; padding-top: 0.4rem;}
+  </style>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="UP42 Python SDK" class="md-nav__button md-logo" href="../.." title="UP42 Python SDK">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg height="300" preserveaspectratio="xMidYMid meet" version="1.1" viewbox="0 0 300 300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><path d="M0 0L301.5 0L301.5 300L0 300L0 0Z" id="a1GmkaXFhc"></path><path d="M46.9 105.6C46.9 142.93 46.9 163.67 46.9 167.82C46.9 177.98 53.89 183.69 64.36 183.69C74.84 183.69 81.82 178.3 81.82 167.82C81.82 163.67 81.82 142.93 81.82 105.6L105.95 105.6C105.95 142.93 105.95 163.67 105.95 167.82C105.95 190.04 89.44 205.6 64.36 205.6C39.28 205.6 22.46 190.04 22.46 167.82C22.46 163.67 22.46 142.93 22.46 105.6L46.9 105.6Z" id="ePubGLbJJ"></path><path d="M164.89 105.6C184.57 105.6 197.8 119.79 197.8 139.79C197.8 159.79 184.57 174.63 164.89 174.63C163.73 174.63 157.93 174.63 147.48 174.63L147.48 205.6L122.64 205.6L122.64 105.6C147.99 105.6 162.08 105.6 164.89 105.6ZM172.64 140.11C172.64 132.37 168.44 126.56 160.06 126.56C159.22 126.56 155.02 126.56 147.48 126.56L147.48 153.66L159.73 153.66C168.34 149.79 172.64 145.27 172.64 140.11Z" id="e3xlgi979P"></path><path d="M228.42 85.15L237.44 85.15L237.44 118.88L245.01 118.88L245.01 125.37L237.44 125.37L237.44 140.15L229.68 140.15L229.68 125.55L202.63 125.55L202.45 120.5L228.42 85.15ZM229.5 118.7C229.5 106.79 229.5 100.18 229.5 98.86C229.5 96.33 229.86 93.45 229.86 93.45C229.85 93.45 229.7 93.45 229.68 93.45C228.96 95.07 227.88 96.52 226.98 97.96C225.92 99.35 220.63 106.32 211.11 118.88L211.11 118.88L229.5 118.88L229.5 118.7Z" id="c1yTzdREXX"></path><path d="M276.4 101.25C276.4 95.94 272.34 92.23 266.5 92.23C259.25 92.23 255.36 99.13 255.36 99.13C254.8 98.75 250.27 95.78 249.7 95.41C253.24 89.05 259.78 85.15 267.03 85.15C277.11 85.15 284.36 91.34 284.36 100.72C284.36 118.4 258.19 121.23 258.01 133.61C259.83 133.61 268.91 133.61 285.25 133.61L285.25 140.15C264.03 140.15 252.24 140.15 249.88 140.15C249.7 138.56 249.53 137.15 249.53 135.91C249.53 116.63 276.4 113.8 276.4 101.25Z" id="d2t6xtf3zG"></path></defs><g><g><g><use fill="#242c5c" fill-opacity="1" opacity="1" xlink:href="#a1GmkaXFhc"></use></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#ePubGLbJJ"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#ePubGLbJJ"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#e3xlgi979P"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#e3xlgi979P"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#c1yTzdREXX"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#c1yTzdREXX"></use></g></g><g><use fill="#ffffff" fill-opacity="1" opacity="1" xlink:href="#d2t6xtf3zG"></use><g><use fill-opacity="0" opacity="1" stroke="#ffffff" stroke-opacity="1" stroke-width="1" xlink:href="#d2t6xtf3zG"></use></g></g></g></g></svg>
+</a>
     UP42 Python SDK
   </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/up42/up42-py" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
+<div class="md-nav__source">
+<a class="md-source" href="https://github.com/up42/up42-py" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
     up42-py
   </div>
 </a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Overview" class="md-nav__link">
-      Overview
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../.." title="Home">
+      Home
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../installation/" title="Installation" class="md-nav__link">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" id="nav-2" type="checkbox"/>
+<label class="md-nav__link" for="nav-2">
+      Guides
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Guides" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-2">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Guides
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../installation/" title="Installation">
       Installation
     </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Getting started
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Getting started
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../01_quickstart/" title="Quickstart" class="md-nav__link">
-      Quickstart
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../authentication/" title="Authentication">
+      Authentication
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../02_objects/" title="Objects" class="md-nav__link">
-      Objects
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../structure/" title="Structure">
+      Structure
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../03_catalog/" title="Catalog Search" class="md-nav__link">
-      Catalog Search
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../30-seconds-example/" title="30 Seconds Example">
+      30 Seconds Example
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../04_typical_usage/" title="Typical Usage" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../typical-usage/" title="Typical Usage">
       Typical Usage
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../../05_cli/" title="CLI" class="md-nav__link">
-      CLI
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../catalog/" title="Catalog Search">
+      Catalog Search
     </a>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cli/" title="Command Line Interface">
+      Command Line Interface
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="nav-3" id="nav-3" type="checkbox"/>
+<label class="md-nav__link" for="nav-3">
       Code Reference
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Code Reference" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-3">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
         Code Reference
       </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../project/" title="Project" class="md-nav__link">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../project/" title="Project">
       Project
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../workflow/" title="Workflow" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../workflow/" title="Workflow">
       Workflow
     </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../job/" title="Job" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../job/" title="Job">
       Job
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
         JobTask
-      </label>
-    
-    <a href="./" title="JobTask" class="md-nav__link md-nav__link--active">
+        <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z"></path></svg>
+</span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./" title="JobTask">
       JobTask
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.9595init9595" class="md-nav__link">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask">
+    up42.jobtask.JobTask
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.__init__">
     __init__()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.download_quicklooks" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.download_quicklooks">
     download_quicklooks()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.download_results" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.download_results">
     download_results()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.get_results_json" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.get_results_json">
     get_results_json()
   </a>
-  
 </li>
-      
-      
-      
-      
-      
-    </ul>
-  
+</ul>
 </nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../tools/" title="Tools" class="md-nav__link">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../tools/" title="Tools">
       Tools
     </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Advanced Tutorials
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Advanced Tutorials
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../advanced/airports-parallel/" title="Parallel Jobs" class="md-nav__link">
-      Parallel Jobs
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.9595init9595" class="md-nav__link">
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" id="nav-4" type="checkbox"/>
+<label class="md-nav__link" for="nav-4">
+      Examples
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Examples" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-4">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Examples
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/examples-intro/" title="Examples">
+      Examples
+    </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../examples/airport-monitoring/" title="Airport monitoring">
+      Airport monitoring
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" id="nav-5" type="checkbox"/>
+<label class="md-nav__link" for="nav-5">
+      Support &amp; FAQ
+      <span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path></svg>
+</span>
+</label>
+<nav aria-label="Support &amp; FAQ" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="nav-5">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+        Support &amp; FAQ
+      </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../support-faq/" title="FAQ">
+      FAQ
+    </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask">
+    up42.jobtask.JobTask
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.__init__">
     __init__()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.download_quicklooks" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.download_quicklooks">
     download_quicklooks()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.download_results" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.download_results">
     download_results()
   </a>
-  
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#up42.jobtask.JobTask.get_results_json" class="md-nav__link">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#up42.jobtask.JobTask.get_results_json">
     get_results_json()
   </a>
-  
 </li>
-      
-      
-      
-      
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                
-                <h1 id="jobtask-class">JobTask class<a class="headerlink" href="#jobtask-class" title="Permanent link">&para;</a></h1>
-<h2 id="up42.jobtask.JobTask.__init__"><code class="highlight"><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">,</span> <span class="n">jobtask_id</span><span class="p">)</span></code><a class="headerlink" href="#up42.jobtask.JobTask.__init__" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/jobtask.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>16
+</div>
+</div>
+</div>
+<div class="md-content">
+<article class="md-content__inner md-typeset">
+<h1 id="jobtask-class">JobTask class<a class="headerlink" href="#jobtask-class" title="Permanent link">¶</a></h1>
+<div class="doc doc-object doc-class">
+<h2 class="hidden-toc" href="#up42.jobtask.JobTask" id="up42.jobtask.JobTask" style="visibility: hidden; width: 0; height: 0;">
+<a class="headerlink" href="#up42.jobtask.JobTask" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents first">
+<div class="doc doc-children">
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.jobtask.JobTask.__init__">
+<code class="highlight language-python">
+__init__<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">,</span> <span class="n">job_id</span><span class="p">,</span> <span class="n">jobtask_id</span><span class="p">)</span> </code>
+<span class="doc doc-properties">
+<small class="doc doc-property doc-property-special"><code>special</code></small>
+</span>
+<a class="headerlink" href="#up42.jobtask.JobTask.__init__" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>The JobTask class provides access to the results and parameters of single
+Tasks of UP42 Jobs (each Job contains one or multiple Jobtasks, one for each
+block in the workflow).</p>
+<p>Public Methods:
+    get_results_json, download_results, download_quicklooks</p>
+<details class="quote">
+<summary>Source code in <code>up42/jobtask.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>16
 17
 18
 19
@@ -620,35 +445,91 @@
 30
 31
 32
-33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">:</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">jobtask_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-    <span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;The JobTask class provides access to the results and parameters of single</span>
-<span class="sd">        Tasks of UP42 Jobs (each Job contains one or multiple Jobtasks, one for each</span>
-<span class="sd">        block in the workflow).</span>
+33</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">auth</span><span class="p">:</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">job_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">jobtask_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">"""The JobTask class provides access to the results and parameters of single</span>
+<span class="sd">    Tasks of UP42 Jobs (each Job contains one or multiple Jobtasks, one for each</span>
+<span class="sd">    block in the workflow).</span>
 
-<span class="sd">        Public Methods:</span>
-<span class="sd">            get_results_json, download_results, download_quicklooks</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">project_id</span> <span class="o">=</span> <span class="n">project_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span> <span class="o">=</span> <span class="n">job_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span> <span class="o">=</span> <span class="n">jobtask_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_info</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info</span><span class="p">()</span>
-</code></pre></div>
-</td></tr></table>
-
+<span class="sd">    Public Methods:</span>
+<span class="sd">        get_results_json, download_results, download_quicklooks</span>
+<span class="sd">    """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">project_id</span> <span class="o">=</span> <span class="n">project_id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">job_id</span> <span class="o">=</span> <span class="n">job_id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span> <span class="o">=</span> <span class="n">jobtask_id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">get_info</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_info</span><span class="p">()</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>The JobTask class provides access to the results and parameters of single
-Tasks of UP42 Jobs (each Job contains one or multiple Jobtasks, one for each
-block in the workflow).</p>
-<p>Public Methods:
-    get_results_json, download_results, download_quicklooks</p>
-<h2 id="up42.jobtask.JobTask.download_quicklooks"><code class="highlight"><span class="n">download_quicklooks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.jobtask.JobTask.download_quicklooks" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/jobtask.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>117
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.jobtask.JobTask.download_quicklooks">
+<code class="highlight language-python">
+download_quicklooks<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.jobtask.JobTask.download_quicklooks" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Downloads quicklooks of the job task to disk.</p>
+<p>After download, can be plotted via jobtask.plot_quicklooks().</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>output_directory</code></td>
+<td><code>Optional[Union[str, pathlib.Path]]</code></td>
+<td>
+<p>The file output directory, defaults to the current working
+directory.</p>
+</td>
+<td><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>List[str]</code></td>
+<td>
+<p>The quicklooks filepaths.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>up42/jobtask.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>117
 118
 119
 120
@@ -697,63 +578,77 @@ block in the workflow).</p>
 163
 164
 165
-166</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_quicklooks</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Downloads quicklooks of the job task to disk.</span>
+166</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">download_quicklooks</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Downloads quicklooks of the job task to disk.</span>
 
-<span class="sd">        After download, can be plotted via jobtask.plot_quicklooks().</span>
+<span class="sd">    After download, can be plotted via jobtask.plot_quicklooks().</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            output_directory: The file output directory, defaults to the current working</span>
-<span class="sd">                directory.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        output_directory: The file output directory, defaults to the current working</span>
+<span class="sd">            directory.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            The quicklooks filepaths.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">output_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">output_directory</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;project_</span><span class="si">{self.auth.project_id}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;job_</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">output_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
-        <span class="n">output_directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Download directory: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_directory</span><span class="p">))</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        The quicklooks filepaths.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">output_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output_directory</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"project_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">"</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"job_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
+    <span class="n">output_directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Download directory: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_directory</span><span class="p">))</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"/tasks/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/outputs/quicklooks/"</span>
+    <span class="p">)</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+    <span class="n">quicklooks_ids</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span>
+
+    <span class="n">out_paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ql_id</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">quicklooks_ids</span><span class="p">):</span>
+        <span class="n">out_path</span> <span class="o">=</span> <span class="n">output_directory</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"quicklook_</span><span class="si">{</span><span class="n">ql_id</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># No suffix required.</span>
+        <span class="n">out_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">))</span>
 
         <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs/</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{self.jobtask_id}</span><span class="s2">/outputs/quicklooks/&quot;</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">"</span>
+            <span class="sa">f</span><span class="s2">"/tasks/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/outputs/quicklooks/</span><span class="si">{</span><span class="n">ql_id</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
-        <span class="n">quicklooks_ids</span> <span class="o">=</span> <span class="n">response_json</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
+            <span class="n">request_type</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">return_text</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
 
-        <span class="n">out_paths</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">ql_id</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">quicklooks_ids</span><span class="p">):</span>
-            <span class="n">out_path</span> <span class="o">=</span> <span class="n">output_directory</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;quicklook_</span><span class="si">{ql_id}</span><span class="s2">&quot;</span>  <span class="c1"># No suffix required.</span>
-            <span class="n">out_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">))</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
+                <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
 
-            <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.project_id}</span><span class="s2">/jobs/</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{self.jobtask_id}</span><span class="s2">/outputs/quicklooks/</span><span class="si">{ql_id}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span>
-                <span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">return_text</span><span class="o">=</span><span class="kc">False</span>
-            <span class="p">)</span>
-
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">out_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
-                <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">:</span>
-                    <span class="n">dst</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="n">out_paths</span>  <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
-        <span class="k">return</span> <span class="n">out_paths</span>
-</code></pre></div>
-</td></tr></table>
-
+    <span class="bp">self</span><span class="o">.</span><span class="n">quicklooks</span> <span class="o">=</span> <span class="n">out_paths</span>  <span class="c1"># pylint: disable=attribute-defined-outside-init</span>
+    <span class="k">return</span> <span class="n">out_paths</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Downloads quicklooks of the job task to disk.</p>
-<p>After download, can be plotted via jobtask.plot_quicklooks().</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.jobtask.JobTask.download_results">
+<code class="highlight language-python">
+download_results<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.jobtask.JobTask.download_results" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Downloads and unpacks the jobtask results. Default download to Desktop.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -767,12 +662,15 @@ block in the workflow).</p>
 <tr>
 <td><code>output_directory</code></td>
 <td><code>Optional[Union[str, pathlib.Path]]</code></td>
-<td>The file output directory, defaults to the current working directory.</td>
+<td>
+<p>The file output directory, defaults to the current working
+directory.</p>
+</td>
 <td><code>None</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -783,12 +681,19 @@ block in the workflow).</p>
 <tbody>
 <tr>
 <td><code>List[str]</code></td>
-<td>The quicklooks filepaths.</td>
+<td>
+<p>List of the downloaded results' filepaths.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.jobtask.JobTask.download_results"><code class="highlight"><span class="n">download_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code><a class="headerlink" href="#up42.jobtask.JobTask.download_results" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/jobtask.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span> 85
+<details class="quote">
+<summary>Source code in <code>up42/jobtask.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span> 85
  86
  87
  88
@@ -818,43 +723,58 @@ block in the workflow).</p>
 112
 113
 114
-115</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">download_results</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Downloads and unpacks the jobtask results. Default download to Desktop.</span>
+115</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">download_results</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">output_directory</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Downloads and unpacks the jobtask results. Default download to Desktop.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            output_directory: The file output directory, defaults to the current working</span>
-<span class="sd">                directory.</span>
-<span class="sd">        Returns:</span>
-<span class="sd">            List of the downloaded results&#39; filepaths.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Overwrite argument</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Downloading results of jobtask </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span><span class="p">)</span>
+<span class="sd">    Args:</span>
+<span class="sd">        output_directory: The file output directory, defaults to the current working</span>
+<span class="sd">            directory.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        List of the downloaded results' filepaths.</span>
+<span class="sd">    """</span>
+    <span class="c1"># TODO: Overwrite argument</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Downloading results of jobtask </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">output_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">output_directory</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;project_</span><span class="si">{self.auth.project_id}</span><span class="s2">&quot;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;job_</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">output_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
-        <span class="n">output_directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Download directory: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_directory</span><span class="p">))</span>
-
-        <span class="n">out_filepaths</span> <span class="o">=</span> <span class="n">download_results_from_gcs</span><span class="p">(</span>
-            <span class="n">func_get_download_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_download_url</span><span class="p">,</span>
-            <span class="n">output_directory</span><span class="o">=</span><span class="n">output_directory</span><span class="p">,</span>
+    <span class="k">if</span> <span class="n">output_directory</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output_directory</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"project_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">"</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"job_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">"</span>
         <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_directory</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_directory</span><span class="p">)</span>
+    <span class="n">output_directory</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Download directory: </span><span class="si">%s</span><span class="s2">"</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_directory</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">out_filepaths</span>
-        <span class="k">return</span> <span class="n">out_filepaths</span>
-</code></pre></div>
-</td></tr></table>
+    <span class="n">download_url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_download_url</span><span class="p">()</span>
+    <span class="n">out_filepaths</span> <span class="o">=</span> <span class="n">download_results_from_gcs</span><span class="p">(</span>
+        <span class="n">download_url</span><span class="o">=</span><span class="n">download_url</span><span class="p">,</span> <span class="n">output_directory</span><span class="o">=</span><span class="n">output_directory</span><span class="p">,</span>
+    <span class="p">)</span>
 
+    <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="n">out_filepaths</span>
+    <span class="k">return</span> <span class="n">out_filepaths</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Downloads and unpacks the jobtask results. Default download to Desktop.</p>
-<p><strong>Parameters</strong></p>
+</div>
+</div>
+<div class="doc doc-object doc-method">
+<h2 class="doc doc-heading" id="up42.jobtask.JobTask.get_results_json">
+<code class="highlight language-python">
+get_results_json<span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> </code>
+<a class="headerlink" href="#up42.jobtask.JobTask.get_results_json" title="Permanent link">¶</a></h2>
+<div class="doc doc-contents">
+<p>Gets the Jobtask results data.json.</p>
+<p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr>
@@ -866,14 +786,16 @@ block in the workflow).</p>
 </thead>
 <tbody>
 <tr>
-<td><code>output_directory</code></td>
-<td><code>Optional[Union[str, pathlib.Path]]</code></td>
-<td>The file output directory, defaults to the current working directory.</td>
-<td><code>None</code></td>
+<td><code>as_dataframe</code></td>
+<td><code>bool</code></td>
+<td>
+<p>"fc" for FeatureCollection dict, "df" for GeoDataFrame.</p>
+</td>
+<td><code>False</code></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
+<p><strong>Returns:</strong></p>
 <table>
 <thead>
 <tr>
@@ -883,13 +805,20 @@ block in the workflow).</p>
 </thead>
 <tbody>
 <tr>
-<td><code>List[str]</code></td>
-<td>List of the downloaded results' filepaths.</td>
+<td><code>Union[Dict, geopandas.geodataframe.GeoDataFrame]</code></td>
+<td>
+<p>Json of the results, alternatively geodataframe.</p>
+</td>
 </tr>
 </tbody>
 </table>
-<h2 id="up42.jobtask.JobTask.get_results_json"><code class="highlight"><span class="n">get_results_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code><a class="headerlink" href="#up42.jobtask.JobTask.get_results_json" title="Permanent link">&para;</a></h2>
-<details class="note"><summary>Show source code in <code>up42/jobtask.py</code></summary><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span>51
+<details class="quote">
+<summary>Source code in <code>up42/jobtask.py</code></summary>
+<table class="highlighttable">
+<tr>
+<td class="linenos">
+<div class="linenodiv">
+<pre><span></span>51
 52
 53
 54
@@ -912,160 +841,119 @@ block in the workflow).</p>
 71
 72
 73
-74</pre></div></td><td class="code"><div class="highlight"><pre><span></span><code>    <span class="k">def</span> <span class="nf">get_results_json</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
-        <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Gets the Jobtask results data.json.</span>
+74</pre>
+</div>
+</td>
+<td class="code">
+<div class="highlight">
+<pre><span></span><code><span class="k">def</span> <span class="nf">get_results_json</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">]:</span>
+    <span class="sd">"""</span>
+<span class="sd">    Gets the Jobtask results data.json.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            as_dataframe: &quot;fc&quot; for FeatureCollection dict, &quot;df&quot; for GeoDataFrame.</span>
+<span class="sd">    Args:</span>
+<span class="sd">        as_dataframe: "fc" for FeatureCollection dict, "df" for GeoDataFrame.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Json of the results, alternatively geodataframe.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;{self.auth._endpoint()}/projects/</span><span class="si">{self.auth.project_id}</span><span class="s2">/jobs/</span><span class="si">{self.job_id}</span><span class="s2">&quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;/tasks/</span><span class="si">{self.jobtask_id}</span><span class="s2">/outputs/data-json/&quot;</span>
-        <span class="p">)</span>
-        <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        Json of the results, alternatively geodataframe.</span>
+<span class="sd">    """</span>
+    <span class="n">url</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_endpoint</span><span class="p">()</span><span class="si">}</span><span class="s2">/projects/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">project_id</span><span class="si">}</span><span class="s2">/jobs/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">job_id</span><span class="si">}</span><span class="s2">"</span>
+        <span class="sa">f</span><span class="s2">"/tasks/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">jobtask_id</span><span class="si">}</span><span class="s2">/outputs/data-json/"</span>
+    <span class="p">)</span>
+    <span class="n">response_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">_request</span><span class="p">(</span><span class="n">request_type</span><span class="o">=</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
-            <span class="c1"># UP42 results are always in EPSG 4326</span>
-            <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="n">response_json</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">df</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">response_json</span>
-</code></pre></div>
-</td></tr></table>
-
+    <span class="k">if</span> <span class="n">as_dataframe</span><span class="p">:</span>
+        <span class="c1"># UP42 results are always in EPSG 4326</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="o">.</span><span class="n">from_features</span><span class="p">(</span><span class="n">response_json</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">df</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">response_json</span>
+</code></pre>
+</div>
+</td>
+</tr>
+</table>
 </details>
-<p>Gets the Jobtask results data.json.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>as_dataframe</code></td>
-<td><code>bool</code></td>
-<td>"fc" for FeatureCollection dict, "df" for GeoDataFrame.</td>
-<td><code>False</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Union[Dict, geopandas.geodataframe.GeoDataFrame]</code></td>
-<td>Json of the results, alternatively geodataframe.</td>
-</tr>
-</tbody>
-</table>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../job/" title="Job" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+<div class="md-footer-nav">
+<nav aria-label="Footer" class="md-footer-nav__inner md-grid">
+<a class="md-footer-nav__link md-footer-nav__link--prev" href="../job/" rel="prev" title="Job">
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path></svg>
+</div>
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
                   Previous
                 </span>
                 Job
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../tools/" title="Tools" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
+              </div>
+</div>
+</a>
+<a class="md-footer-nav__link md-footer-nav__link--next" href="../tools/" rel="next" title="Tools">
+<div class="md-footer-nav__title">
+<div class="md-ellipsis">
+<span class="md-footer-nav__direction">
                   Next
                 </span>
                 Tools
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            UP42
+              </div>
+</div>
+<div class="md-footer-nav__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path></svg>
+</div>
+</a>
+</nav>
+</div>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+<div class="md-footer-copyright__highlight">
+            UP42 2020
           </div>
         
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
-    
-      <a href="https://github.com/up42" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
-    
-      <a href="https://twitter.com/up42official" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
-    
-      <a href="https://www.linkedin.com/company/up42/" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
-    
-  </div>
-
-    </div>
-  </div>
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+          Material for MkDocs
+        </a>
+</div>
+<div class="md-footer-social">
+<a class="md-footer-social__link" href="https://github.com/up42" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 480 512" xmlns="http://www.w3.org/2000/svg"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://twitter.com/up42official" rel="noopener" target="_blank" title="twitter.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path></svg>
+</a>
+<a class="md-footer-social__link" href="https://www.linkedin.com/company/up42/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+</div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
-      
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
-      
-        <script src="../../stylesheets/extra.js"></script>
-      
-    
-  </body>
+</div>
+<script src="../../assets/javascripts/vendor.36cbf620.min.js"></script>
+<script src="../../assets/javascripts/bundle.00c583dd.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+<script>
+        app = initialize({
+          base: "../..",
+          features: ["tabs"],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.7f7c8775.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+<script src="../../stylesheets/extra.js"></script>
+</body>
 </html>
