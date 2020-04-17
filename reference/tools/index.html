@@ -488,7 +488,8 @@ They can be accessed from every object and also from the imported up42 package d
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>24
+<pre><span></span>23
+24
 25
 26
 27
@@ -499,8 +500,7 @@ They can be accessed from every object and also from the imported up42 package d
 32
 33
 34
-35
-36</pre>
+35</pre>
 </div>
 </td>
 <td class="code">
@@ -543,7 +543,8 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>117
+<pre><span></span>116
+117
 118
 119
 120
@@ -569,8 +570,7 @@ And ipyleaflet misses raster vizualization &amp; folium plugins functionality.</
 140
 141
 142
-143
-144</pre>
+143</pre>
 </div>
 </td>
 <td class="code">
@@ -671,7 +671,8 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>354
+<pre><span></span>353
+354
 355
 356
 357
@@ -689,8 +690,7 @@ the server, includes all manifest.json and marketplace.json contents.</p>
 369
 370
 371
-372
-373</pre>
+372</pre>
 </div>
 </td>
 <td class="code">
@@ -791,7 +791,8 @@ dict.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>301
+<pre><span></span>300
+301
 302
 303
 304
@@ -841,8 +842,7 @@ dict.</p>
 348
 349
 350
-351
-352</pre>
+351</pre>
 </div>
 </td>
 <td class="code">
@@ -967,7 +967,8 @@ get_example_aoi<span class="p">(</span><span class="bp">self</span><span class="
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span> 82
+<pre><span></span> 81
+ 82
  83
  84
  85
@@ -998,8 +999,7 @@ get_example_aoi<span class="p">(</span><span class="bp">self</span><span class="
 110
 111
 112
-113
-114</pre>
+113</pre>
 </div>
 </td>
 <td class="code">
@@ -1021,11 +1021,11 @@ get_example_aoi<span class="p">(</span><span class="bp">self</span><span class="
     <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Getting small example aoi in </span><span class="si">%s</span><span class="s2">."</span><span class="p">,</span> <span class="n">location</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">"Berlin"</span><span class="p">:</span>
         <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_berlin.geojson"</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_berlin.geojson"</span>
         <span class="p">)</span>
     <span class="k">elif</span> <span class="n">location</span> <span class="o">==</span> <span class="s2">"Washington"</span><span class="p">:</span>
         <span class="n">example_aoi</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_washington.geojson"</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span><span class="si">}</span><span class="s2">/data/aoi_washington.geojson"</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
@@ -1107,7 +1107,8 @@ Legend entries are sorted and this determines plotting order.</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>146
+<pre><span></span>145
+146
 147
 148
 149
@@ -1150,8 +1151,7 @@ Legend entries are sorted and this determines plotting order.</p>
 186
 187
 188
-189
-190</pre>
+189</pre>
 </div>
 </td>
 <td class="code">
@@ -1244,7 +1244,8 @@ respective object, e.g. job, catalog).</p>
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>192
+<pre><span></span>191
+192
 193
 194
 195
@@ -1288,8 +1289,7 @@ respective object, e.g. job, catalog).</p>
 233
 234
 235
-236
-237</pre>
+236</pre>
 </div>
 </td>
 <td class="code">
@@ -1390,7 +1390,8 @@ plot_results<span class="p">(</span><span class="bp">self</span><span class="p">
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>239
+<pre><span></span>238
+239
 240
 241
 242
@@ -1449,8 +1450,7 @@ plot_results<span class="p">(</span><span class="bp">self</span><span class="p">
 295
 296
 297
-298
-299</pre>
+298</pre>
 </div>
 </td>
 <td class="code">
@@ -1586,7 +1586,8 @@ for use as the aoi geometry in the workflow input parameters
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>39
+<pre><span></span>38
+39
 40
 41
 42
@@ -1626,8 +1627,7 @@ for use as the aoi geometry in the workflow input parameters
 76
 77
 78
-79
-80</pre>
+79</pre>
 </div>
 </td>
 <td class="code">
@@ -1776,7 +1776,8 @@ validate_manifest<span class="p">(</span><span class="bp">self</span><span class
 <tr>
 <td class="linenos">
 <div class="linenodiv">
-<pre><span></span>375
+<pre><span></span>374
+375
 376
 377
 378
@@ -1836,8 +1837,7 @@ validate_manifest<span class="p">(</span><span class="bp">self</span><span class
 432
 433
 434
-435
-436</pre>
+435</pre>
 </div>
 </td>
 <td class="code">

@@ -329,11 +329,13 @@
 <div class="md-content">
 <article class="md-content__inner md-typeset">
 <h1 id="30-seconds-example"><img alt="⏱️" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/23f1.png" title=":stopwatch:"/> 30 Seconds Example<a class="headerlink" href="#30-seconds-example" title="Permanent link">¶</a></h1>
-<p>A new workflow is created and filled with tasks (Sentinel-2 data, image sharpening). 
+<p>A new workflow is created and filled with tasks (<a href="https://marketplace.up42.com/block/3a381e6b-acb7-4cec-ae65-50798ce80e64">Sentinel-2 data</a>, 
+<a href="https://marketplace.up42.com/block/e374ea64-dc3b-4500-bb4b-974260fb203e">image sharpening</a>). 
 The area of interest and workflow parameters are defined. After running the job, 
 the results are downloaded and visualized.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
-<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="s2">"config.json"</span><span class="p">)</span>
+<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">porject_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">,</span> <span class="n">project_api_key</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+<span class="c1"># up42.authenticate(cfg_file="config.json")</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
 <span class="n">project</span>

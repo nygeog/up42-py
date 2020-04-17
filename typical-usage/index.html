@@ -416,7 +416,8 @@
 <p>This overview of the most important functions repeats the previous 30-seconds-example, but in more detail and shows additional functionality and alternative steps.</p>
 <h2 id="authentificate-access-project">Authentificate &amp; access project<a class="headerlink" href="#authentificate-access-project" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">up42</span>
-<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">cfg_file</span><span class="o">=</span><span class="s2">"config.json"</span><span class="p">)</span>
+<span class="n">up42</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">porject_id</span><span class="o">=</span><span class="mi">12345</span><span class="p">,</span> <span class="n">project_api_key</span><span class="o">=</span><span class="mi">12345</span><span class="p">)</span>
+<span class="c1"># up42.authenticate(cfg_file="config.json")</span>
 
 <span class="n">project</span> <span class="o">=</span> <span class="n">up42</span><span class="o">.</span><span class="n">initialize_project</span><span class="p">()</span>
 </code></pre></div>
@@ -476,11 +477,11 @@
 <span class="n">workflow</span>
 </code></pre></div>
 <h2 id="select-the-aoi">Select the aoi<a class="headerlink" href="#select-the-aoi" title="Permanent link">¶</a></h2>
-<p>There are multiple ways to select an aoi, you can:
-- Provide aoi the geometry directly in code as a FeatureCollection, Feature, GeoDataFrame, shapely Polygon or list of bounds coordinates.
-- Use .draw_aoi() to draw the aoi and export it as a geojson.
-- Use .read_vector_file() to read a geojson, json, shapefile, kml or wkt file.
-- Use .get_example_aoi() to read multiple provided sample aois.</p>
+<p>There are multiple ways to select an aoi:<br/>
+- Provide aoi the geometry directly in code as a FeatureCollection, Feature, GeoDataFrame, shapely Polygon or list of bounds coordinates.<br/>
+- Use .draw_aoi() to draw the aoi and export it as a geojson.<br/>
+- Use .read_vector_file() to read a geojson, json, shapefile, kml or wkt file.<br/>
+- Use .get_example_aoi() to read multiple provided sample aois.  </p>
 <div class="highlight"><pre><span></span><code><span class="n">aoi</span> <span class="o">=</span> <span class="p">[</span><span class="mf">13.375966</span><span class="p">,</span> <span class="mf">52.515068</span><span class="p">,</span> <span class="mf">13.378314</span><span class="p">,</span> <span class="mf">52.516639</span><span class="p">]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">aoi</span> <span class="o">=</span> <span class="n">workflow</span><span class="o">.</span><span class="n">read_vector_file</span><span class="p">(</span><span class="s2">"data/aoi_berlin.geojson"</span><span class="p">,</span> <span class="n">as_dataframe</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -492,10 +493,14 @@
 <div class="highlight"><pre><span></span><code><span class="c1">#workflow.draw_aoi()</span>
 </code></pre></div>
 <h2 id="select-the-workflow-parameters">Select the workflow parameters<a class="headerlink" href="#select-the-workflow-parameters" title="Permanent link">¶</a></h2>
-<p>There are also multiple ways to construct the workflow input parameters, you can:
-- Provide the parameters directly in code as a json string.
-- Use .get_parameters_info() to get a an overview of all potential parameters for the selected workflow and information about the parameter defaults and ranges.
-- Use .get_input_parameters(aoi_type="bbox", aoi_geometry=aoi) to construct the parameters with the provided aoi and all default parameters. Selecting the aoi_type is independent from the provided aoi, you can e.g. provide a irregular Polygon and still select aoi_type="bbox", then the bounding box of the polygon will be selected.</p>
+<p>There are also multiple ways to construct the workflow input parameters:<br/>
+- Provide the parameters directly in code as a json string.<br/>
+- Use .get_parameters_info() to get a an overview of all potential parameters for the 
+selected workflow and information about the parameter defaults and ranges. <br/>
+- Use .get_input_parameters(aoi_type="bbox", aoi_geometry=aoi) to construct the parameters 
+with the provided aoi and all default parameters. Selecting the aoi_type is independent 
+from the provided aoi, you can e.g. provide a irregular Polygon and still select aoi_type="bbox", 
+then the bounding box of the polygon will be selected.  </p>
 <div class="highlight"><pre><span></span><code><span class="n">workflow</span><span class="o">.</span><span class="n">get_parameters_info</span><span class="p">()</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">input_parameters</span> <span class="o">=</span> <span class="p">{</span>
